@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Swiper } from 'swiper/react';
 
 export const ProductContainer = styled.div`
   padding: 42px 16px;
@@ -7,14 +8,19 @@ export const ProductContainer = styled.div`
 export const ProductsList = styled.ul`
   display: flex;
   justify-content: center;
-  align-items: center;
   @media screen and (min-width: 360px) {
     flex-direction: column;
   }
   @media screen and (min-width: 768px) {
-    /* flex-direction: row; */
+    flex-direction: row;
+    & li:not(:last-child) {
+      margin-right: 16px;
+    }
   }
   @media screen and (min-width: 1440px) {
+    & li:not(:last-child) {
+      margin-right: 22px;
+    }
   }
 `;
 
@@ -36,14 +42,9 @@ export const ProductText = styled.p`
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 16px;
-  @media screen and (min-width: 360px) {
-    text-align: center;
-    font-size: 24px;
-    line-height: 120%;
-    text-transform: uppercase;
-  }
-  @media screen and (min-width: 768px) {
-  }
+  font-size: 24px;
+  line-height: 120%;
+  text-transform: uppercase;
   @media screen and (min-width: 1440px) {
     margin-bottom: 20px;
   }
@@ -70,7 +71,6 @@ export const ProductButton = styled.button`
     width: 344px;
     height: 60px;
     font-size: 22px;
-    background-color: green;
   }
   @media screen and (min-width: 1440px) {
     width: 520px;
@@ -79,4 +79,35 @@ export const ProductButton = styled.button`
     font-size: 22px;
     line-height: 140%;
   }
+`;
+
+export const CustomSwiper = styled(Swiper)`
+  @media screen and (min-width: 360px) {
+    width: 328px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 344px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 520px;
+  }
+`;
+
+export const ArrowDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`;
+
+export const ArrowLeft = styled.div`
+  position: absolute;
+  left: 0;
+  top: 200px;
+  z-index: 1;
+`;
+export const ArrowRight = styled.div`
+  position: absolute;
+  right: 14px;
+  top: 308px;
+  z-index: 1;
 `;
