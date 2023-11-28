@@ -2,7 +2,15 @@ import styled from '@emotion/styled';
 import { Swiper } from 'swiper/react';
 
 export const ProductContainer = styled.div`
-  padding: 42px 16px;
+  padding-top: 42px;
+  @media screen and (min-width: 768px) {
+    padding-top: 56px;
+    padding-bottom: 35px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding-top: 100px;
+    padding-bottom: 22px;
+  }
 `;
 
 export const ProductsList = styled.ul`
@@ -24,7 +32,15 @@ export const ProductsList = styled.ul`
   }
 `;
 
-export const ProductItem = styled.li``;
+export const ProductItem = styled.li`
+  margin-bottom: 46px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 80px;
+  }
+`;
 
 export const ProductImg = styled.img`
   margin-bottom: 16px;
@@ -66,7 +82,6 @@ export const ProductButton = styled.button`
   width: 328px;
   height: 50px;
   padding: 12px 36px;
-  margin-bottom: 42px;
   @media screen and (min-width: 768px) {
     width: 344px;
     height: 60px;
