@@ -48,6 +48,7 @@ textarea,
 button,
 select {
   font: inherit;
+  border: none;
 }
 
 /* Button Styles */
@@ -65,6 +66,7 @@ ul {
 }
 
 .container {
+  margin: 0 auto;
   @media screen and (min-width: 360px) {
     width: 360px;
   }
@@ -74,4 +76,24 @@ ul {
   @media screen and (min-width: 1440px) {
     width: 1440px;
   }
+}
+
+.swiper-button-next {
+  color: transparent;
+  background-image: url('./icons/arrow-right.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 50px;
+  width: 24px;
+  height: 24px;
+}
+
+.swiper-button-prev {
+  color: transparent;
+  background-image: url('./icons/arrow-left.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 50px;
+  width: 24px;
+  height: 24px;
 }
