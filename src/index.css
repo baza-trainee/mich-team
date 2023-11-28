@@ -65,13 +65,13 @@ ul {
 }
 
 .container {
-  @media screen and (min-width: '360px') {
+  @media screen and (min-width: 360px) {
     width: 360px;
   }
-  @media screen and (min-width: '768px') {
+  @media screen and (min-width: 768px) {
     width: 768px;
   }
-  @media screen and (min-width: '1440px') {
+  @media screen and (min-width: 1440px) {
     width: 1440px;
   }
 }
