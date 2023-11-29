@@ -1,15 +1,19 @@
 import React from 'react';
 import './App.css';
-import MainPage from './pages/MainPage';
+import NavRoutes from './Routes';
 
 function App() {
   return (
     <>
-      <header></header>
+      <header>
+        <h1>Header</h1>
+      </header>
       <main>
-        <MainPage />
+        <NavRoutes />
       </main>
-      <footer></footer>
+      <footer>
+        <h1>Footer</h1>
+      </footer>
     </>
   );
 }
