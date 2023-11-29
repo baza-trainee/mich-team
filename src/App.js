@@ -6,13 +6,34 @@ function App() {
   return (
     <>
       <header>
-        <h1>Header</h1>
+        <h1
+          style={{
+            backgroundColor: '#000',
+            paddingLeft: '200px',
+            color: '#fff',
+            paddingTop: '20px',
+            paddingBottom: '20px',
+          }}
+        >
+          Header
+        </h1>
       </header>
       <main>
         <NavRoutes />
       </main>
       <footer>
-        <h1>Footer</h1>
+        <h1
+          style={{
+            backgroundColor: '#000',
+            paddingLeft: '200px',
+            color: '#fff',
+            alignSelf: 'center',
+            paddingTop: '20px',
+            paddingBottom: '20px',
+          }}
+        >
+          Footer
+        </h1>
       </footer>
     </>
   );
