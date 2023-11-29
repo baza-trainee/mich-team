@@ -16,9 +16,8 @@ export const ProductContainer = styled.div`
 export const ProductsList = styled.ul`
   display: flex;
   justify-content: center;
-  @media screen and (min-width: 360px) {
-    flex-direction: column;
-  }
+  align-items: center;
+  flex-direction: column;
   @media screen and (min-width: 768px) {
     flex-direction: row;
     & li:not(:last-child) {
@@ -34,16 +33,37 @@ export const ProductsList = styled.ul`
 
 export const ProductItem = styled.li`
   margin-bottom: 46px;
+  width: 328px;
   @media screen and (min-width: 768px) {
     margin-bottom: 32px;
+    width: 344px;
   }
   @media screen and (min-width: 1440px) {
     margin-bottom: 80px;
+    width: 520px;
+  }
+`;
+
+export const ProductImageDiv = styled.div`
+  width: 328px;
+  height: 450px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  @media screen and (min-width: 768px) {
+    width: 344px;
+    height: 383px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 520px;
+    height: 640px;
   }
 `;
 
 export const ProductImg = styled.img`
-  margin-bottom: 16px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   @media screen and (min-width: 360px) {
   }
   @media screen and (min-width: 768px) {
