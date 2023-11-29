@@ -51,7 +51,9 @@ const product = data.map(item => (
       </SwiperSlide>
     </CustomSwiper>
     <ProductText>{item.title}</ProductText>
-    <ProductButton type="button">обрати</ProductButton>
+    <ProductButton to="merch" type="button">
+      обрати
+    </ProductButton>
   </ProductItem>
 ));
 
