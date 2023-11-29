@@ -11,6 +11,7 @@ const LoginPage = React.lazy(() => import('./pages/SingUpPage'));
 const ProductCard = React.lazy(
   () => import('./components/ProductCard/ProductCard')
 );
+const Cart = React.lazy(() => import('./pages/CartPage'));
 
 const NavRoutes = () => {
   return (
@@ -20,6 +21,7 @@ const NavRoutes = () => {
         <Route path="/signup" element={<RegisterPage />} />
         <Route path="/signin" element={<LoginPage />} />
         <Route path="/merch" element={<ProductCard />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </Suspense>
   );
