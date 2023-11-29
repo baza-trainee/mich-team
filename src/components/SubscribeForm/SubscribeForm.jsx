@@ -15,7 +15,8 @@ const SubscribeForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <lable htmlFor="email">ПІДПИШИСЬ НА НАШІ ОНОВЛЕННЯ</lable>
+      <p>ПІДПИШИСЬ НА НАШІ ОНОВЛЕННЯ</p>
+      <lable htmlFor="email"></lable>
       <input
         type="email"
         id="email"
