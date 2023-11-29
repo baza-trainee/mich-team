@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Footer from './components/Footer/Footer.jsx';
 import NavRoutes from './Routes';
 
 function App() {
@@ -21,20 +22,7 @@ function App() {
       <main>
         <NavRoutes />
       </main>
-      <footer>
-        <h1
-          style={{
-            backgroundColor: '#000',
-            paddingLeft: '200px',
-            color: '#fff',
-            alignSelf: 'center',
-            paddingTop: '20px',
-            paddingBottom: '20px',
-          }}
-        >
-          Footer
-        </h1>
-      </footer>
+      <Footer />
     </>
   );
 }
