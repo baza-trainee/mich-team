@@ -1,14 +1,26 @@
 import React from 'react';
 import './App.css';
-import MainPage from './pages/MainPage';
 import Footer from './components/Footer/Footer.jsx';
+import NavRoutes from './Routes';
 
 function App() {
   return (
     <>
-      <header></header>
+      <header>
+        <h1
+          style={{
+            backgroundColor: '#000',
+            paddingLeft: '200px',
+            color: '#fff',
+            paddingTop: '20px',
+            paddingBottom: '20px',
+          }}
+        >
+          Header
+        </h1>
+      </header>
       <main>
-        <MainPage />
+        <NavRoutes />
       </main>
       <Footer />
     </>
