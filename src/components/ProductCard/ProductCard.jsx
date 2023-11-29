@@ -5,6 +5,17 @@ import {
   ProductCardDiv,
   ProductNavDiv,
   ProductNavLink,
+  ProductCardTitle,
+  ProductCardName,
+  ProductCardPrice,
+  ProductCardSizeTitle,
+  ProductCardSizeDiv,
+  ProductCardSizeButton,
+  ProductCardCounterDiv,
+  ProductCardCounterButton,
+  ProductCardCartButtonDiv,
+  ProductCardInfoDiv,
+  ProductDiv,
 } from './ProductCard.styled';
 import {
   CustomSwiper,
@@ -12,37 +23,70 @@ import {
   ProductImg,
 } from '../ProductList/ProductList.styled';
 
+import RedButton from '../RedButton/RedButton';
+
 import shirt from '../../images/shirt.jpg';
+import minus from '../../icons/minus.svg';
+import plus from '../../icons/plus.svg';
 
 const ProductCard = () => {
   return (
     <ProductCardDiv className="container">
-      <h1>Product Card</h1>
       <ProductNavDiv>
         <ProductNavLink to="/">Головна /</ProductNavLink>
-        <p style={{ marginLeft: '10px' }}> Футболка Mich team</p>
+        <ProductCardTitle style={{ marginLeft: '10px' }}>
+          Футболка Mich team
+        </ProductCardTitle>
       </ProductNavDiv>
-      <CustomSwiper
-        navigation={true}
-        modules={[Navigation]}
-        className="mySwiper"
-      >
-        <SwiperSlide>
-          <ProductImageDiv>
-            <ProductImg src={shirt} alt="shirt" />
-          </ProductImageDiv>
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductImageDiv>
-            <ProductImg src={shirt} alt="shirt" />
-          </ProductImageDiv>
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductImageDiv>
-            <ProductImg src={shirt} alt="shirt" />
-          </ProductImageDiv>
-        </SwiperSlide>
-      </CustomSwiper>
+      <ProductDiv>
+        <CustomSwiper
+          style={{ marginLeft: '0px', marginRight: '0px' }}
+          navigation={true}
+          modules={[Navigation]}
+          className="mySwiper"
+        >
+          <SwiperSlide>
+            <ProductImageDiv>
+              <ProductImg src={shirt} alt="shirt" />
+            </ProductImageDiv>
+          </SwiperSlide>
+          <SwiperSlide>
+            <ProductImageDiv>
+              <ProductImg src={shirt} alt="shirt" />
+            </ProductImageDiv>
+          </SwiperSlide>
+          <SwiperSlide>
+            <ProductImageDiv>
+              <ProductImg src={shirt} alt="shirt" />
+            </ProductImageDiv>
+          </SwiperSlide>
+        </CustomSwiper>
+        <ProductCardInfoDiv>
+          <ProductCardName>футболка “Mich team”</ProductCardName>
+          <ProductCardPrice>1050 грн</ProductCardPrice>
+          <ProductCardSizeTitle>Оберіть розмір</ProductCardSizeTitle>
+          <ProductCardSizeDiv>
+            <ProductCardSizeButton>XS</ProductCardSizeButton>
+            <ProductCardSizeButton>S</ProductCardSizeButton>
+            <ProductCardSizeButton>M</ProductCardSizeButton>
+            <ProductCardSizeButton>L</ProductCardSizeButton>
+            <ProductCardSizeButton>XL</ProductCardSizeButton>
+          </ProductCardSizeDiv>
+          <ProductCardSizeTitle>Оберіть кількість</ProductCardSizeTitle>
+          <ProductCardCounterDiv>
+            <ProductCardCounterButton>
+              <img src={minus} alt="minus button" />
+            </ProductCardCounterButton>
+            <p>1</p>
+            <ProductCardCounterButton>
+              <img src={plus} alt="plus button" />
+            </ProductCardCounterButton>
+          </ProductCardCounterDiv>
+          <ProductCardCartButtonDiv>
+            <RedButton text={'додати до кошику'} nav={'/cart'} />
+          </ProductCardCartButtonDiv>
+        </ProductCardInfoDiv>
+      </ProductDiv>
     </ProductCardDiv>
   );
 };

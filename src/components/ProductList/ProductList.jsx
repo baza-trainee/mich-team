@@ -10,9 +10,9 @@ import {
   ProductImageDiv,
   ProductImg,
   ProductText,
-  ProductButton,
   CustomSwiper,
 } from './ProductList.styled';
+import RedButton from '../RedButton/RedButton';
 
 const data = [
   {
@@ -51,9 +51,7 @@ const product = data.map(item => (
       </SwiperSlide>
     </CustomSwiper>
     <ProductText>{item.title}</ProductText>
-    <ProductButton to="merch" type="button">
-      обрати
-    </ProductButton>
+    <RedButton text={'обрати'} nav={'merch'} />
   </ProductItem>
 ));
 
