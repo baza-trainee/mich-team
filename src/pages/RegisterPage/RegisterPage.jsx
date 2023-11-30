@@ -11,8 +11,8 @@ const RegisterPage = () => {
   return (
     <RegisterContainer className="container">
       <RegisterNav>
-        <StyledNavLink>Головна /</StyledNavLink>
-        <StyledNavLink>Реєстрація</StyledNavLink>
+        <StyledNavLink to="/">Головна /</StyledNavLink>
+        <StyledNavLink to="/signup">Реєстрація</StyledNavLink>
       </RegisterNav>
 
       <RegisterTitle>РЕЄСТРАЦІЯ</RegisterTitle>

@@ -5,8 +5,8 @@ import { NavLink } from "react-router-dom";
 export const RegisterContainer = styled.div`
   background-color: #FAFAFA;
   min-width: 360px;
-  heigth: 100%;
-
+  width:100%;
+  max-width: 1440px;
   padding: 16px 16px 40px 16px;
   color: #110003;
   font-family: Play;

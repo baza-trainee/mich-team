@@ -2,6 +2,7 @@ import React from 'react';
 import slide1 from '../images/1.png';
 import ProductList from '../components/ProductList/ProductList';
 
+
 const MainPage = () => {
   return (
     <div>
