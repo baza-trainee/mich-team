@@ -7,6 +7,8 @@ import {
   FooterLogo,
   FooterContainer,
   FooterLink,
+  TextWrap,
+  FooterList,
 } from './Footer.styled';
 
 const Footer = () => {
@@ -21,8 +23,8 @@ const Footer = () => {
         />
         <FooterNav>
           <StyledLink to="/merch">МЕРЧ</StyledLink>
-          <StyledLink to="">ДОСТАВКА І ОПЛАТА</StyledLink>
-          <StyledLink to="">ОБМІН І ПОВЕРНЕННЯ</StyledLink>
+          <StyledLink to="/">ДОСТАВКА І ОПЛАТА</StyledLink>
+          <StyledLink to="/">ОБМІН І ПОВЕРНЕННЯ</StyledLink>
           <FooterLink
             href="https://instagram.com/mich_team?igshid=MzMyNGUyNmU2YQ=="
             target="_blank"
@@ -33,9 +35,20 @@ const Footer = () => {
           <FooterLink href="mailto:mich_team@gmail.com">
             mich_team@gmail.com
           </FooterLink>
-          <StyledLink to="">ПАРТНЕРИ</StyledLink>
+          <StyledLink to="/">ПАРТНЕРИ</StyledLink>
         </FooterNav>
         <SubscribeForm />
+        <TextWrap>
+          <p>Розробка Baza Trainee Ukraine 2023 @ Усі права захищені</p>
+          <FooterList>
+            <li>
+              <a href="">Політика конфіденційності</a>
+            </li>
+            <li>
+              <a href="">Правила користування сайтом</a>
+            </li>
+          </FooterList>
+        </TextWrap>
       </FooterContainer>
     </StyledFooter>
   );

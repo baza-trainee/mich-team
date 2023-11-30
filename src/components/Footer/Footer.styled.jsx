@@ -37,3 +37,12 @@ export const FooterLink = styled.a`
   color: #fdfdfd;
   margin-bottom: 20px;
 `;
+export const TextWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+`;
+export const FooterList = styled.ul`
+  display: flex;
+  margin-top: 20px;
+`;
