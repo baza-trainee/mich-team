@@ -6,7 +6,6 @@ export const ProductCardDiv = styled.div`
   padding-inline: 16px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   @media screen and (min-width: 768px) {
     padding-inline: 32px;
     padding-bottom: 144px;
@@ -94,26 +93,35 @@ export const ProductCardSizeButton = styled.button`
   align-items: center;
   border-radius: 4px;
   border: 1px solid var(--Black, #110003);
+  &:hover {
+    background-color: #110003;
+    color: #fff;
+  }
 `;
 
 export const ProductCardCounterDiv = styled.div`
   display: flex;
   flex-direction: row;
   margin-bottom: 24px;
+  & button:not(:last-child) {
+    margin-right: 10px;
+  }
 `;
 
 export const ProductCardCounterButton = styled.button`
   border: none;
   background-color: transparent;
+  padding: 0;
 `;
 
 export const ProductCardCounterText = styled.p`
   font-family: Play;
-  color: #000;
+  color: #110003;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
+  margin-right: 10px;
 `;
 
 export const ProductCardCartButtonDiv = styled.div`
@@ -124,8 +132,8 @@ export const ProductCardInfoDiv = styled.div`
   @media screen and (max-width: 1439px) {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     margin: 0 auto;
+    height: 100%;
   }
   @media screen and (min-width: 1440px) {
     margin-left: 134px;
@@ -140,5 +148,27 @@ export const ProductDiv = styled.div`
   @media screen and (min-width: 1440px) {
     flex-direction: row;
     justify-content: flex-start;
+  }
+`;
+
+export const ProductPlusMinus = styled.button`
+  font-family: Play;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  width: 17px;
+  height: 17px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--gray-04, #878787);
+  &:hover {
+    background-color: #110003;
   }
 `;

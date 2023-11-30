@@ -1,5 +1,5 @@
 import React from 'react';
-import slide1 from '../images/1.png';
+import slide1 from '../images/1.jpg';
 import ProductList from '../components/ProductList/ProductList';
 
 
