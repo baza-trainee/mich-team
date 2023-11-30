@@ -12,10 +12,11 @@ import {
   ProductCardSizeDiv,
   ProductCardSizeButton,
   ProductCardCounterDiv,
-  ProductCardCounterButton,
   ProductCardCartButtonDiv,
   ProductCardInfoDiv,
   ProductDiv,
+  ProductPlusMinus,
+  ProductCardCounterText,
 } from './ProductCard.styled';
 import {
   CustomSwiper,
@@ -26,8 +27,6 @@ import {
 import RedButton from '../RedButton/RedButton';
 
 import shirt from '../../images/shirt.jpg';
-import minus from '../../icons/minus.svg';
-import plus from '../../icons/plus.svg';
 
 const ProductCard = () => {
   return (
@@ -74,13 +73,9 @@ const ProductCard = () => {
           </ProductCardSizeDiv>
           <ProductCardSizeTitle>Оберіть кількість</ProductCardSizeTitle>
           <ProductCardCounterDiv>
-            <ProductCardCounterButton>
-              <img src={minus} alt="minus button" />
-            </ProductCardCounterButton>
-            <p>1</p>
-            <ProductCardCounterButton>
-              <img src={plus} alt="plus button" />
-            </ProductCardCounterButton>
+            <ProductPlusMinus>-</ProductPlusMinus>
+            <ProductCardCounterText>1</ProductCardCounterText>
+            <ProductPlusMinus>+</ProductPlusMinus>
           </ProductCardCounterDiv>
           <ProductCardCartButtonDiv>
             <RedButton text={'додати до кошику'} nav={'/cart'} />
