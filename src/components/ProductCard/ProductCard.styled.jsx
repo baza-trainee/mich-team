@@ -215,6 +215,7 @@ export const ProductInfoDiv = styled.div`
   align-items: center;
   padding-top: 8px;
   padding-bottom: 8px;
+  cursor: pointer;
 `;
 
 export const ProductInfoListTitle = styled.p`
@@ -250,10 +251,12 @@ export const ProductInfoText = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
-  /* margin-bottom: 10px; */
+  margin-bottom: 10px;
 `;
 
 export const CustomSwiper = styled(Swiper)`
+  position: relative;
+  margin-bottom: auto;
   @media screen and (min-width: 360px) {
     width: 328px;
   }
