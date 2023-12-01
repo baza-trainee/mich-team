@@ -119,7 +119,7 @@ export const BtnSignIn = styled.button`
     
 `
 
-export const BtnNetwork = styled.button`
+export const BtnNetwork = styled(NavLink)`
     display:flex;
     width:100%;
     padding: 12px 36px;
@@ -144,4 +144,13 @@ export const BtnNetwork = styled.button`
     font-size: 22px;
     line-height: 1.4;
     }
+`
+
+export const DivSignIn = styled.div`
+`
+
+export const RegistQuestion = styled.p`
+`
+
+export const LinkSignIn = styled(NavLink)`
 `

@@ -1,5 +1,5 @@
 import React from "react"
-import { BtnNetwork, BtnSignIn, CheckbBoxDiv, LabelInput, LinkDocument, RegistForm, RegistInput, RegistInputCheck, RegisterDivInput, SpanElem } from "./RegisterForm.styled";
+import { BtnNetwork, BtnSignIn, CheckbBoxDiv, DivSignIn, LabelInput, LinkDocument, LinkSignIn, RegistForm, RegistInput, RegistInputCheck, RegistQuestion, RegisterDivInput, SpanElem } from "./RegisterForm.styled";
 import { useEffect } from "react";
 import { useState } from "react";
 
@@ -29,15 +29,15 @@ export const RegisterForm = () => {
             <CheckbBoxDiv>
                 <RegisterDivInput>
                     <RegistInputCheck type="checkbox" id="rememb" /> 
-                    <LabelInput for="rememb">Запам&rsquo;ятати мене </LabelInput>
+                    <LabelInput htmlFor="rememb">Запам&rsquo;ятати мене </LabelInput>
                 </RegisterDivInput>
                 <RegisterDivInput>
                     <RegistInputCheck type="checkbox" id="subckribe"/> 
-                    <LabelInput for="subckribe">Так, я хочу підписатися на розсилку та отримувати інформацію про оновлення </LabelInput>
+                    <LabelInput htmlFor="subckribe">Так, я хочу підписатися на розсилку та отримувати інформацію про оновлення </LabelInput>
                 </RegisterDivInput>
                 <RegisterDivInput>
                     <RegistInputCheck type="checkbox" id="agrre"/> 
-                    <LabelInput for="agrre">Я згоден з <LinkDocument>Правилами користування сайтом</LinkDocument><SpanElem>*</SpanElem></LabelInput>
+                    <LabelInput htmlFor="agrre">Я згоден з <LinkDocument>Правилами користування сайтом</LinkDocument><SpanElem>*</SpanElem></LabelInput>
                 </RegisterDivInput>
             </CheckbBoxDiv>
 
@@ -45,6 +45,11 @@ export const RegisterForm = () => {
             {(screenWidth<768)?<BtnNetwork>УВІЙТИ З GOOGLE</BtnNetwork>:<BtnNetwork>УВІЙТИ ЗА ДОПОМОГОЮ GOOGLE</BtnNetwork>}
             {(screenWidth < 768) ? <BtnNetwork>УВІЙТИ З FACEBBOK</BtnNetwork> : <BtnNetwork>УВІЙТИ ЗА ДОПОМОГОЮ FACEBBOK</BtnNetwork>}
             
+            <DivSignIn>
+                <RegistQuestion></RegistQuestion>
+                <LinkSignIn></LinkSignIn>
+            </DivSignIn>
+        
         </RegistForm>
         
     )
