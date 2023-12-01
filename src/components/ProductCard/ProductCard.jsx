@@ -25,6 +25,9 @@ import {
   ProductInfoText,
   CustomSwiper,
   ProductImageDiv,
+  ProductInfoImg,
+  ProductWalletItem,
+  ProductWalletList,
 } from './ProductCard.styled';
 import { ProductImg } from '../ProductList/ProductList.styled';
 
@@ -137,7 +140,7 @@ const ProductCard = () => {
             </ProductInfoItem>
             <ProductInfoItem>
               <ProductInfoDiv>
-                <img src={delivery} alt="delivery" />
+                <ProductInfoImg src={delivery} alt="delivery" />
                 <ProductInfoListTitle>Доставка</ProductInfoListTitle>
                 <ProductInfoArrow onClick={() => toggleDetails('item3')}>
                   <img
@@ -159,7 +162,7 @@ const ProductCard = () => {
             </ProductInfoItem>
             <ProductInfoItem>
               <ProductInfoDiv>
-                <img src={wallet} alt="wallet" />
+                <ProductInfoImg src={wallet} alt="wallet" />
                 <ProductInfoListTitle>ОПЛАТА</ProductInfoListTitle>
                 <ProductInfoArrow onClick={() => toggleDetails('item4')}>
                   <img
@@ -174,15 +177,14 @@ const ProductCard = () => {
                     На нашому сайті ви можете здійснити оплату наступними
                     способами:
                   </ProductInfoText>
-                  <div>
-                    <p>карткою Visa і MasterCard;</p>
-                    <p>LiqPay;</p>
-                    <p>Fondy.</p>
-                  </div>
-                  <p>
-                    Зверніть увагу! Доставка товару можлива лише після
-                    підтвердження оплати.
-                  </p>
+                  <ProductWalletList>
+                    <ProductWalletItem>
+                      карткою Visa і MasterCard;
+                    </ProductWalletItem>
+                    <ProductWalletItem>GooglePay;</ProductWalletItem>
+                    <ProductWalletItem>Monobank;</ProductWalletItem>
+                    <ProductWalletItem>WayforPay.</ProductWalletItem>
+                  </ProductWalletList>
                 </ProductInfoTextDiv>
               )}
             </ProductInfoItem>

@@ -229,6 +229,7 @@ export const ProductInfoListTitle = styled.p`
 
 export const ProductInfoItem = styled.li`
   border-bottom: 1px solid var(--gray-06, #6f6f6f);
+  margin-bottom: 8px;
 `;
 
 export const ProductInfoArrow = styled.button`
@@ -249,6 +250,7 @@ export const ProductInfoText = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
+  /* margin-bottom: 10px; */
 `;
 
 export const CustomSwiper = styled(Swiper)`
@@ -268,5 +270,42 @@ export const ProductImageDiv = styled.div`
   @media screen and (min-width: 768px) {
     width: 520px;
     height: 682px;
+  }
+`;
+
+export const ProductInfoImg = styled.img`
+  margin-right: 8px;
+`;
+
+export const ProductWalletList = styled.ul`
+  & li {
+    padding-left: 10px;
+  }
+
+  & li:not(:last-child) {
+    margin-bottom: 8px;
+  }
+`;
+
+export const ProductWalletItem = styled.li`
+  position: relative;
+  color: var(--Black, #110003);
+  font-family: Play;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    background-color: #110003;
+    border-radius: 50%;
+    margin-right: 10px;
   }
 `;
