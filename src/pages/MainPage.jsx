@@ -1,12 +1,11 @@
 import React from 'react';
-import slide1 from '../images/1.jpg';
 import ProductList from '../components/ProductList/ProductList';
-
+import Hero from '../components/Hero/Hero';
 
 const MainPage = () => {
   return (
     <div>
-      <img width="100%" src={slide1} alt="slide1" />
+      <Hero />
       <ProductList />
     </div>
   );
