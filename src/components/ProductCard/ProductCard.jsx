@@ -102,9 +102,9 @@ const ProductCard = () => {
           </ProductCardCartButtonDiv>
           <ul>
             <ProductInfoItem>
-              <ProductInfoDiv>
+              <ProductInfoDiv onClick={() => toggleDetails('item1')}>
                 <ProductInfoListTitle>опис</ProductInfoListTitle>
-                <ProductInfoArrow onClick={() => toggleDetails('item1')}>
+                <ProductInfoArrow>
                   <img
                     src={detailsVisible['item1'] ? arrowUp : arrow}
                     alt="arrow"
@@ -123,9 +123,9 @@ const ProductCard = () => {
               )}
             </ProductInfoItem>
             <ProductInfoItem>
-              <ProductInfoDiv>
+              <ProductInfoDiv onClick={() => toggleDetails('item2')}>
                 <ProductInfoListTitle>Склад тканини</ProductInfoListTitle>
-                <ProductInfoArrow onClick={() => toggleDetails('item2')}>
+                <ProductInfoArrow>
                   <img
                     src={detailsVisible['item2'] ? arrowUp : arrow}
                     alt="arrow"
@@ -139,10 +139,10 @@ const ProductCard = () => {
               )}
             </ProductInfoItem>
             <ProductInfoItem>
-              <ProductInfoDiv>
+              <ProductInfoDiv onClick={() => toggleDetails('item3')}>
                 <ProductInfoImg src={delivery} alt="delivery" />
                 <ProductInfoListTitle>Доставка</ProductInfoListTitle>
-                <ProductInfoArrow onClick={() => toggleDetails('item3')}>
+                <ProductInfoArrow>
                   <img
                     src={detailsVisible['item3'] ? arrowUp : arrow}
                     alt="arrow"
@@ -161,10 +161,10 @@ const ProductCard = () => {
               )}
             </ProductInfoItem>
             <ProductInfoItem>
-              <ProductInfoDiv>
+              <ProductInfoDiv onClick={() => toggleDetails('item4')}>
                 <ProductInfoImg src={wallet} alt="wallet" />
                 <ProductInfoListTitle>ОПЛАТА</ProductInfoListTitle>
-                <ProductInfoArrow onClick={() => toggleDetails('item4')}>
+                <ProductInfoArrow>
                   <img
                     src={detailsVisible['item4'] ? arrowUp : arrow}
                     alt="arrow"
