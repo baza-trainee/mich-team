@@ -7,7 +7,7 @@ const MainPage = React.lazy(() => import('./pages/MainPage'));
 const RegisterPage = React.lazy(
   () => import('./pages/RegisterPage/RegisterPage')
 );
-const LoginPage = React.lazy(() => import('./pages/SingUpPage'));
+const LoginPage = React.lazy(() => import('./pages/LoginPage/LoginPage'));
 const ProductCard = React.lazy(() => import('./pages/ProductPage'));
 const Cart = React.lazy(() => import('./pages/CartPage'));
 
