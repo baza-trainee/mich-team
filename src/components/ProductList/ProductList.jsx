@@ -57,9 +57,11 @@ const product = data.map(item => (
 
 const ProductList = () => {
   return (
-    <ProductContainer className="container">
-      <ProductsList>{product}</ProductsList>
-    </ProductContainer>
+    <div style={{ backgroundColor: '#FAFAFA' }}>
+      <ProductContainer className="container">
+        <ProductsList>{product}</ProductsList>
+      </ProductContainer>
+    </div>
   );
 };
 
