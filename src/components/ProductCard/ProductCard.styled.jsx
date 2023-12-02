@@ -108,6 +108,8 @@ export const ProductCardSizeButton = styled.button`
   padding: 8px;
   justify-content: center;
   align-items: center;
+  color: #110003;
+  background-color: transparent;
   border-radius: 4px;
   border: 1px solid var(--Black, #110003);
   &:hover {
