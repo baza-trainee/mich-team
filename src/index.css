@@ -78,12 +78,103 @@ ul {
   }
 }
 
+.heroSwiper .swiper-button-next {
+  color: transparent;
+  background-image: url('./icons/arrow-right-hero.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: auto;
+  border-radius: 50px;
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  @media screen and (min-width: 1440px) {
+    margin-right: 20px;
+  }
+}
+
+.heroSwiper .swiper-button-prev {
+  color: transparent;
+  background-image: url('./icons/arrow-left-hero.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: auto;
+  width: 24px;
+  height: 24px;
+  margin-left: 12px;
+  @media screen and (min-width: 1440px) {
+    margin-left: 20px;
+  }
+}
+
+.heroSwiper .swiper-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  height: 20px;
+  width: 100px;
+  border-radius: 20px;
+  margin: 0 auto;
+  background-color: var(--bkack-opacity-60, rgba(0, 0, 0, 0.6));
+  color: var(--Wtite, #fdfdfd);
+}
+
+.heroSwiper .swiper-pagination-bullet {
+  border: 1px solid #fdfdfd;
+  width: 8px;
+  height: 8px;
+}
+
+.heroSwiper .swiper-pagination-bullet-active {
+  background-color: var(--Wtite, #fdfdfd);
+  width: 12px;
+  height: 12px;
+}
+
+.heroSwiper {
+  position: relative;
+}
+
+.heroSwiper .swiper-pagination,
+.heroSwiper .swiper-button-prev,
+.heroSwiper .swiper-button-next {
+  position: absolute;
+  bottom: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.heroSwiper .swiper-pagination {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.heroSwiper .swiper-button-prev {
+  left: 16px;
+  @media screen and (width: 768px) {
+    left: 32px;
+  }
+  @media screen and (width: 1440px) {
+    left: 80px;
+  }
+}
+
+.heroSwiper .swiper-button-next {
+  right: 16px;
+  @media screen and (width: 768px) {
+    right: 32px;
+  }
+  @media screen and (width: 1440px) {
+    right: 80px;
+  }
+}
+
 .swiper-button-next {
   color: transparent;
   background-image: url('./icons/arrow-right.png');
   background-size: contain;
   background-repeat: no-repeat;
-  border-radius: 50px;
   width: 24px;
   height: 24px;
   margin-right: 12px;
@@ -97,13 +188,10 @@ ul {
   background-image: url('./icons/arrow-left.png');
   background-size: contain;
   background-repeat: no-repeat;
-  border-radius: 50px;
   width: 24px;
   height: 24px;
   margin-left: 12px;
   @media screen and (min-width: 1440px) {
     margin-left: 20px;
-    
   }
-  
 }
