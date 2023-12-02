@@ -1,10 +1,13 @@
 import React from 'react';
+import closeIcon from '../../icons/close.svg'
+import { CartContainer, Title, IconClose } from './Cart.styled';
 
 const Cart = () => {
   return (
-    <div style={{ padding: '200px' }}>
-      <h1>Cart</h1>
-    </div>
+    <CartContainer>
+      <IconClose src={closeIcon} alt='close'></IconClose>
+      <Title>Кошик</Title>
+    </CartContainer>
   );
 };
 

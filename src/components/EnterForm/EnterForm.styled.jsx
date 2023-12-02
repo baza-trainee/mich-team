@@ -11,7 +11,6 @@ export const FormContainer = styled.form`
   button {
     height: 3.5rem;
     width: 100%;
-    padding: 1rem 2.25rem;
     border-radius: 0.25rem;
     font-family: Play;
     font-size: 1.375rem;
@@ -55,22 +54,14 @@ export const ButtonEnter = styled.button`
   color: #fdfdfd;
   text-align: center;
   margin: 1.5rem 0;
-`;
-export const BtnWithGoogle = styled.button`
-  background-color: #fff;
-  border: 1px solid #b3b3b3;
-  color: #110003;
-  margin: 1.5rem 0;
-`;
-export const BtnWithFacebook = styled.button`
-  background-color: #fff;
-  border: 1px solid #1877f2;
-  color: #1877F2;
+  padding: 1rem 2.25rem;
+
 `;
 export const RegisterDiv = styled.div`
     display: flex;
     justify-content: center;
     margin: 1.5rem 0;
+    font-family: Play;
 `
 export const RegisterLink = styled(NavLink)`
     font-weight:700;

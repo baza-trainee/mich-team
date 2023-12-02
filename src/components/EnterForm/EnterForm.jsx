@@ -1,11 +1,11 @@
 import React from 'react';
+import BtnSingInGoogle from '../ButtonsSingIn/BtnSingInGoogle';
+import BtnSingInFacebook from '../ButtonsSingIn/BtnSingInFacebook';
 import {
   FormContainer,
   EnterInput,
   ButtonEnter,
   CheckBoxDiv,
-  BtnWithGoogle,
-  BtnWithFacebook,
   RegisterDiv,
   RegisterLink,
 } from './EnterForm.styled';
@@ -23,8 +23,8 @@ const EnterForm = () => {
         <p>Забули пароль?</p>
       </CheckBoxDiv>
       <ButtonEnter>Увійти</ButtonEnter>
-      <BtnWithGoogle>Увійти за допомогою Google</BtnWithGoogle>
-      <BtnWithFacebook>Увійти за допомогою facebook</BtnWithFacebook>
+      <BtnSingInGoogle/>
+      <BtnSingInFacebook/>
       <RegisterDiv>
         <p>Ще не маєте облікового запису? </p>
         <RegisterLink to='/signup'>Зареєструйтеся!</RegisterLink>
