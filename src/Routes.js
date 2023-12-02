@@ -9,7 +9,7 @@ const RegisterPage = React.lazy(
 );
 const LoginPage = React.lazy(() => import('./pages/LoginPage/LoginPage'));
 const ProductCard = React.lazy(() => import('./pages/ProductPage'));
-const Cart = React.lazy(() => import('./pages/CartPage'));
+const Cart = React.lazy(() => import('./pages/CartPage/CartPage'));
 
 const NavRoutes = () => {
   return (
