@@ -14,8 +14,7 @@ const Hero = () => {
   return (
     <section>
       <HeroSwiper
-        style={{ width: '100%' }}
-        spaceBetween={30}
+        spaceBetween={20}
         centeredSlides={true}
         autoplay={{
           delay: 3000,
@@ -26,7 +25,7 @@ const Hero = () => {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
+        className="mySwiper heroSwiper"
       >
         <SwiperSlide>
           <HeroImg src={slide1} alt="image" />
