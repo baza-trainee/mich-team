@@ -22,9 +22,14 @@ export const EnterInput = styled.input`
   background-color: #fafafa;
   border-bottom: 1px solid #000;
 
-  :focus {
+   :focus{
     outline: none;
   }
+  :hover::placeholder{
+    font-size: 0.7rem;
+    color: #000;
+  }
+
 
   @media screen and (max-width: 768px) {
     min-width: 20.44rem;
@@ -37,6 +42,9 @@ export const EyeIcon = styled.img`
   left: 30rem;
   width: 1.4rem;
   opacity: 0.7;
+  @media screen and (max-width: 768px) {
+    left: 18.5rem;
+  }
 `
 
 export const CheckBoxDiv = styled.div`
