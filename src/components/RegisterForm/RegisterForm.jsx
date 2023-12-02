@@ -1,27 +1,14 @@
 import React from "react"
-import { BtnNetwork, BtnSignIn, CheckbBoxDiv, DivSignIn, LabelInput, LinkDocument, LinkSignIn, RegistForm, RegistInput, RegistInputCheck, RegistQuestion, RegisterDivInput, SpanElem } from "./RegisterForm.styled";
-import { useEffect } from "react";
-import { useState } from "react";
+import { BtnSignIn, CheckbBoxDiv, LabelInput, LinkDocument,RegistForm, RegistInput, RegistInputCheck,RegisterDivInput, RegisterTitle, SpanElem } from "./RegisterForm.styled";
 
-export const RegisterForm = () => {
-    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenWidth(window.innerWidth);
-    };
-
-    // Add a listener to update screenWidth on resize
-    window.addEventListener('resize', handleResize);
-
-    // Remove the listener when the component is unmounted
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+const RegisterForm = () => {
+    
 
     return (
-        <RegistForm action="">
+      <RegistForm action="">
+            <RegisterTitle>РЕЄСТРАЦІЯ</RegisterTitle>
+
             <RegistInput type="email" placeholder="E-mail"/>
             <RegistInput type="password" placeholder="Пароль"/>
             <RegistInput type="password" placeholder="Повторіть пароль" />
@@ -42,15 +29,11 @@ export const RegisterForm = () => {
             </CheckbBoxDiv>
 
             <BtnSignIn>ЗАРЕЄСТРУВАТИСЯ</BtnSignIn>
-            {(screenWidth<768)?<BtnNetwork>УВІЙТИ З GOOGLE</BtnNetwork>:<BtnNetwork>УВІЙТИ ЗА ДОПОМОГОЮ GOOGLE</BtnNetwork>}
-            {(screenWidth < 768) ? <BtnNetwork>УВІЙТИ З FACEBBOK</BtnNetwork> : <BtnNetwork>УВІЙТИ ЗА ДОПОМОГОЮ FACEBBOK</BtnNetwork>}
             
-            <DivSignIn>
-                <RegistQuestion></RegistQuestion>
-                <LinkSignIn></LinkSignIn>
-            </DivSignIn>
         
         </RegistForm>
         
     )
 };
+
+export default RegisterForm

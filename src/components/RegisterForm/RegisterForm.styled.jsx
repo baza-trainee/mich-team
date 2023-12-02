@@ -14,6 +14,20 @@ export const RegistForm = styled.form`
     
 `
 
+export const RegisterTitle = styled.h1`
+text-align: center;
+font-size: 28px;
+margin-bottom: 24px;
+font-weight: 700;
+line-height: 1.2;
+
+@media screen and (min-width: 768px) {
+   font-size: 32px; 
+        
+    }
+
+`;
+
 export const RegistInput = styled.input`
     background-color: #FAFAFA;
     min-width: 327px;
@@ -119,38 +133,3 @@ export const BtnSignIn = styled.button`
     
 `
 
-export const BtnNetwork = styled(NavLink)`
-    display:flex;
-    width:100%;
-    padding: 12px 36px;
-    margin-bottom:24px;
-    justify-content: center;
-    align-items: center;
-    background:  #FFF;
-    color:  #110003;
-    
-    
-    font-size: 18px;
-    
-    font-weight: 700;
-    line-height: 1.2;
-    border-radius: 4px;
-
-    border:  1px solid #B3B3B3;
-
-    @media screen and (min-width: 768px) {
-        
-    padding: 16px 36px;
-    font-size: 22px;
-    line-height: 1.4;
-    }
-`
-
-export const DivSignIn = styled.div`
-`
-
-export const RegistQuestion = styled.p`
-`
-
-export const LinkSignIn = styled(NavLink)`
-`

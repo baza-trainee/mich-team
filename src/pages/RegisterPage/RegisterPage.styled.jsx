@@ -3,11 +3,12 @@ import { NavLink } from "react-router-dom";
 
 
 export const RegisterContainer = styled.div`
+
   background-color: #FAFAFA;
   min-width: 360px;
   width:100%;
   max-width: 1440px;
-  padding: 16px 16px 40px 16px;
+  padding: 16px 16px 60px 16px;
   color: #110003;
   font-family: Play;
   
@@ -52,16 +53,97 @@ color: #110003;
 }
 `;
 
-export const RegisterTitle = styled.h1`
-text-align: center;
-font-size: 28px;
-margin-bottom: 24px;
-font-weight: 700;
-line-height: 1.2;
+export const OrElem = styled.p`
+  color: #B3B3B3;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 auto;
+  margin-bottom: 24px;
 
-@media screen and (min-width: 768px) {
-   font-size: 32px; 
-        
+  text-align: center;
+   &:before,
+   &:after {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    width: 156px;
+    height: 1px;
+    background: #B3B3B3;
+    border: solid #FAFAFA;
+    border-width: 0 6px;
+    
+  }
+  &:before{
+    margin-left: -100%;
+  }
+  &:after{
+    margin-right: -100%;
+  }
+
+  @media screen and (min-width: 768px) {
+        &:before,
+        &:after{
+            width: 251px;
+        }
+
+`
+
+export const BtnNetwork = styled(NavLink)`
+    display:flex;
+    margin:0 auto;
+    width:100%;
+    max-width:328px;
+    padding: 12px 36px;
+    margin-bottom:24px;
+    justify-content: center;
+    align-items: center;
+    background:  #FFF;
+    color:  #110003;
+    
+    
+    font-size: 18px;
+    
+    font-weight: 700;
+    line-height: 1.2;
+    border-radius: 4px;
+
+    border:  1px solid #B3B3B3;
+
+    @media screen and (min-width: 768px) {
+    max-width:523px;
+    padding: 16px 36px;
+    font-size: 22px;
+    line-height: 1.4;
     }
+`
 
-`;
+export const DivSignIn = styled.div`
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 18px;
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+    }
+`
+
+export const RegistQuestion = styled.h2`
+  
+  font-size: 16px;
+
+  font-weight: 400;
+  line-height: 1.2;
+`
+
+export const LinkSignIn = styled(NavLink)`
+  
+    font-size: 16px;
+    color: #110003;
+  
+    font-weight: 700;
+    line-height: 1.2%;
+    text-decoration-line: underline;
+`
