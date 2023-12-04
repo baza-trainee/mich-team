@@ -11,7 +11,7 @@ export const ProductButton = styled(NavLink)`
   background-color: var(--Main-red, #d91f2d);
   color: var(--Wtite, #fdfdfd);
   text-align: center;
-  font-size: 22px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
@@ -50,7 +50,6 @@ export const ProductButton = styled(NavLink)`
   @media screen and (min-width: 768px) {
     width: 344px;
     height: 60px;
-    font-size: 22px;
   }
   @media screen and (min-width: 1440px) {
     width: 520px;

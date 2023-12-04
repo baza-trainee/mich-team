@@ -1,22 +1,50 @@
-import { RegisterForm } from '../../components/RegisterForm/RegisterForm';
+import RegisterForm from '../../components/RegisterForm/RegisterForm';
 import {
+  BtnNetwork,
+  DivSignIn,
+  LinkSignIn,
+  OrElem,
+  RegistQuestion,
   RegisterContainer,
   RegisterNav,
-  RegisterTitle,
   StyledNavLink,
 } from './RegisterPage.styled';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const RegisterPage = () => {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <RegisterContainer className="container">
       <RegisterNav>
-        <StyledNavLink>Головна /</StyledNavLink>
-        <StyledNavLink>Реєстрація</StyledNavLink>
+        <StyledNavLink to="/">Головна /</StyledNavLink>
+        <StyledNavLink to="/signup">Реєстрація</StyledNavLink>
       </RegisterNav>
 
-      <RegisterTitle>РЕЄСТРАЦІЯ</RegisterTitle>
+      
       <RegisterForm />
+
+      <OrElem>або</OrElem>
+
+      {(screenWidth<768)?<BtnNetwork>УВІЙТИ З GOOGLE</BtnNetwork>:<BtnNetwork>УВІЙТИ ЗА ДОПОМОГОЮ GOOGLE</BtnNetwork>}
+      {(screenWidth < 768) ? <BtnNetwork>УВІЙТИ З FACEBBOK</BtnNetwork> : <BtnNetwork>УВІЙТИ ЗА ДОПОМОГОЮ FACEBBOK</BtnNetwork>}
+            
+      <DivSignIn>
+        <RegistQuestion>Вже маєте аккаунт?</RegistQuestion>
+        <LinkSignIn to="/signin">Увійти!</LinkSignIn>
+       </DivSignIn>
     </RegisterContainer>
   );
 };
