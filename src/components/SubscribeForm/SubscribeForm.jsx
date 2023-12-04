@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ReactComponent as MySVG } from '../../icons/arrow-right-footer.svg';
 import {
   SubForm,
   FormWrap,
@@ -34,7 +35,9 @@ const SubscribeForm = () => {
           placeholder="E-mail"
           required
         />
-        <FormButton type="submit">---</FormButton>
+        <FormButton type="submit">
+          <MySVG />
+        </FormButton>
       </SubForm>
     </FormWrap>
   );
