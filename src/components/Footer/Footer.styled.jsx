@@ -6,19 +6,53 @@ export const StyledFooter = styled.footer`
   background-color: var(--Black, #110003);
   color: #fdfdfd;
   padding: 20px;
+  @media screen and (min-width: 768px) {
+    padding: 40px 32px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding: 40px 80px;
+  }
 `;
 
 export const FooterContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
+
 `;
+
+export const FooterCover = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    flex-direction: row;
+  }
+`;
+
 export const FooterNav = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 25px;
   margin-bottom: 8px;
+  @media screen and (min-width: 768px) {
+    margin: 0 24px;
+    display: flex;
+    align-items: flex-start;
+  }
+  @media screen and (min-width: 1440px) {
+    margin: 0;
+  }
 `;
 
 export const StyledLink = styled(NavLink)`
@@ -28,6 +62,16 @@ export const StyledLink = styled(NavLink)`
   line-height: 110%; /* 17.6px */
   text-transform: uppercase;
   margin-bottom: 16px;
+`;
+
+export const LinkWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: flex-start;
+  }
 `;
 export const FooterLink = styled.a`
   color: var(--Wtite, #fdfdfd);
@@ -40,10 +84,25 @@ export const FooterLink = styled.a`
 export const TextWrap = styled.div`
   display: flex;
   flex-direction: column;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+  }
 `;
 export const FooterList = styled.ul`
   display: flex;
   justify-content: space-between;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+  }
+`;
+
+export const FooterItem = styled.li`
+  @media screen and (min-width: 768px) {
+    margin-right: 30px;
+  }
 `;
 export const TextConfid = styled.p`
   color: var(--White, #fafafa);
