@@ -6,6 +6,12 @@ export const FormWrap = styled.div`
   align-items: center;
   margin-top: 3px;
   margin-bottom: 24px;
+  @media screen and (min-width: 768px) {
+    margin-top: 24px;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 44px;
+  }
 `;
 
 export const FormText = styled.p`
@@ -33,9 +39,10 @@ export const FormInput = styled.input`
   font-weight: 400;
   line-height: 24px; /* 150% */
   outline: none;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid var(--Wtite, #fdfdfd);
   padding: 4px 8px;
-  width: 330px;
+  width: 328px;
+  box-sizing: border-box;
   &::placeholder {
     color: var(--Wtite, #fdfdfd);
     font-family: Play;
@@ -43,6 +50,12 @@ export const FormInput = styled.input`
     font-style: normal;
     font-weight: 400;
     line-height: 24px; /* 150% */
+  }
+  @media screen and (min-width: 768px) {
+    width: 704px;
+  }
+  @media screen and (min-width: 1440px){
+    width:300px;
   }
 `;
 
