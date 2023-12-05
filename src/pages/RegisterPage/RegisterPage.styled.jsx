@@ -94,7 +94,7 @@ export const BtnNetwork = styled(NavLink)`
     display:flex;
     margin:0 auto;
     width:100%;
-    max-width:328px;
+    
     padding: 12px 36px;
     margin-bottom:24px;
     justify-content: center;

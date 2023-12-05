@@ -6,10 +6,11 @@ export const SingInGoogle = styled.button`
 
   height: 3.5rem;
   width: 100%;
+  max-width:328px;
   border-radius: 0.25rem;
   font-family: Play;
-  margin: 1.5rem 0;
-  font-size: 1.375rem;
+  margin: 1.5rem auto;
+  font-size: 18px;
   font-weight: 700;
   background-color: #fff;
   cursor: pointer;
@@ -17,6 +18,8 @@ export const SingInGoogle = styled.button`
   padding: 1rem;
   display: grid;
   text-align: center;
+  align-content: center;
+  align-items: center;
   grid-template-columns: 0.1fr 1fr;
 
   :hover {
@@ -26,7 +29,11 @@ export const SingInGoogle = styled.button`
     transform: translateY(2px);
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 768px) {
+    max-width:523px;
+    padding: 16px 36px;
+    font-size: 22px;
+    line-height: 1.4;
   }
 `;
 
@@ -36,16 +43,21 @@ export const SingInFacebook = styled.button`
 
   height: 3.5rem;
   width: 100%;
+  max-width:328px;
   border-radius: 0.25rem;
   font-family: Play;
-  font-size: 1.375rem;
+  font-size: 18px;
+  
   font-weight: 700;
   background-color: #fff;
   cursor: pointer;
+  margin: 1.5rem auto;
   text-transform: uppercase;
   padding: 1rem;
   display: grid;
   text-align: center;
+  align-content: center;
+  align-items: center;
   grid-template-columns: 0.1fr 1fr;
 
   :hover {
@@ -55,6 +67,10 @@ export const SingInFacebook = styled.button`
     transform: translateY(2px);
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 768px) {
+    max-width:523px;
+    padding: 16px 36px;
+    font-size: 22px;
+    line-height: 1.4;
   }
 `;

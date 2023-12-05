@@ -28,7 +28,12 @@ line-height: 1.2;
 
 `;
 
+export const DivPasword = styled.div`
+    position: relative;
+`
+
 export const RegistInput = styled.input`
+    
     background-color: #FAFAFA;
     min-width: 327px;
     width:100%;
@@ -39,6 +44,7 @@ export const RegistInput = styled.input`
     line-height: 24px;
     color: #878787;
     border-block-end: 1px solid #565656; 
+    outline:none;
 
     @media screen and (min-width: 768px) {
         
@@ -46,8 +52,39 @@ export const RegistInput = styled.input`
        
     }
 
+    &:hover,
+    &:focus,
+    &:active{
+        position:relative;
+        ::placeholder{
+            position: absolute;
+            top:0;
+            visible: true;
+            color: #0B0000;
+            font-size: 12px;
+            font-weight: 400;
+        
+            
+            letter-spacing: 0.5px;
+        }
+        border-block-end: 1px solid #0B0000; 
+        color: #0B0000;
+
+    }
+
     
 
+`
+
+export const ShowIcon = styled.img`
+  position: absolute;
+  top: 16px;
+  right: 8px;
+  width: 1.4rem;
+  opacity: 0.7;
+  @media screen and (max-width: 768px) {
+    left: 18.5rem;
+  }
 `
 
 export const CheckbBoxDiv = styled.div`
@@ -130,6 +167,10 @@ export const BtnSignIn = styled.button`
     font-size: 22px;
     line-height: 1.4;
     }
+    &:hover {
+    background-color: #fdfdfd;
+    color: #110003;
+  }
     
 `
 
