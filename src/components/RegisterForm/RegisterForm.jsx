@@ -1,24 +1,48 @@
 import React, { useState } from "react";
 import openEye from '../../icons/open-eye.svg';
 import closeEye from '../../icons/close-eye.svg';
-import { BtnSignIn, CheckbBoxDiv, DivPasword, LabelInput, LinkDocument,RegistForm, RegistInput, RegistInputCheck,RegisterDivInput, RegisterTitle, ShowIcon, SpanElem } from "./RegisterForm.styled";
+import { BtnSignIn, CheckbBoxDiv, DivPasword, LabelCheck, LabelInput, LinkDocument,RegistForm, RegistInput, RegistInputCheck,RegisterDivInput, RegisterTitle, ShowIcon, SpanElem } from "./RegisterForm.styled";
 
 
 const RegisterForm = () => {
     const [password, setPassword] = useState(true);
+    const [passwordValue, setPassvordValue] = useState('');
+    const [passwordValueCheck, setPassvordValueCheck] = useState('');
+
+    const handleOnClick = (e) => {
+        e.preventDefault();
+        e.target.classList.add('active')
+    }
+
+    const handleOnChange = (value) => {
+        setPassvordValue(value);
+    }
+
+    const handleOnChangeCheck = (value) => {
+        setPassvordValueCheck(value);
+    }
 
     return (
       <RegistForm action="">
             <RegisterTitle>РЕЄСТРАЦІЯ</RegisterTitle>
 
-            <RegistInput type="email" placeholder="E-mail" />
+            
             <DivPasword>
-                <RegistInput type={password ? 'password' : 'text'} placeholder="Пароль"></RegistInput>
-                <ShowIcon src={password ? openEye : closeEye} alt="eye" onClick={() => setPassword(!password)}/>
+                <RegistInput type="email" placeholder="" />
+                <LabelInput>E-mail</LabelInput>
+            </DivPasword>
+            
+            <DivPasword>
+                <RegistInput type={password ? 'password' : 'text'} placeholder="" onChange={(e)=>handleOnChange(e.target.value)} value={passwordValue}></RegistInput>
+                <LabelInput>Пароль</LabelInput>
+                <ShowIcon src={password ? openEye : closeEye} alt="eye" onClick={() => setPassword(!password)} />
+                
             </DivPasword>
             <DivPasword>
-                <RegistInput type={password ? 'password' : 'text'}  placeholder="Повторіть пароль" />
+                <RegistInput className={(passwordValue===passwordValueCheck)?'':'red'} type={password ? 'password' : 'text'} placeholder=""  onChange={(e) => handleOnChangeCheck(e.target.value)} value={passwordValueCheck}/>
+                <LabelInput className={(passwordValue===passwordValueCheck)?'':'red'}>Повторіть пароль</LabelInput>
                 <ShowIcon src={password ? openEye : closeEye}  alt="eye"  onClick={() => setPassword(!password)}/>
+                
             </DivPasword>
             
     
@@ -26,19 +50,19 @@ const RegisterForm = () => {
             <CheckbBoxDiv>
                 <RegisterDivInput>
                     <RegistInputCheck type="checkbox" id="rememb" /> 
-                    <LabelInput htmlFor="rememb">Запам&rsquo;ятати мене </LabelInput>
+                    <LabelCheck htmlFor="rememb">Запам&rsquo;ятати мене </LabelCheck>
                 </RegisterDivInput>
                 <RegisterDivInput>
                     <RegistInputCheck type="checkbox" id="subckribe"/> 
-                    <LabelInput htmlFor="subckribe">Так, я хочу підписатися на розсилку та отримувати інформацію про оновлення </LabelInput>
+                    <LabelCheck htmlFor="subckribe">Так, я хочу підписатися на розсилку та отримувати інформацію про оновлення </LabelCheck>
                 </RegisterDivInput>
                 <RegisterDivInput>
                     <RegistInputCheck type="checkbox" id="agrre"/> 
-                    <LabelInput htmlFor="agrre">Я згоден з <LinkDocument>Правилами користування сайтом</LinkDocument><SpanElem>*</SpanElem></LabelInput>
+                    <LabelCheck htmlFor="agrre">Я згоден з <LinkDocument>Правилами користування сайтом</LinkDocument><SpanElem>*</SpanElem></LabelCheck>
                 </RegisterDivInput>
             </CheckbBoxDiv>
 
-            <BtnSignIn>ЗАРЕЄСТРУВАТИСЯ</BtnSignIn>
+            <BtnSignIn onClick = {handleOnClick} type="submit">ЗАРЕЄСТРУВАТИСЯ</BtnSignIn>
             
         
         </RegistForm>
