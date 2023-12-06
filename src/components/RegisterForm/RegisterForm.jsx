@@ -29,20 +29,19 @@ const RegisterForm = () => {
             
             <DivPasword>
                 <RegistInput type="email" placeholder="" />
-                <LabelInput>E-mail</LabelInput>
+                <LabelInput>Введіть e-mail</LabelInput>
             </DivPasword>
             
             <DivPasword>
                 <RegistInput type={password ? 'password' : 'text'} placeholder="" onChange={(e)=>handleOnChange(e.target.value)} value={passwordValue}></RegistInput>
-                <LabelInput>Пароль</LabelInput>
-                <ShowIcon src={password ? openEye : closeEye} alt="eye" onClick={() => setPassword(!password)} />
-                
+                <LabelInput>Введіть пароль</LabelInput>
+                <ShowIcon src={password ? openEye : closeEye} onClick={() => setPassword(!password)} />
             </DivPasword>
+
             <DivPasword>
                 <RegistInput className={(passwordValue===passwordValueCheck)?'':'red'} type={password ? 'password' : 'text'} placeholder=""  onChange={(e) => handleOnChangeCheck(e.target.value)} value={passwordValueCheck}/>
                 <LabelInput className={(passwordValue===passwordValueCheck)?'':'red'}>Повторіть пароль</LabelInput>
-                <ShowIcon src={password ? openEye : closeEye}  alt="eye"  onClick={() => setPassword(!password)}/>
-                
+                <ShowIcon className={(passwordValue===passwordValueCheck)?'':'red'} src={password ? openEye : closeEye}  onClick={() => setPassword(!password)}/>
             </DivPasword>
             
     
@@ -58,7 +57,7 @@ const RegisterForm = () => {
                 </RegisterDivInput>
                 <RegisterDivInput>
                     <RegistInputCheck type="checkbox" id="agrre"/> 
-                    <LabelCheck htmlFor="agrre">Я згоден з <LinkDocument>Правилами користування сайтом</LinkDocument><SpanElem>*</SpanElem></LabelCheck>
+                    <LabelCheck htmlFor="agrre">Я згоден з <LinkDocument>Політикою конфіденційності</LinkDocument> та <LinkDocument>Правилами користування сайтом</LinkDocument><SpanElem>*</SpanElem></LabelCheck>
                 </RegisterDivInput>
             </CheckbBoxDiv>
 

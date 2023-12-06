@@ -1,7 +1,10 @@
 import BtnSingInFacebook from '../../components/ButtonsSingIn/BtnSingInFacebook';
 import BtnSingInGoogle from '../../components/ButtonsSingIn/BtnSingInGoogle';
 import RegisterForm from '../../components/RegisterForm/RegisterForm';
+import closeBtn from '../../icons/close.svg';
 import {
+  ButtonNavLink,
+  CloseBtn,
   DivSignIn,
   LinkSignIn,
   OrElem,
@@ -10,17 +13,35 @@ import {
   RegisterNav,
   StyledNavLink,
 } from './RegisterPage.styled';
-import React  from 'react';
+import React, { useEffect, useState }  from 'react';
 
 const RegisterPage = () => {
-  
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <RegisterContainer className="container">
+
+      {(screenWidth<768)?(
+        <ButtonNavLink to="/"><CloseBtn src={closeBtn} alt="closeBtn"></CloseBtn></ButtonNavLink>
+      ): (
       <RegisterNav>
         <StyledNavLink to="/">Головна /</StyledNavLink>
         <StyledNavLink to="/signup">Реєстрація</StyledNavLink>
-      </RegisterNav>
+      </RegisterNav>    
+      )}
+      
 
       
       <RegisterForm />

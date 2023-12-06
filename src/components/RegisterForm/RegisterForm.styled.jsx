@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
+import { ReactSVG } from "react-svg";
 
 export const RegistForm = styled.form`
     margin:0 auto;
@@ -31,6 +32,7 @@ line-height: 1.2;
 export const DivPasword = styled.div`
     position: relative;
     
+    
 `
 
 export const LabelInput = styled.label`
@@ -41,10 +43,11 @@ export const LabelInput = styled.label`
     color: #878787  ;
     left: 8px;
     top:12px;
-
-    red.&{
+    &.red{
         color: #d91f2d;
     }
+
+    
 `
 
 export const RegistInput = styled.input`
@@ -57,7 +60,8 @@ export const RegistInput = styled.input`
     border-block-end: 1px solid #565656; 
     outline:none;
 
-    .red{
+    &.red{
+      color:var(--Main-red, #d91f2d);
       border-block-end: 1px solid  var(--Main-red, #d91f2d);
     }
 
@@ -73,8 +77,9 @@ export const RegistInput = styled.input`
         
         border-block-end: 1px solid #0B0000; 
         color: #0B0000;
-        .red{
+        &.red{
                 color:var(--Main-red, #d91f2d);
+                border-block-end: 1px solid  var(--Main-red, #d91f2d);
             }
 
     }
@@ -91,7 +96,7 @@ export const RegistInput = styled.input`
             font-size: 12px;
             font-weight: 400;
             letter-spacing: 0.5px;
-            .red{
+            &.red{
                 color:var(--Main-red, #d91f2d);
             }
 
@@ -100,12 +105,25 @@ export const RegistInput = styled.input`
 
 `
 
-export const ShowIcon = styled.img`
+export const ShowIcon = styled(ReactSVG)`
   position: absolute;
   top: 16px;
   right: 8px;
   width: 1.4rem;
-  opacity: 0.7;
+  
+  
+
+  &.red{
+      path:nth-of-type(1),
+      path:nth-of-type(2),
+      path:nth-of-type(3),
+      path:nth-of-type(4),
+      path:nth-of-type(5),
+      path:nth-of-type(6) {
+        stroke: var(--Main-red, #d91f2d);
+      }  
+    }
+
   @media screen and (max-width: 768px) {
     left: 18.5rem;
   }
