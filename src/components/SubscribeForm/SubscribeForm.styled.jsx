@@ -5,7 +5,11 @@ export const FormWrap = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 3px;
-  margin-bottom: 24px;
+  width: 100%;
+  max-width: 328px;
+  margin: 0 auto;
+  /* margin-bottom: 24px; */
+
   @media screen and (min-width: 768px) {
     margin-top: 24px;
     display: flex;
@@ -28,6 +32,9 @@ export const FormText = styled.p`
 
 export const SubForm = styled.form`
   position: relative;
+  width: 100%;
+  max-width: 328px;
+  margin: 0 auto;
 `;
 
 export const FormInput = styled.input`
@@ -41,7 +48,7 @@ export const FormInput = styled.input`
   outline: none;
   border-bottom: 1px solid var(--Wtite, #fdfdfd);
   padding: 4px 8px;
-  width: 328px;
+  width: 100%;
   box-sizing: border-box;
   &::placeholder {
     color: var(--Wtite, #fdfdfd);
@@ -52,10 +59,10 @@ export const FormInput = styled.input`
     line-height: 24px; /* 150% */
   }
   @media screen and (min-width: 768px) {
-    width: 704px;
+    /* width: 704px; */
   }
-  @media screen and (min-width: 1440px){
-    width:300px;
+  @media screen and (min-width: 1440px) {
+    /* width: 300px; */
   }
 `;
 

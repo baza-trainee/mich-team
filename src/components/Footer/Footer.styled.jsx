@@ -21,7 +21,6 @@ export const FooterContainer = styled.section`
   @media screen and (min-width: 768px) {
     display: block;
   }
-
 `;
 
 export const FooterCover = styled.div`
@@ -84,6 +83,7 @@ export const FooterLink = styled.a`
 export const TextWrap = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 24px;
   @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: row;

@@ -24,7 +24,7 @@ const SubscribeForm = () => {
 
   return (
     <FormWrap>
-      <FormText>ПІДПИШИСЬ НА НАШІ ОНОВЛЕННЯ</FormText>
+      <FormText> Підпишись на наші оновлення</FormText>
       <SubForm onSubmit={handleSubmit}>
         <FormLabel htmlFor="email"></FormLabel>
         <FormInput
