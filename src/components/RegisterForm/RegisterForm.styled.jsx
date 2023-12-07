@@ -43,9 +43,7 @@ export const LabelInput = styled.label`
     color: #878787  ;
     left: 8px;
     top:12px;
-    &.red{
-        color: #d91f2d;
-    }
+    
 
     
 `
@@ -60,10 +58,7 @@ export const RegistInput = styled.input`
     border-block-end: 1px solid #565656; 
     outline:none;
 
-    &.red{
-      color:var(--Main-red, #d91f2d);
-      border-block-end: 1px solid  var(--Main-red, #d91f2d);
-    }
+    
 
     @media screen and (min-width: 768px) {
         
@@ -77,10 +72,7 @@ export const RegistInput = styled.input`
         
         border-block-end: 1px solid #0B0000; 
         color: #0B0000;
-        &.red{
-                color:var(--Main-red, #d91f2d);
-                border-block-end: 1px solid  var(--Main-red, #d91f2d);
-            }
+        
 
     }
 
@@ -96,10 +88,7 @@ export const RegistInput = styled.input`
             font-size: 12px;
             font-weight: 400;
             letter-spacing: 0.5px;
-            &.red{
-                color:var(--Main-red, #d91f2d);
-            }
-
+           
     }
     
 
@@ -113,15 +102,7 @@ export const ShowIcon = styled(ReactSVG)`
   
   
 
-  &.red{
-      path:nth-of-type(1),
-      path:nth-of-type(2),
-      path:nth-of-type(3),
-      path:nth-of-type(4),
-      path:nth-of-type(5),
-      path:nth-of-type(6) {
-        stroke: var(--Main-red, #d91f2d);
-      }  
+   
     }
 
   @media screen and (max-width: 768px) {

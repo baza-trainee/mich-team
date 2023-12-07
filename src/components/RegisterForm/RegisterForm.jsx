@@ -38,10 +38,10 @@ const RegisterForm = () => {
                 <ShowIcon src={password ? openEye : closeEye} onClick={() => setPassword(!password)} />
             </DivPasword>
 
-            <DivPasword>
-                <RegistInput className={(passwordValue===passwordValueCheck)?'':'red'} type={password ? 'password' : 'text'} placeholder=""  onChange={(e) => handleOnChangeCheck(e.target.value)} value={passwordValueCheck}/>
-                <LabelInput className={(passwordValue===passwordValueCheck)?'':'red'}>Повторіть пароль</LabelInput>
-                <ShowIcon className={(passwordValue===passwordValueCheck)?'':'red'} src={password ? openEye : closeEye}  onClick={() => setPassword(!password)}/>
+            <DivPasword className={(passwordValue===passwordValueCheck)?'':'redError'}>
+                <RegistInput type={password ? 'password' : 'text'} placeholder=""  onChange={(e) => handleOnChangeCheck(e.target.value)} value={passwordValueCheck}/>
+                <LabelInput>Повторіть пароль</LabelInput>
+                <ShowIcon  src={password ? openEye : closeEye}  onClick={() => setPassword(!password)}/>
             </DivPasword>
             
     
