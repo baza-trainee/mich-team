@@ -21,6 +21,11 @@ export const FooterContainer = styled.section`
   @media screen and (min-width: 768px) {
     display: block;
   }
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 `;
 
 export const FooterCover = styled.div`
@@ -30,11 +35,14 @@ export const FooterCover = styled.div`
   @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: row;
+    width: 100%;
     justify-content: space-around;
   }
   @media screen and (min-width: 1440px) {
     display: flex;
+    width: auto;
     flex-direction: row;
+    margin-bottom: 24px;
   }
 `;
 
@@ -50,7 +58,9 @@ export const FooterNav = styled.div`
     align-items: flex-start;
   }
   @media screen and (min-width: 1440px) {
-    margin: 0;
+    width: 302px;
+    margin-right: 24px;
+    margin-left: 61px;
   }
 `;
 
@@ -70,6 +80,10 @@ export const LinkWrap = styled.div`
   @media screen and (min-width: 768px) {
     display: flex;
     align-items: flex-start;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 302px;
+    margin-right: 24px;
   }
 `;
 export const FooterLink = styled.a`
@@ -91,7 +105,13 @@ export const TextWrap = styled.div`
     justify-content: space-between;
     margin-top: 0;
   }
+  @media screen and (min-width: 1440px) {
+    border-top: 1px solid var(--Wtite, #fefefe);
+    width: 100%;
+    padding-top: 20px;
+  }
 `;
+
 export const FooterList = styled.ul`
   display: flex;
   justify-content: space-between;
@@ -128,5 +148,9 @@ export const Link = styled.a`
   opacity: 0.48;
   @media screen and (min-width: 768px) {
     margin-right: 32px;
+    line-height: 110%; /* 14px */
+  }
+  @media screen and (min-width: 1440px) {
+    line-height: 140%; /* 14px */
   }
 `;

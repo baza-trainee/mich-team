@@ -15,6 +15,12 @@ export const FormWrap = styled.div`
     margin: 24px 0;
     max-width: 704px;
   }
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    align-items: flex-start;
+    max-width: 413px;
+    margin: 0;
+  }
 `;
 
 export const FormText = styled.p`
@@ -65,12 +71,7 @@ export const FormInput = styled.input`
     font-weight: 400;
     line-height: 24px; /* 150% */
   }
-  @media screen and (min-width: 768px) {
-    /* width: 704px; */
-  }
-  @media screen and (min-width: 1440px) {
-    /* width: 300px; */
-  }
+
 `;
 
 export const FormLabel = styled.label``;
