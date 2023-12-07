@@ -16,9 +16,25 @@ const SubscribeForm = () => {
     setEmail(e.target.value);
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    console.log('Subscribing with email:', email);
+    try {
+      const response = await fetch('/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        console.log('Subscription successful');
+      } else {
+        console.error('Subscription failed');
+      }
+    } catch (error) {
+      console.error('Error', error);
+    }
     setEmail('');
   };
 
