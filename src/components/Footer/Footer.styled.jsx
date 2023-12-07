@@ -88,6 +88,8 @@ export const TextWrap = styled.div`
     display: flex;
     flex-direction: row;
     align-items: baseline;
+    justify-content: space-between;
+    margin-top: 0;
   }
 `;
 export const FooterList = styled.ul`
@@ -124,4 +126,7 @@ export const Link = styled.a`
   line-height: 140%; /* 14px */
   letter-spacing: 0.1px;
   opacity: 0.48;
+  @media screen and (min-width: 768px) {
+    margin-right: 32px;
+  }
 `;

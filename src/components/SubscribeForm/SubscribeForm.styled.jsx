@@ -8,13 +8,12 @@ export const FormWrap = styled.div`
   width: 100%;
   max-width: 328px;
   margin: 0 auto;
-  /* margin-bottom: 24px; */
 
   @media screen and (min-width: 768px) {
-    margin-top: 24px;
     display: flex;
     align-items: flex-start;
-    margin-bottom: 44px;
+    margin: 24px 0;
+    max-width: 704px;
   }
 `;
 
@@ -28,6 +27,9 @@ export const FormText = styled.p`
   line-height: 24px; /* 150% */
   text-transform: uppercase;
   margin-bottom: 16px;
+  @media screen and (min-width: 768px) {
+    text-align: left;
+  }
 `;
 
 export const SubForm = styled.form`
@@ -35,6 +37,11 @@ export const SubForm = styled.form`
   width: 100%;
   max-width: 328px;
   margin: 0 auto;
+  @media screen and (min-width: 768px) {
+    margin-right: 0;
+    margin-left: 0;
+    max-width: 704px;
+  }
 `;
 
 export const FormInput = styled.input`
