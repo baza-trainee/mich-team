@@ -1,6 +1,7 @@
 import ButtonClose from '../../components/ButtonClose/ButtonClose';
 import BtnSingInFacebook from '../../components/ButtonsSingIn/BtnSingInFacebook';
 import BtnSingInGoogle from '../../components/ButtonsSingIn/BtnSingInGoogle';
+import NavLinkComponent from '../../components/NavLinkComponent/NavLinkComponent';
 import RegisterForm from '../../components/RegisterForm/RegisterForm';
 
 import {
@@ -10,7 +11,6 @@ import {
   RegistQuestion,
   RegisterContainer,
   RegisterNav,
-  StyledNavLink,
 } from './RegisterPage.styled';
 import React, { useEffect, useState }  from 'react';
 
@@ -40,8 +40,14 @@ const RegisterPage = () => {
         />
       ): (
       <RegisterNav>
-        <StyledNavLink to="/">Головна /</StyledNavLink>
-        <StyledNavLink to="/signup">Реєстрація</StyledNavLink>
+        <NavLinkComponent
+              propTo="/"
+              title ="Головна /"
+        />
+        <NavLinkComponent
+              propTo="/signup"
+              title ="Реєстрація"
+        />    
       </RegisterNav>    
       )}
       

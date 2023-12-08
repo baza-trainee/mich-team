@@ -43,17 +43,7 @@ export const RegisterNav = styled.div`
 
 `;
 
-export const StyledNavLink = styled(NavLink)`
 
-font-size: 14px;
-
-font-weight: 400;
-line-height: 1.4;
-color: #110003;
-&.active{
-  font-weight: 700;
-}
-`;
 
 export const OrElem = styled.p`
   color: #B3B3B3;
