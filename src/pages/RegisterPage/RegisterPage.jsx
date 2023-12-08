@@ -1,10 +1,9 @@
+import ButtonClose from '../../components/ButtonClose/ButtonClose';
 import BtnSingInFacebook from '../../components/ButtonsSingIn/BtnSingInFacebook';
 import BtnSingInGoogle from '../../components/ButtonsSingIn/BtnSingInGoogle';
 import RegisterForm from '../../components/RegisterForm/RegisterForm';
-import closeBtn from '../../icons/close.svg';
+
 import {
-  ButtonNavLink,
-  CloseBtn,
   DivSignIn,
   LinkSignIn,
   OrElem,
@@ -30,11 +29,15 @@ const RegisterPage = () => {
     };
   }, []);
 
+
+
   return (
     <RegisterContainer className="container">
 
-      {(screenWidth<768)?(
-        <ButtonNavLink to="/"><CloseBtn src={closeBtn} alt="closeBtn"></CloseBtn></ButtonNavLink>
+      {(screenWidth < 768) ? (
+        <ButtonClose 
+          propTo="/"
+        />
       ): (
       <RegisterNav>
         <StyledNavLink to="/">Головна /</StyledNavLink>
