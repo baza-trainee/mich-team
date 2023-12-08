@@ -10,12 +10,12 @@ const DivPasswordComponet = ({ type, titleInput, onChange,onClick, password,valu
         <>
             {(type == "email") ?
             (<DivPasword>
-                <RegistInput type={type} placeholder="" />
+                <RegistInput type={type} placeholder="" onChange={onChange} value={value}/>
                 <LabelInput>{ titleInput}</LabelInput>
             </DivPasword>):    
             (<DivPasword className={className}>
                 <RegistInput type={password ? 'password' : 'text'} placeholder="" onChange={onChange} value={value}></RegistInput>
-                <LabelInput>Введіть пароль</LabelInput>
+                <LabelInput>{titleInput}</LabelInput>
                 <ShowIcon src={password ? openEye : closeEye} onClick={onClick} />
             </DivPasword>)
         }  

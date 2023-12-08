@@ -33,12 +33,17 @@ const RegisterForm = () => {
 
             
             <DivPasswordComponet
+                className=""
                 type="email"
                 titleInput="Введіть e-mail"
-                onChange={(e) => handleOnChangeE(e.target.value)}
+                onChange={(e) => handleOnChangeEmail(e.target.value)}
+                value={emailValue}
+                onClick={() => setPassword(!password)}
+                password={password}
             />
 
             <DivPasswordComponet
+                className=""
                 type={password ? 'password' : 'text'}
                 titleInput="Введіть пароль"
                 onChange={(e) => handleOnChange(e.target.value)}
