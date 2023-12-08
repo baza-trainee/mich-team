@@ -1,16 +1,24 @@
 import React from 'react';
-import { ReactComponent as MenuIcon } from '../../icons/menu.svg';
+import { ReactComponent as LogoIcon } from '../../icons/logo-header.svg';
 
-import { getStyledIcon, HeaderStyled, Menu } from './Header.styled';
+import { HeaderStyled, getStyledIcon, Logo } from './Header.styled';
+import LanguageSwitcher from './LanguageSwitcher/LanguageSwitcher';
+import BurgerMenu from './BurgerMenu/BurgerMenu';
+import UserMenu from './User/User';
+import Cart from './Cart/Cart';
 
-const StyledMenuIcon = getStyledIcon(MenuIcon);
+const StyledLogo = getStyledIcon(LogoIcon);
+
 const Header = () => {
-  //const [open, setOpen] = useState(false);
   return (
-    <HeaderStyled>
-      <Menu>
-        <StyledMenuIcon />
-      </Menu>
+    <HeaderStyled className="container">
+      <BurgerMenu />
+      <LanguageSwitcher />
+      <Logo className="element">
+        <StyledLogo />
+      </Logo>
+      <UserMenu />
+      <Cart />
     </HeaderStyled>
   );
 };

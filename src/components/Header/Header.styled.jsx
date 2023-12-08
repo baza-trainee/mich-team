@@ -1,51 +1,62 @@
 import styled from '@emotion/styled';
 
 export const HeaderStyled = styled.header`
-  padding: 16px 8px;
+  padding: 8px 16px;
   position: absolute;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas: 'menu lang logo user cart';
-  width: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
   min-height: 56px;
   @media screen and (min-width: 768px) {
-    padding: 32px 8px;
+    padding: 4px 32px;
+    gap: 8px;
+    justify-content: flex-end;
+    .element:nth-of-type(1) {
+      order: 1;
+      margin-right: auto;
+    }
+    .element:nth-of-type(2) {
+      order: 5;
+    }
+    .element:nth-of-type(3) {
+      margin-right: 44.5px;
+      order: 2;
+    }
+    .element:nth-of-type(4) {
+      order: 3;
+    }
+    .element:nth-of-type(5) {
+      order: 4;
+    }
   }
   @media screen and (min-width: 1440px) {
-    padding: 80px 8px;
+    padding: 8px 80px;
+    gap: 16px;
+    .element:nth-of-type(3) {
+      margin-right: 308.5px;
+      order: 2;
+    }
   }
 `;
 
-export const getStyledIcon = component => styled(component)`
-  fill: #fdfdfd;
-`;
+export const Logo = styled.div``;
 
-export const Menu = styled.button`
-  background-color: transparent;
-  justify-self: center;
-  align-self: center;
-  grid-area: menu;
-`;
-export const Logo = styled.div`
-  justify-self: center;
-  align-self: center;
-  grid-area: logo;
-`;
-export const User = styled.div`
-  justify-self: center;
-  align-self: center;
-  grid-area: user;
-`;
-export const Lang = styled.div`
-  justify-self: center;
-  align-self: center;
-  grid-area: lang;
-`;
-export const Cart = styled.div`
-  justify-self: center;
-  align-self: center;
-  grid-area: cart;
+export const getStyledIcon = component => styled(component)`
+  width: 74px;
+  height: 42px;
+  fill: #fefefe;
+  @media screen and (min-width: 768px) {
+    width: 134px;
+    height: 72px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 135px;
+    height: 68px;
+  }
 `;
