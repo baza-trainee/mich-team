@@ -87,9 +87,12 @@ ul {
   border-radius: 50px;
   width: 24px;
   height: 24px;
-  margin-right: 12px;
+  right: 16px;
+  @media screen and (min-width: 768px) {
+    right: 32px;
+  }
   @media screen and (min-width: 1440px) {
-    margin-right: 20px;
+    right: 80px;
   }
 }
 
@@ -101,9 +104,12 @@ ul {
   margin-top: auto;
   width: 24px;
   height: 24px;
-  margin-left: 12px;
+  left: 16px;
+  @media screen and (min-width: 768px) {
+    left: 32px;
+  }
   @media screen and (min-width: 1440px) {
-    margin-left: 20px;
+    left: 80px;
   }
 }
 
@@ -150,29 +156,9 @@ ul {
   transform: translateX(-50%);
 }
 
-.heroSwiper .swiper-button-prev {
-  left: 16px;
-  @media screen and (width: 768px) {
-    left: 32px;
-  }
-  @media screen and (width: 1440px) {
-    left: 80px;
-  }
-}
-
-.heroSwiper .swiper-button-next {
-  right: 16px;
-  @media screen and (width: 768px) {
-    right: 32px;
-  }
-  @media screen and (width: 1440px) {
-    right: 80px;
-  }
-}
-
 .swiper-button-next {
   color: transparent;
-  background-image: url('./icons/arrow-right.png');
+  background-image: url('./icons/arrow-right.svg');
   background-size: contain;
   background-repeat: no-repeat;
   width: 24px;
@@ -185,7 +171,7 @@ ul {
 
 .swiper-button-prev {
   color: transparent;
-  background-image: url('./icons/arrow-left.png');
+  background-image: url('./icons/arrow-left.svg');
   background-size: contain;
   background-repeat: no-repeat;
   width: 24px;

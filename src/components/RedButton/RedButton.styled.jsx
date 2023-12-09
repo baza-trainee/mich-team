@@ -48,7 +48,7 @@ export const ProductButton = styled(NavLink)`
   }
 
   @media screen and (min-width: 768px) {
-    width: 344px;
+    width: ${props => props.tabWidth};
     height: 60px;
   }
   @media screen and (min-width: 1440px) {

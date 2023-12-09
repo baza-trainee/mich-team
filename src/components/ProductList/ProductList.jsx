@@ -51,7 +51,7 @@ const product = data.map(item => (
       </SwiperSlide>
     </CustomSwiper>
     <ProductText>{item.title}</ProductText>
-    <RedButton text={'обрати'} nav={'merch'} />
+    <RedButton text={'обрати'} nav={'merch'} tabWidth={'344px'} />
   </ProductItem>
 ));
 
