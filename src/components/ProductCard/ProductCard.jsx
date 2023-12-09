@@ -99,7 +99,11 @@ const ProductCard = () => {
               <ProductPlusMinus>+</ProductPlusMinus>
             </ProductCardCounterDiv>
             <ProductCardCartButtonDiv>
-              <RedButton text={'додати до кошику'} nav={'/cart'} />
+              <RedButton
+                text={'додати до кошику'}
+                nav={'/cart'}
+                tabWidth={'520px'}
+              />
             </ProductCardCartButtonDiv>
             <ul>
               <ProductInfoItem>
@@ -153,10 +157,12 @@ const ProductCard = () => {
                 {detailsVisible['item3'] && (
                   <ProductInfoTextDiv>
                     <ProductInfoText>
-                      Яскрава футболка припаде до смаку відважним чоловікам, які
-                      не бояться виражати свою стильність та показувати м`язисту
-                      фігуру. Ця модель ідеально підходить для урочистих подій,
-                      вечірок та корпоративів.
+                      <strong>Доставка по Україні:</strong> Нова Пошта та
+                      Укрпошта. Доставка за тарифами транспортних компаній.
+                    </ProductInfoText>
+                    <ProductInfoText>
+                      <strong>Відправлення за кордон:</strong> Відправку
+                      здійснюємо Укрпоштою.
                     </ProductInfoText>
                   </ProductInfoTextDiv>
                 )}

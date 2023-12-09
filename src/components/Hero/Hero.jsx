@@ -14,7 +14,7 @@ const Hero = () => {
   return (
     <section>
       <HeroSwiper
-        spaceBetween={20}
+        spaceBetween={0}
         centeredSlides={true}
         autoplay={{
           delay: 3000,
