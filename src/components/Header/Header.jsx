@@ -1,7 +1,12 @@
 import React from 'react';
 import { ReactComponent as LogoIcon } from '../../icons/logo-header.svg';
-
-import { HeaderStyled, getStyledIcon, Logo } from './Header.styled';
+import PropTypes from 'prop-types';
+import {
+  HeaderStyled,
+  getStyledIcon,
+  Logo,
+  HeaderWrapper,
+} from './Header.styled';
 import LanguageSwitcher from './LanguageSwitcher/LanguageSwitcher';
 import BurgerMenu from './BurgerMenu/BurgerMenu';
 import UserMenu from './User/User';
@@ -9,18 +14,30 @@ import Cart from './Cart/Cart';
 
 const StyledLogo = getStyledIcon(LogoIcon);
 
-const Header = () => {
+const Header = ({ currentPage }) => {
+  const headerClass =
+    currentPage === '/'
+      ? 'main-header'
+      : currentPage === '/merch'
+        ? 'product-header'
+        : '';
   return (
-    <HeaderStyled className="container">
-      <BurgerMenu />
-      <LanguageSwitcher />
-      <Logo className="element">
-        <StyledLogo />
-      </Logo>
-      <UserMenu />
-      <Cart />
+    <HeaderStyled className={`${headerClass}`}>
+      <HeaderWrapper className={`container`}>
+        <BurgerMenu />
+        <LanguageSwitcher />
+        <Logo className="element">
+          <StyledLogo />
+        </Logo>
+        <UserMenu />
+        <Cart />
+      </HeaderWrapper>
     </HeaderStyled>
   );
+};
+
+Header.propTypes = {
+  currentPage: PropTypes.string,
 };
 
 export default Header;

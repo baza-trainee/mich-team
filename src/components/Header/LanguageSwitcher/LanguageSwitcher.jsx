@@ -26,7 +26,12 @@ const LanguageSwitcher = () => {
   const alternateLanguage = selectedLanguage === 'EN' ? 'UA' : 'EN';
 
   return (
-    <LanguageWrapper className="element">
+    <LanguageWrapper
+      className="element"
+      style={{
+        backgroundColor: showDropdown ? 'transparent' : '',
+      }}
+    >
       <LanguageSwitcherBtn onClick={toggleDropdown}>
         {selectedLanguage}
         <ArrowDown

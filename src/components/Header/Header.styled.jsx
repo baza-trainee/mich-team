@@ -1,12 +1,24 @@
 import styled from '@emotion/styled';
 
 export const HeaderStyled = styled.header`
-  padding: 8px 16px;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  ${props =>
+    props.className.search(/main-header/g) != -1 &&
+    `
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  `}
+  ${props =>
+    props.className.search(/main-header/g) === -1 &&
+    `
+    background-color: #0F0000;
+  `}
+  
   z-index: 999;
+`;
+export const HeaderWrapper = styled.div`
+  padding: 8px 16px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -44,7 +56,6 @@ export const HeaderStyled = styled.header`
     }
   }
 `;
-
 export const Logo = styled.div``;
 
 export const getStyledIcon = component => styled(component)`

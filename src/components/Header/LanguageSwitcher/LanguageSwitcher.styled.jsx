@@ -20,13 +20,12 @@ export const LanguageWrapper = styled.div`
 
 export const LanguageList = styled.ul`
   position: absolute;
-  top: 80%;
+  top: 70%;
   left: 6px;
   color: #fefefe;
   @media screen and (min-width: 768px) {
     color: green;
     left: 16px;
-    top: 70%;
   }
 `;
 
