@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
-import { ReactSVG } from "react-svg";
 
 
 export const RegisterContainer = styled.div`
@@ -24,27 +23,7 @@ export const RegisterContainer = styled.div`
   }
 `;
 
-export const ButtonNavLink = styled(NavLink)`
-  display: block;
-  padding: 16px;
-  margin-bottom: 6px;
-  background-color: #FAFAFA;
-  width: fit-content;
-  margin-left: auto;
-  
-`
 
-export const CloseBtn = styled(ReactSVG)`
-  width:24px;
-  height: 24px;
-
-  path:nth-of-type(1),
-  path:nth-of-type(2),
-  path:nth-of-type(3){
-        stroke: black;
-      } 
-  
-`
 
 export const RegisterNav = styled.div`
     display: none;
@@ -64,17 +43,7 @@ export const RegisterNav = styled.div`
 
 `;
 
-export const StyledNavLink = styled(NavLink)`
 
-font-size: 14px;
-
-font-weight: 400;
-line-height: 1.4;
-color: #110003;
-&.active{
-  font-weight: 700;
-}
-`;
 
 export const OrElem = styled.p`
   color: #B3B3B3;

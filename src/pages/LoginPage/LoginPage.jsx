@@ -3,18 +3,23 @@ import EnterForm from '../../components/EnterForm/EnterForm';
 import { Title, LoginContainer } from './LoginPage.styled';
 import {
   RegisterNav,
-  StyledNavLink,
 } from '../RegisterPage/RegisterPage.styled';
+import NavLinkComponent from '../../components/NavLinkComponent/NavLinkComponent';
 
 const LoginPage = () => {
   return (
-    <LoginContainer>
-      <div className="container">
+    <LoginContainer className="container">
         <RegisterNav>
-          <StyledNavLink to="/">Головна /</StyledNavLink>
-          <StyledNavLink to="/signin">Увійти</StyledNavLink>
+          <NavLinkComponent
+              propTo="/"
+              title ="Головна /"
+          />
+          <NavLinkComponent
+              propTo="/signin"
+              title ="Увійти"
+          />
         </RegisterNav>
-      </div>
+      
 
       <Title>УВІЙТИ</Title>
       <EnterForm />

@@ -1,17 +1,22 @@
 import React, { useState } from "react";
-import openEye from '../../icons/open-eye.svg';
-import closeEye from '../../icons/close-eye.svg';
-import { BtnSignIn, CheckbBoxDiv, DivPasword, LabelCheck, LabelInput, LinkDocument,RegistForm, RegistInput, RegistInputCheck,RegisterDivInput, RegisterTitle, ShowIcon, SpanElem } from "./RegisterForm.styled";
+
+import { BtnSignIn, CheckbBoxDiv, LabelCheck, LinkDocument,RegistForm, RegistInputCheck,RegisterDivInput, RegisterTitle, SpanElem } from "./RegisterForm.styled";
+import DivPasswordComponet from "../DivPasswordComponent/DivPasswordComponent";
 
 
 const RegisterForm = () => {
     const [password, setPassword] = useState(true);
+    const [emailValue, setEmailValue] = useState('');
     const [passwordValue, setPassvordValue] = useState('');
     const [passwordValueCheck, setPassvordValueCheck] = useState('');
 
     const handleOnClick = (e) => {
         e.preventDefault();
         e.target.classList.add('active')
+    }
+
+    const handleOnChangeEmail = (value) => {
+        setEmailValue(value);
     }
 
     const handleOnChange = (value) => {
@@ -27,24 +32,36 @@ const RegisterForm = () => {
             <RegisterTitle>РЕЄСТРАЦІЯ</RegisterTitle>
 
             
-            <DivPasword>
-                <RegistInput type="email" placeholder="" />
-                <LabelInput>Введіть e-mail</LabelInput>
-            </DivPasword>
-            
-            <DivPasword>
-                <RegistInput type={password ? 'password' : 'text'} placeholder="" onChange={(e)=>handleOnChange(e.target.value)} value={passwordValue}></RegistInput>
-                <LabelInput>Введіть пароль</LabelInput>
-                <ShowIcon src={password ? openEye : closeEye} onClick={() => setPassword(!password)} />
-            </DivPasword>
+            <DivPasswordComponet
+                className=""
+                type="email"
+                titleInput="Введіть e-mail"
+                onChange={(e) => handleOnChangeEmail(e.target.value)}
+                value={emailValue}
+                onClick={() => setPassword(!password)}
+                password={password}
+            />
 
-            <DivPasword>
-                <RegistInput className={(passwordValue===passwordValueCheck)?'':'red'} type={password ? 'password' : 'text'} placeholder=""  onChange={(e) => handleOnChangeCheck(e.target.value)} value={passwordValueCheck}/>
-                <LabelInput className={(passwordValue===passwordValueCheck)?'':'red'}>Повторіть пароль</LabelInput>
-                <ShowIcon className={(passwordValue===passwordValueCheck)?'':'red'} src={password ? openEye : closeEye}  onClick={() => setPassword(!password)}/>
-            </DivPasword>
+            <DivPasswordComponet
+                className=""
+                type={password ? 'password' : 'text'}
+                titleInput="Введіть пароль"
+                onChange={(e) => handleOnChange(e.target.value)}
+                value={passwordValue}
+                onClick={() => setPassword(!password)}
+                password={password}
+            />
+
+            <DivPasswordComponet
+                className={(passwordValue===passwordValueCheck)?'':'redError'}
+                type={password ? 'password' : 'text'}
+                titleInput="Повторіть пароль"
+                onChange={(e) =>handleOnChangeCheck(e.target.value)}
+                value={passwordValueCheck}
+                onClick={() => setPassword(!password)}
+                password={password}
+            />
             
-    
 
             <CheckbBoxDiv>
                 <RegisterDivInput>

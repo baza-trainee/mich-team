@@ -178,3 +178,53 @@ ul {
     margin-left: 20px;
   }
 }
+
+/* red color for password error */
+
+.redError label{
+  
+      color: #d91f2d;
+
+}
+
+.redError input{
+    color: var(--Main-red, #d91f2d);
+    border-block-end: 1px solid var(--Main-red, #d91f2d);
+
+    &:hover,
+    &:focus,
+    &:active {
+          color: var(--Main-red, #d91f2d);
+          border-block-end: 1px solid var(--Main-red, #d91f2d);
+        }
+
+    &:hover+label,
+    &:not(:placeholder-shown)+label,
+    &:focus+label,
+    &:active+label {
+    
+        color: var(--Main-red, #d91f2d);
+    }
+}
+
+.redError svg{
+  path:nth-child(1),
+  path:nth-child(2),
+  path:nth-child(3),
+  path:nth-child(4),
+  path:nth-child(5),
+  path:nth-child(6){
+    stroke: var(--Main-red, #d91f2d);
+  }
+    
+}
+
+.redError path:nth-child(1),
+.redError path:nth-child(2),
+.redError path:nth-child(3),
+.redError path:nth-child(4),
+.redError path:nth-child(5),
+.redError path:nth-child(6) {
+    stroke: var(--Main-red, #d91f2d);
+  }
+
