@@ -31,19 +31,6 @@ h4 {
   margin: 0;
 }
 
-/* ScroolBar */
-/* ::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: black;
-}
-::-webkit-scrollbar-thumb {
-  background: white;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-} */
 /* Image Styles */
 img {
   max-width: 100%;

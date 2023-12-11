@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Loader from './components/Loader/Loader';
 
-const MainPage = React.lazy(() => import('./pages/MainPage/MainPage'));
+const MainPage = React.lazy(() => import('./pages/MainPage'));
 const RegisterPage = React.lazy(
   () => import('./pages/RegisterPage/RegisterPage')
 );
