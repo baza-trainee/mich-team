@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const MenuWrapper = styled.div`
+export const BurgerWrapper = styled.div`
   position: relative;
   color: #fefefe;
   display: flex;
@@ -17,7 +17,7 @@ export const MenuWrapper = styled.div`
   }
 `;
 
-export const MenuBtn = styled.button`
+export const BurgerBtn = styled.button`
   color: #fefefe;
   display: flex;
   align-items: center;
@@ -35,7 +35,7 @@ export const MenuBtn = styled.button`
   }
 `;
 
-export const MenuText = styled.p`
+export const BurgerText = styled.p`
   color: #fefefe;
   font-family: Play;
   font-size: 16px;
@@ -45,6 +45,30 @@ export const MenuText = styled.p`
   text-transform: uppercase;
   @media screen and (max-width: 767px) {
     display: none;
+  }
+`;
+
+export const StyledMenu = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: #fdfdfd;
+  transform: ${({ open }) => (open ? 'translateX(-100%)' : 'translateX(0)')};
+  height: 100vh;
+  width: 310px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.4s ease-in-out;
+  @media screen and (min-width: 768px) {
+    padding: 16px 24px;
+    width: 355px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 390px;
+    padding: 16px 32px;
   }
 `;
 

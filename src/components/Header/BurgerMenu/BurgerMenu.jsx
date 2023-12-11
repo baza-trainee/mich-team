@@ -1,28 +1,51 @@
-import React, { useState } from 'react';
-import { ReactComponent as Menu } from '../../../icons/menu.svg';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { ReactComponent as BurgerIcon } from '../../../icons/menu.svg';
 import {
-  MenuBtn,
-  MenuWrapper,
-  MenuText,
+  BurgerBtn,
+  BurgerWrapper,
+  BurgerText,
   getStyledIcon,
+  StyledMenu,
 } from './BurgerMenu.styled';
+const StyledBurger = getStyledIcon(BurgerIcon);
 
-const BurgerMenu = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const StyledMenu = getStyledIcon(Menu);
-
+export const Burger = ({ open, setOpen }) => {
   const openMenu = () => {
-    setIsOpen(!isOpen);
+    setOpen(!open);
   };
 
   return (
-    <MenuWrapper className="element">
-      <MenuBtn onClick={openMenu}>
-        <StyledMenu />
-        <MenuText>меню</MenuText>
-      </MenuBtn>
-    </MenuWrapper>
+    <BurgerWrapper className="element">
+      <BurgerBtn onClick={openMenu}>
+        <StyledBurger />
+        <BurgerText>меню</BurgerText>
+      </BurgerBtn>
+    </BurgerWrapper>
   );
 };
 
-export default BurgerMenu;
+export const Menu = ({ open, setOpen, currentPage }) => {
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  });
+  useEffect(() => {
+    setOpen(false);
+  }, [currentPage]);
+  return <StyledMenu open={open}></StyledMenu>;
+};
+
+Burger.propTypes = {
+  open: PropTypes.bool,
+  setOpen: PropTypes.func,
+};
+
+Menu.propTypes = {
+  open: PropTypes.bool,
+  setOpen: PropTypes.func,
+  currentPage: PropTypes.string,
+};
