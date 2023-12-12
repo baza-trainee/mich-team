@@ -53,7 +53,6 @@ const RegisterForm = () => {
 
 
         e.target.classList.add('active');
-        
     }
 
     
