@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
-import { BtnSignIn, CheckbBoxDiv, LabelCheck, LinkDocument,RegistForm, RegistInputCheck,RegisterDivInput, RegisterTitle, SpanElem } from "./RegisterForm.styled";
+import { CheckbBoxDiv, LabelCheck, LinkDocument,RegistForm, RegistInputCheck,RegisterDivInput, RegisterTitle, SpanElem } from "./RegisterForm.styled";
 import DivPasswordComponet from "../DivPasswordComponent/DivPasswordComponent";
+import BtnSign from "../BtnSign/BtnSign";
 
 
 const RegisterForm = () => {
@@ -9,22 +10,68 @@ const RegisterForm = () => {
     const [emailValue, setEmailValue] = useState('');
     const [passwordValue, setPassvordValue] = useState('');
     const [passwordValueCheck, setPassvordValueCheck] = useState('');
+    const [trueEmail, setTrueEmail] = useState(true);
+    const [truePassword, setTruePassword] = useState(true);
+    const [trueCheckPassword, setTrueCheckPassword] = useState(true);
 
-    const handleOnClick = (e) => {
-        e.preventDefault();
-        e.target.classList.add('active')
+
+
+    function isValidEmail(email) {
+  
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
     }
+
+    function isValidPassword(password) {
+        const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}$/;
+        return passwordRegex.test(password);
+    }
+
+    const handleOnClick = (e, email, password, passwordCheck) => {
+        e.preventDefault();
+        if (!isValidEmail(email)) {
+            alert('емейл не валідний');
+            setTrueEmail(false);
+            return;
+        } 
+
+        if (!isValidPassword(password)) {
+            alert('пароль не валідний');
+            setTruePassword(false);
+            return;
+        } 
+
+        if (!(password === passwordCheck)) {
+            alert('паролі не співпадають');
+            setTrueCheckPassword(false);
+            return;
+        } 
+
+        setTrueEmail(true);
+        setTruePassword(true);
+        setTrueCheckPassword(true);
+
+
+        e.target.classList.add('active');
+        
+    }
+
+    
 
     const handleOnChangeEmail = (value) => {
         setEmailValue(value);
+        setTrueEmail(true);
+
     }
 
     const handleOnChange = (value) => {
         setPassvordValue(value);
+        setTruePassword(true);
     }
 
     const handleOnChangeCheck = (value) => {
         setPassvordValueCheck(value);
+        setTrueCheckPassword(true);
     }
 
     return (
@@ -33,7 +80,7 @@ const RegisterForm = () => {
 
             
             <DivPasswordComponet
-                className=""
+                className={(trueEmail) ? '' : 'redError'}
                 type="email"
                 titleInput="Введіть e-mail"
                 onChange={(e) => handleOnChangeEmail(e.target.value)}
@@ -43,7 +90,7 @@ const RegisterForm = () => {
             />
 
             <DivPasswordComponet
-                className=""
+                className={(truePassword) ? '' : 'redError'}
                 type={password ? 'password' : 'text'}
                 titleInput="Введіть пароль"
                 onChange={(e) => handleOnChange(e.target.value)}
@@ -53,7 +100,7 @@ const RegisterForm = () => {
             />
 
             <DivPasswordComponet
-                className={(passwordValue===passwordValueCheck)?'':'redError'}
+                className={(trueCheckPassword) ? '' : 'redError'}
                 type={password ? 'password' : 'text'}
                 titleInput="Повторіть пароль"
                 onChange={(e) =>handleOnChangeCheck(e.target.value)}
@@ -78,7 +125,10 @@ const RegisterForm = () => {
                 </RegisterDivInput>
             </CheckbBoxDiv>
 
-            <BtnSignIn onClick = {handleOnClick} type="submit">ЗАРЕЄСТРУВАТИСЯ</BtnSignIn>
+            <BtnSign
+                onClick={(e) => handleOnClick(e, emailValue,passwordValue,passwordValueCheck)}
+                title='ЗАРЕЄСТРУВАТИСЯ'
+            />
             
         
         </RegistForm>

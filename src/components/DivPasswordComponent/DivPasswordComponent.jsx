@@ -9,8 +9,8 @@ const DivPasswordComponet = ({ type, titleInput, onChange,onClick, password,valu
     return (
         <>
             {(type == "email") ?
-            (<DivPasword>
-                <RegistInput type={type} placeholder="" onChange={onChange} value={value}/>
+            (<DivPasword className={className}>
+                <RegistInput type={type} placeholder="" onChange={onChange} value={value} />
                 <LabelInput>{ titleInput}</LabelInput>
             </DivPasword>):    
             (<DivPasword className={className}>
@@ -33,6 +33,8 @@ DivPasswordComponet.propTypes = {
     onChange: PropTypes.func.isRequired,
     onClick: PropTypes.func.isRequired,
     className: PropTypes.string.isRequired,
+    // notValidMessage: PropTypes.string.isRequired,
+    // isValid: PropTypes.bool.isRequired,
 };
 
 export default DivPasswordComponet;

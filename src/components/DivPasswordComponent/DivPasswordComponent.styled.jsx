@@ -15,6 +15,8 @@ export const LabelInput = styled.label`
     color: #878787  ;
     left: 8px;
     top:12px;
+    transition: top 50ms ease-in-out;
+    
     
 
     
@@ -55,7 +57,6 @@ export const RegistInput = styled.input`
         
             
             top:-8px;
-            
             color: #0B0000;
             font-size: 12px;
             font-weight: 400;
@@ -70,14 +71,11 @@ export const ShowIcon = styled(ReactSVG)`
   position: absolute;
   top: 16px;
   right: 8px;
-  width: 1.4rem;
-  
-  
-
-   
+  width: 22.4px;
+    
     }
 
   @media screen and (max-width: 768px) {
-    left: 18.5rem;
+    left: 296px;
   }
 `
