@@ -24,7 +24,7 @@ const CustomScrollbar = ({ children }) => {
       ref={scrollbarsRef}
       autoHide
       autoHideTimeout={1000}
-      autoHideDuration={201}
+      autoHideDuration={200}
     >
       {children}
     </Scrollbars>
