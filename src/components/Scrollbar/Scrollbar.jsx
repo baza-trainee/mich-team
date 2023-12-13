@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-
-import { Scrollbars } from 'react-custom-scrollbars';
+import { Scrollbars } from 'react-custom-scrollbars-2';
 
 const CustomScrollbar = ({ children }) => {
   const scrollbarsRef = useRef(null);
@@ -12,7 +11,7 @@ const CustomScrollbar = ({ children }) => {
 
   const scrollToBottom = () => {
     if (scrollbarsRef.current) {
-      const { scrollHeight, clientHeight } = scrollbarsRef.current.getValues();
+      const { scrollHeight, clientHeight } = scrollbarsRef.current;
       const maxScrollTop = scrollHeight - clientHeight;
       scrollbarsRef.current.scrollTop(maxScrollTop);
     }
