@@ -52,6 +52,7 @@ export const StyledMenu = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   padding: 16px;
   background: #fdfdfd;
   transform: ${({ open }) => (open ? 'translateX(-100%)' : 'translateX(0)')};
@@ -61,6 +62,7 @@ export const StyledMenu = styled.div`
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 200;
   transition: transform 0.4s ease-in-out;
   @media screen and (min-width: 768px) {
     padding: 16px 24px;
@@ -72,8 +74,62 @@ export const StyledMenu = styled.div`
   }
 `;
 
-export const getStyledIcon = component => styled(component)`
+export const MenuWrapper = styled.div`
+  color: #0f0000;
+  display: flex;
+  padding: 6px;
+  min-height: 36px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fdfdfd;
+`;
+
+export const BurgerCloseBtn = styled.button`
+  display: flex;
+  padding: 6px;
+  align-items: center;
+  border-radius: 20px;
+  background-color: transparent;
+  svg {
+    stroke: #0f0000;
+    transition: stroke 0.2s ease;
+    width: 24px;
+    height: 24px;
+  }
+  &:hover {
+    svg {
+      stroke: #fefefe;
+    }
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  @media screen and (min-width: 1440px) {
+    padding: 16px;
+    border-radius: 40px;
+  }
+`;
+
+export const Instagram = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #0f0000;
+  font-family: Play;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 120%;
+  font-style: normal;
+  margin-bottom: 16px;
+  svg {
+    width: 32px;
+    height: 32px;
+  }
+`;
+
+export const getStyledIconOpen = component => styled(component)`
   width: 24px;
   height: 24px;
   fill: #fdfdfd;
 `;
+
+export const getStyledIcon = component => styled(component)``;

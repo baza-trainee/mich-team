@@ -27,7 +27,7 @@ const Header = ({ currentPage }) => {
       <Menu open={open} setOpen={setOpen} currentPage={currentPage} />
       <HeaderWrapper className={`container ${headerClass}`}>
         <Burger open={open} setOpen={setOpen} />
-        <LanguageSwitcher />
+        <LanguageSwitcher arrowcolor={'#fefefe'} />
         <Logo className="element">
           <StyledLogo />
         </Logo>
