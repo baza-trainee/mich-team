@@ -62,7 +62,7 @@ const RegisterPage = () => {
       <DivSignIn>
         <RegistQuestion>Вже маєте аккаунт?</RegistQuestion>
         <LinkSignIn to="/signin">Увійти!</LinkSignIn>
-       </DivSignIn>
+      </DivSignIn>
     </RegisterContainer>
   );
 };
