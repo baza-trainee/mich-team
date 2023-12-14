@@ -1,6 +1,6 @@
 import React from 'react';
-import ProductList from '../components/ProductList/ProductList';
-import Hero from '../components/Hero/Hero';
+import ProductList from '../../components/ProductList/ProductList';
+import Hero from '../../components/Hero/Hero';
 
 
 
