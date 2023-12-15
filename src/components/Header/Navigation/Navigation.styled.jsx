@@ -13,19 +13,30 @@ export const StyledLink = styled(NavLink)`
   line-height: 140%;
   text-transform: uppercase;
   text-align: start;
-  transition: background-color 0.4s ease;
+
+  @media screen and (min-width: 768px) {
+    font-size: 28px;
+  }
+  @media screen and (min-width: 1440px) {
+    font-size: 32px;
+  }
+
   &::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0;
+    right: 0;
     width: 0;
     height: 1px;
     background-color: #0f0000;
-    transition: width 0.3s ease;
+    transition:
+      width 0.3s ease,
+      right 0.3s ease;
   }
   &:hover::after {
     width: 100%;
+    right: initial;
+    left: 0;
   }
   &.active {
     background-color: transparent;
@@ -40,7 +51,6 @@ export const Nav = styled.nav`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content:;
   gap: 16px;
   width: 100%;
 `;

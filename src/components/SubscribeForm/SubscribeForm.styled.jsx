@@ -24,7 +24,7 @@ export const FormWrap = styled.div`
 `;
 
 export const FormText = styled.p`
-  color: #fff;
+  color: inherit;
   text-align: center;
   font-family: Play;
   font-size: 16px;
@@ -51,27 +51,26 @@ export const SubForm = styled.form`
 `;
 
 export const FormInput = styled.input`
-  background: var(--Black, #110003);
-  color: var(--Wtite, #fdfdfd);
+  background: transparent;
+  color: inherit;
   font-family: Play;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 24px; /* 150% */
   outline: none;
-  border-bottom: 1px solid var(--Wtite, #fdfdfd);
+  border-bottom: 1px solid;
   padding: 4px 8px;
   width: 100%;
   box-sizing: border-box;
   &::placeholder {
-    color: var(--Wtite, #fdfdfd);
+    color: inherit;
     font-family: Play;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 24px; /* 150% */
   }
-
 `;
 
 export const FormLabel = styled.label``;
@@ -80,8 +79,12 @@ export const FormButton = styled.button`
   padding: 0;
   width: 24px;
   height: 24px;
-  background: var(--Black, #110003);
+  background: transparent;
   position: absolute;
   right: 8px;
   top: 4px;
+`;
+
+export const getStyledIcon = (component, stroke) => styled(component)`
+  ${stroke};
 `;

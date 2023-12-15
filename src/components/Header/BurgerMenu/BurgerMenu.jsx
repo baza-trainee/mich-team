@@ -9,13 +9,18 @@ import {
   getStyledIconOpen,
   getStyledIcon,
   StyledMenu,
-  MenuWrapper,
+  MenuButtonsWrapper,
   BurgerCloseBtn,
   Instagram,
+  NavWrapper,
+  AuthorizationWrapper,
+  AuthorizationLink,
+  SubscribeWrapper,
 } from './BurgerMenu.styled';
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 import { Navigation } from '../Navigation/Navigatiom';
 import { ReactComponent as InstIcon } from '../../../icons/inst.svg';
+import SubscribeForm from '../../SubscribeForm/SubscribeForm';
 const StyledBurger = getStyledIconOpen(BurgerIcon);
 const StyledBurgerClose = getStyledIcon(BurgerCloseIcon);
 const InstagramIcon = getStyledIcon(InstIcon);
@@ -51,21 +56,34 @@ export const Menu = ({ open, setOpen, currentPage }) => {
   }, [currentPage]);
   return (
     <StyledMenu open={!open}>
-      <MenuWrapper>
+      <MenuButtonsWrapper>
         <BurgerCloseBtn onClick={openMenu}>
           <StyledBurgerClose />
         </BurgerCloseBtn>
-        <LanguageSwitcher arrowcolor={'#0F0000'} />
-      </MenuWrapper>
-      <Navigation />
-      <Instagram
-        href="https://instagram.com/mich_team?igshid=MzMyNGUyNmU2YQ=="
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <InstagramIcon />
-        mich_team
-      </Instagram>
+        <LanguageSwitcher
+          arrowcolor={'#0F0000'}
+          backgroundcolorlanghover={'rgba(0, 0, 0, 0.60)'}
+          textcolorlanghover={'#FEFEFE'}
+        />
+      </MenuButtonsWrapper>
+      <NavWrapper>
+        <Navigation />
+        <AuthorizationWrapper>
+          <AuthorizationLink>Реєстрація</AuthorizationLink>
+          <AuthorizationLink>Увійти</AuthorizationLink>
+        </AuthorizationWrapper>
+        <Instagram
+          href="https://instagram.com/mich_team?igshid=MzMyNGUyNmU2YQ=="
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <InstagramIcon />
+          mich_team
+        </Instagram>
+      </NavWrapper>
+      <SubscribeWrapper>
+        <SubscribeForm stroke={'#0F0000'} />
+      </SubscribeWrapper>
     </StyledMenu>
   );
 };

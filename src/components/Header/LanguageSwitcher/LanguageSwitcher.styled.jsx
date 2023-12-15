@@ -9,7 +9,13 @@ export const LanguageWrapper = styled.div`
   align-items: center;
   border-radius: 20px;
   &:hover {
-    background-color: rgba(255, 255, 255, 0.5);
+    svg {
+      stroke: ${({ showDropdown }) => (showDropdown ? '' : '#fefefe')};
+    }
+    background-color: ${({ backgroundcolorlanghover }) =>
+      backgroundcolorlanghover};
+    color: ${({ textcolorlanghover }) =>
+      textcolorlanghover ? textcolorlanghover : ''};
   }
   @media screen and (min-width: 768px) {
     padding: 16px;
@@ -53,7 +59,7 @@ export const LanguageSwitcherBtn = styled.button`
     width: 16px;
     height: 16px;
     stroke: ${({ arrowcolor }) => arrowcolor};
-    transition: 'transform 0.3s ease';
+    transition: transform 0.3s ease;
   }
 `;
 
