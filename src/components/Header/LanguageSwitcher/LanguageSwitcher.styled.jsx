@@ -2,17 +2,22 @@ import styled from '@emotion/styled';
 
 export const LanguageWrapper = styled.div`
   position: relative;
-  color: #fefefe;
+  color: inherit;
   display: flex;
   padding: 6px;
   justify-content: center;
   align-items: center;
   border-radius: 20px;
   &:hover {
-    background-color: rgba(255, 255, 255, 0.5);
+    svg {
+      stroke: ${({ showDropdown }) => (showDropdown ? '' : '#fefefe')};
+    }
+    background-color: ${({ backgroundcolorlanghover }) =>
+      backgroundcolorlanghover};
+    color: ${({ textcolorlanghover }) =>
+      textcolorlanghover ? textcolorlanghover : ''};
   }
   @media screen and (min-width: 768px) {
-    color: green;
     padding: 16px;
     border-radius: 40px;
   }
@@ -22,15 +27,14 @@ export const LanguageList = styled.ul`
   position: absolute;
   top: 70%;
   left: 6px;
-  color: #fefefe;
+  color: inherit;
   @media screen and (min-width: 768px) {
-    color: green;
     left: 16px;
   }
 `;
 
 export const LanguageItem = styled.li`
-  color: #fefefe;
+  color: inherit;
   font-family: Play;
   font-size: 24px;
   font-style: normal;
@@ -38,7 +42,7 @@ export const LanguageItem = styled.li`
   line-height: normal;
 `;
 export const LanguageSwitcherBtn = styled.button`
-  color: #fefefe;
+  color: inherit;
   display: flex;
   gap: 4px;
   align-items: center;
@@ -51,10 +55,12 @@ export const LanguageSwitcherBtn = styled.button`
   background-color: transparent;
   justify-self: center;
   align-self: center;
+  svg {
+    width: 16px;
+    height: 16px;
+    stroke: ${({ arrowcolor }) => arrowcolor};
+    transition: transform 0.3s ease;
+  }
 `;
 
-export const getStyledIcon = component => styled(component)`
-  width: 16px;
-  height: 16px;
-  transition: transform 0.2s ease;
-`;
+export const getStyledIcon = component => styled(component)``;

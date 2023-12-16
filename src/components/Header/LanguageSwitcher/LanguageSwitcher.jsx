@@ -7,17 +7,20 @@ import {
   LanguageSwitcherBtn,
   getStyledIcon,
 } from './LanguageSwitcher.styled';
+import PropTypes from 'prop-types';
 
-const ArrowDown = getStyledIcon(ArrowIcon);
-
-const LanguageSwitcher = () => {
+const LanguageSwitcher = ({
+  arrowcolor,
+  backgroundcolorlanghover,
+  textcolorlanghover,
+}) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('EN');
+  const ArrowDown = getStyledIcon(ArrowIcon);
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
   };
-
   const selectLanguage = language => {
     setSelectedLanguage(language);
     setShowDropdown(false);
@@ -28,11 +31,15 @@ const LanguageSwitcher = () => {
   return (
     <LanguageWrapper
       className="element"
+      backgroundcolorlanghover={backgroundcolorlanghover}
+      textcolorlanghover={textcolorlanghover}
+      showDropdown={showDropdown}
       style={{
         backgroundColor: showDropdown ? 'transparent' : '',
+        color: showDropdown ? 'inherit' : '',
       }}
     >
-      <LanguageSwitcherBtn onClick={toggleDropdown}>
+      <LanguageSwitcherBtn onClick={toggleDropdown} arrowcolor={arrowcolor}>
         {selectedLanguage}
         <ArrowDown
           style={{
@@ -52,3 +59,9 @@ const LanguageSwitcher = () => {
 };
 
 export default LanguageSwitcher;
+
+LanguageSwitcher.propTypes = {
+  arrowcolor: PropTypes.string,
+  backgroundcolorlanghover: PropTypes.string,
+  textcolorlanghover: PropTypes.string,
+};

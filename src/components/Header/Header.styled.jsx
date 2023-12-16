@@ -1,21 +1,14 @@
 import styled from '@emotion/styled';
 
 export const HeaderStyled = styled.header`
-  ${props =>
-    props.className.search(/main-header/g) != -1 &&
-    `
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  `}
+  position: relative;
   ${props =>
     props.className.search(/main-header/g) === -1 &&
     `
     background-color: #0F0000;
   `}
-  
-  z-index: 999;
+
+  z-index: 100;
 `;
 export const HeaderWrapper = styled.div`
   padding: 8px 16px;
@@ -55,6 +48,14 @@ export const HeaderWrapper = styled.div`
       order: 2;
     }
   }
+  ${props =>
+    props.className.search(/main-header/g) != -1 &&
+    `
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+`}
 `;
 export const Logo = styled.div``;
 

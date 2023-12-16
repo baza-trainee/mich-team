@@ -7,11 +7,12 @@ import {
   FormInput,
   FormLabel,
   FormButton,
+  getStyledIcon,
 } from './SubscribeForm.styled';
 
-const SubscribeForm = () => {
+const SubscribeForm = stroke => {
   const [email, setEmail] = useState('');
-
+  const SubArrowIcon = getStyledIcon(MySVG, stroke);
   const handleInputChange = e => {
     setEmail(e.target.value);
   };
@@ -52,7 +53,7 @@ const SubscribeForm = () => {
           required
         />
         <FormButton type="submit">
-          <MySVG />
+          <SubArrowIcon />
         </FormButton>
       </SubForm>
     </FormWrap>

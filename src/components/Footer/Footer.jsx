@@ -42,7 +42,7 @@ const Footer = () => {
             <StyledLink to="/">ПАРТНЕРИ</StyledLink>
           </LinkWrap>
         </FooterCover>
-        <SubscribeForm />
+        <SubscribeForm stroke={'#FEFEFE'} />
         <TextWrap>
           <TextConfid>
             Розробка Baza Trainee Ukraine 2023 @ Усі права захищені
