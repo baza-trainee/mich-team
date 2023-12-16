@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { CheckbBoxDiv, LabelCheck, LinkDocument,RegistForm, RegistInputCheck,RegisterDivInput, RegisterTitle, SpanElem } from "./RegisterForm.styled";
 import DivPasswordComponet from "../DivPasswordComponent/DivPasswordComponent";
 import BtnSign from "../BtnSign/BtnSign";
+import { requestSignUpUser } from "../../services/app";
 
 
 const RegisterForm = () => {
@@ -53,7 +54,16 @@ const RegisterForm = () => {
 
 
         e.target.classList.add('active');
-    }
+
+        const newUserData =  {
+            "password": passwordValue,
+            "is_subscribed": true,
+            "email": emailValue,
+            "re_password": passwordValueCheck
+        }     
+
+        requestSignUpUser(newUserData);
+      }
 
     
 
