@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Error from '../Error/Error';
 import { SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import sticker from '../../images/sticker.jpg';
-import shirt from '../../images/shirt.jpg';
+
 import {
   ProductContainer,
   ProductsList,
@@ -13,55 +13,65 @@ import {
   CustomSwiper,
 } from './ProductList.styled';
 import RedButton from '../RedButton/RedButton';
-
-const data = [
-  {
-    id: 1,
-    title: 'Стікерпак “Mich team”',
-    image1: sticker,
-    image2: sticker,
-    image3: sticker,
-  },
-  {
-    id: 2,
-    title: 'Стікерпак “Mich team”',
-    image1: shirt,
-    image2: shirt,
-    image3: shirt,
-  },
-];
-
-const product = data.map(item => (
-  <ProductItem key={item.id}>
-    <CustomSwiper navigation={true} modules={[Navigation]} className="mySwiper">
-      <SwiperSlide>
-        <ProductImageDiv>
-          <ProductImg src={item.image1} alt={item.title} />
-        </ProductImageDiv>
-      </SwiperSlide>
-      <SwiperSlide>
-        <ProductImageDiv>
-          <ProductImg src={item.image2} alt={item.title} />
-        </ProductImageDiv>
-      </SwiperSlide>
-      <SwiperSlide>
-        <ProductImageDiv>
-          <ProductImg src={item.image3} alt={item.title} />
-        </ProductImageDiv>
-      </SwiperSlide>
-    </CustomSwiper>
-    <ProductText>{item.title}</ProductText>
-    <RedButton text={'обрати'} nav={'merch'} tabWidth={'344px'} />
-  </ProductItem>
-));
+import { getAllProducts } from '../../services/fetch';
 
 const ProductList = () => {
+  const [products, setProducts] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getAllProducts();
+        setProducts(data);
+      } catch (err) {
+        setError(err.message);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
-    <div style={{ backgroundColor: '#FAFAFA' }}>
-      <ProductContainer className="container">
-        <ProductsList>{product}</ProductsList>
-      </ProductContainer>
-    </div>
+    <>
+      {error ? (
+        <Error />
+      ) : (
+        <ProductContainer>
+          <ProductsList>
+            {products.map(product => (
+              <ProductItem key={product.id}>
+                <CustomSwiper
+                  navigation={true}
+                  modules={[Navigation]}
+                  className="mySwiper"
+                >
+                  <SwiperSlide>
+                    <ProductImageDiv>
+                      <ProductImg src={product.image} alt={product.name} />
+                    </ProductImageDiv>
+                  </SwiperSlide>
+
+                  <SwiperSlide>
+                    <ProductImageDiv>
+                      <ProductImg src={product.image} alt={product.name} />
+                    </ProductImageDiv>
+                  </SwiperSlide>
+
+                  <SwiperSlide>
+                    <ProductImageDiv>
+                      <ProductImg src={product.image} alt={product.name} />
+                    </ProductImageDiv>
+                  </SwiperSlide>
+                </CustomSwiper>
+                <ProductText>{product.name}</ProductText>
+                <RedButton text={'обрати'} nav={'merch'} tabWidth={'344px'} />
+              </ProductItem>
+            ))}
+          </ProductsList>
+        </ProductContainer>
+      )}
+    </>
   );
 };
 
