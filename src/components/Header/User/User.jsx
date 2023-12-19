@@ -1,20 +1,32 @@
 import React, { useState } from 'react';
 import { ReactComponent as User } from '../../../icons/user.svg';
-import { UserBtn, UserWrapper, getStyledIcon } from './User.styled';
+import {
+  UserBtn,
+  UserDropdown,
+  UserLink,
+  UserWrapper,
+  getStyledIcon,
+} from './User.styled';
 
 const UserMenu = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
   const StyledUser = getStyledIcon(User);
 
-  const openMenu = () => {
-    setIsOpen(!isOpen);
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
   };
 
   return (
     <UserWrapper className="element">
-      <UserBtn onClick={openMenu}>
+      <UserBtn onClick={toggleDropdown}>
         <StyledUser />
       </UserBtn>
+      {showDropdown && (
+        <UserDropdown>
+          <UserLink>Увійти</UserLink>
+          <UserLink>Зареєструватися</UserLink>
+        </UserDropdown>
+      )}
     </UserWrapper>
   );
 };

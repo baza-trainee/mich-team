@@ -6,6 +6,7 @@ import {
   getStyledIcon,
   Logo,
   HeaderWrapper,
+  LogoWrapper,
 } from './Header.styled';
 import LanguageSwitcher from './LanguageSwitcher/LanguageSwitcher';
 import { Burger, Menu } from './BurgerMenu/BurgerMenu';
@@ -32,7 +33,9 @@ const Header = ({ currentPage }) => {
           backgroundcolorlanghover={'rgba(255, 255, 255, 0.5)'}
         />
         <Logo className="element">
-          <StyledLogo />
+          <LogoWrapper href="/">
+            <StyledLogo />
+          </LogoWrapper>
         </Logo>
         <UserMenu />
         <Cart />
