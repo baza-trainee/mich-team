@@ -15,6 +15,8 @@ import {
 import RedButton from '../RedButton/RedButton';
 import { getAllProducts } from '../../services/fetch';
 
+const defaultImg =
+  'https://lh3.googleusercontent.com/-cXXaVVq8nMM/AAAAAAAAAAI/AAAAAAAAAKI/_Y1WfBiSnRI/photo.jpg?sz=50';
 const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
@@ -48,7 +50,7 @@ const ProductList = () => {
                 >
                   <SwiperSlide>
                     <ProductImageDiv>
-                      <ProductImg src={product.image} alt={product.name} />
+                      <ProductImg src={defaultImg} alt={product.name} />
                     </ProductImageDiv>
                   </SwiperSlide>
 
