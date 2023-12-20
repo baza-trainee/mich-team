@@ -32,25 +32,39 @@ export const UserDropdown = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  min-width: 190px;
   top: 100%;
   right: 0;
   border-radius: 4px;
   background-color: #fdfdfd;
+  font-family: Play;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
 `;
 
 export const UserLink = styled.a`
   display: flex;
+  align-items: center;
   padding: 16px 12px;
+  gap: 8px;
   width: 100%;
+
   color: #0f0000;
   background-color: transparent;
+  white-space: nowrap;
+
   border-bottom: 1px solid #b3b3b3;
   &:last-of-type {
     border-bottom: none;
   }
 `;
 
-export const getStyledIcon = component => styled(component)`
-  width: 24px;
-  height: 24px;
+export const getStyledIcon = (component, width, height, stroke) => styled(
+  component
+)`
+  width: ${width};
+  height: ${height};
+  stroke: ${stroke};
 `;

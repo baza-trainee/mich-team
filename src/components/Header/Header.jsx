@@ -17,6 +17,7 @@ const StyledLogo = getStyledIcon(LogoIcon);
 
 const Header = ({ currentPage }) => {
   const [open, setOpen] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
   const headerClass =
     currentPage === '/'
       ? 'main-header'
@@ -37,7 +38,7 @@ const Header = ({ currentPage }) => {
             <StyledLogo />
           </LogoWrapper>
         </Logo>
-        <UserMenu />
+        <UserMenu loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
         <Cart />
       </HeaderWrapper>
     </HeaderStyled>
