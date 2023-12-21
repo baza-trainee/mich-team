@@ -25,6 +25,7 @@ export const requestSignUpUser = async (newUserData) => {
         console.log(newUserData);
         const config = {
             headers: {
+                'Content-Type': 'application/json',
                 'ngrok-skip-browser-warning': 'hello',
             },
         };
