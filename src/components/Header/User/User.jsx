@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ReactComponent as User } from '../../../icons/user.svg';
 import { ReactComponent as LogOut } from '../../../icons/logout.svg';
 import PropTypes from 'prop-types';
@@ -12,12 +12,29 @@ import {
 
 const UserMenu = ({ loggedIn, setLoggedIn }) => {
   const [showDropdown, setShowDropdown] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const StyledUser = getStyledIcon(User, '24px', '24px', '#FEFEFE');
   const StyledUserProfile = getStyledIcon(User, '16px', '16px', '#0F0000');
   const StyledLogOut = getStyledIcon(LogOut, '16px', '16px', '#0F0000');
 
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const handleUserBtnClick = () => {
+    if (windowWidth < 1440) {
+      window.location.href = '/';
+    } else {
+      setShowDropdown(!showDropdown);
+    }
   };
   const logOut = () => {
     setLoggedIn(false);
@@ -25,7 +42,7 @@ const UserMenu = ({ loggedIn, setLoggedIn }) => {
 
   return (
     <UserWrapper className="element">
-      <UserBtn onClick={toggleDropdown}>
+      <UserBtn onClick={handleUserBtnClick}>
         <StyledUser />
       </UserBtn>
       {showDropdown && (

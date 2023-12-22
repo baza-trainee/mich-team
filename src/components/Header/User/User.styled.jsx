@@ -50,14 +50,20 @@ export const UserLink = styled.a`
   padding: 16px 12px;
   gap: 8px;
   width: 100%;
+  border-radius: 4px 4px 0 0;
 
   color: #0f0000;
   background-color: transparent;
   white-space: nowrap;
+  cursor: pointer;
 
   border-bottom: 1px solid #b3b3b3;
   &:last-of-type {
     border-bottom: none;
+    border-radius: 0 0 4px 4px;
+  }
+  &:hover {
+    background-color: #d9d9d9;
   }
 `;
 
