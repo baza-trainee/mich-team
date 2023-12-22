@@ -25,13 +25,7 @@ export const requestSignUpUser = async (newUserData) => {
         console.log(newUserData);
         const config = {
             headers: {
-<<<<<<< Updated upstream
                 'Content-Type': 'application/x-www-form-urlencoded',
-                // 'Content-Type': 'application/json',
-                // 'ngrok-skip-browser-warning': 'hello',
-=======
-                'ngrok-skip-browser-warning': 'hello',
->>>>>>> Stashed changes
             },
         };
         const { data } = await userInstance.post('/users/', newUserData, config);
