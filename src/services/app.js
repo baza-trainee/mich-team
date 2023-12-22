@@ -25,9 +25,13 @@ export const requestSignUpUser = async (newUserData) => {
         console.log(newUserData);
         const config = {
             headers: {
+<<<<<<< Updated upstream
                 'Content-Type': 'application/x-www-form-urlencoded',
                 // 'Content-Type': 'application/json',
                 // 'ngrok-skip-browser-warning': 'hello',
+=======
+                'ngrok-skip-browser-warning': 'hello',
+>>>>>>> Stashed changes
             },
         };
         const { data } = await userInstance.post('/users/', newUserData, config);
@@ -35,7 +39,7 @@ export const requestSignUpUser = async (newUserData) => {
         console.log(data);
         return data;
     } catch (error) {
-        console.error('Помилка при реєстрації користувача:', error);
+        console.log('Помилка при реєстрації користувача:', error.message);
         throw error; 
     }
 };

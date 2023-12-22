@@ -65,8 +65,14 @@ const RegisterForm = () => {
             "password": passwordValue,
             "is_subscribed": isCheckedSubscribe,
             "email": emailValue,
+<<<<<<< Updated upstream
             "re_password": passwordValueCheck
         }   
+=======
+            "re_password": passwordValueCheck,
+            
+        }     
+>>>>>>> Stashed changes
 
         // console.log(newUserData)
 
