@@ -15,5 +15,4 @@ export const requestSignUpUser = async (newUserData) => {
     console.log(newUserData);
     console.log(data);
     return data;
-};
-
+}
