@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 const userInstance = axios.create({
-  baseURL: 'https://8bc8-78-26-198-240.ngrok-free.app/user_auth/',
+  baseURL: 'https://a021-78-26-198-240.ngrok-free.app/user_auth/',
   
 
 })
@@ -25,8 +25,9 @@ export const requestSignUpUser = async (newUserData) => {
         console.log(newUserData);
         const config = {
             headers: {
-                'Content-Type': 'application/json',
-                'ngrok-skip-browser-warning': 'hello',
+                'Content-Type': 'application/x-www-form-urlencoded',
+                // 'Content-Type': 'application/json',
+                // 'ngrok-skip-browser-warning': 'hello',
             },
         };
         const { data } = await userInstance.post('/users/', newUserData, config);

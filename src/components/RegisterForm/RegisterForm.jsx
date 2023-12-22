@@ -66,11 +66,16 @@ const RegisterForm = () => {
             "is_subscribed": isCheckedSubscribe,
             "email": emailValue,
             "re_password": passwordValueCheck
-        }     
+        }   
 
         // console.log(newUserData)
 
-        requestSignUpUser(newUserData);
+        const formData = new URLSearchParams();
+        for (const key in newUserData) {
+            formData.append(key, newUserData[key]);
+        }
+
+        requestSignUpUser(formData);
       }
 
     
