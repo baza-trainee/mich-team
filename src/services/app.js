@@ -21,6 +21,7 @@ const userInstance = axios.create({
 // };
 
 export const requestSignUpUser = async (newUserData) => {
+
     try {
         console.log(newUserData);
         const config = {
