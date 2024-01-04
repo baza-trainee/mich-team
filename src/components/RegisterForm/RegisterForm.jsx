@@ -4,20 +4,25 @@ import { CheckbBoxDiv, LabelCheck, LinkDocument,RegistForm, RegistInputCheck,Reg
 import DivPasswordComponet from "../DivPasswordComponent/DivPasswordComponent";
 import BtnSign from "../BtnSign/BtnSign";
 import { requestSignUpUser } from "../../services/app";
+import ErorMessageComponent from "../ErorMessageComponent/ErorMessageComponent";
 
 
 const RegisterForm = () => {
     const [password, setPassword] = useState(true);
+    
     const [emailValue, setEmailValue] = useState('');
     const [passwordValue, setPassvordValue] = useState('');
     const [passwordValueCheck, setPassvordValueCheck] = useState('');
+    
     const [trueEmail, setTrueEmail] = useState(true);
     const [truePassword, setTruePassword] = useState(true);
     const [trueCheckPassword, setTrueCheckPassword] = useState(true);
+    
     const [isCheckedRemember, setIsCheckedRemember] = useState(false);
     const [isCheckedSubscribe, setIsCheckedSubscribe] = useState(false);
     const [isCheckedAgree, setIsCheckedAgree] = useState(false);
-
+    
+    const [newUser, setNewUser] = useState(true);
     
 
 
@@ -40,48 +45,53 @@ const RegisterForm = () => {
             alert('емейл не валідний');
             setTrueEmail(false);
             return;
-        } 
+        }
 
         if (!isValidPassword(password)) {
             alert('пароль не валідний');
             setTruePassword(false);
             return;
-        } 
+        }
 
         if (!(password === passwordCheck)) {
             alert('паролі не співпадають');
             setTrueCheckPassword(false);
             return;
-        } 
+        }
 
         setTrueEmail(true);
         setTruePassword(true);
         setTrueCheckPassword(true);
 
 
-        e.target.classList.add('active');
+       
 
-        const newUserData =  {
+        const newUserData = {
             "password": passwordValue,
             "is_subscribed": isCheckedSubscribe,
             "email": emailValue,
             "re_password": passwordValueCheck
 
             
-        }     
+        }       
+        
+        const responseData = requestSignUpUser(newUserData);   
+
+        responseData.then(result => {
+            console.log(result);
+            return result;
+        })
+        .catch(error => {
+            console.log(error)
+            setNewUser(false);
+            e.target.classList.remove('active');
+            return;
+        });
 
 
-        // console.log(newUserData)
+         e.target.classList.add('active');
 
-        const formData = new URLSearchParams();
-        for (const key in newUserData) {
-            formData.append(key, newUserData[key]);
-        }
-
-        requestSignUpUser(formData);
-      }
-
-    
+    }
 
     const handleOnChangeEmail = (value) => {
         setEmailValue(value);
@@ -117,7 +127,9 @@ const RegisterForm = () => {
       <RegistForm action="">
             <RegisterTitle>РЕЄСТРАЦІЯ</RegisterTitle>
 
-            
+            {(newUser)?'':(<ErorMessageComponent/>)}
+
+           
             <DivPasswordComponet
                 className={(trueEmail) ? '' : 'redError'}
                 type="email"
@@ -190,4 +202,4 @@ const RegisterForm = () => {
     )
 };
 
-export default RegisterForm
+    export default RegisterForm;

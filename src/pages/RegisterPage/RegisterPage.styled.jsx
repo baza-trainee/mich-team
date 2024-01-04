@@ -14,12 +14,12 @@ export const RegisterContainer = styled.div`
   
   @media screen and (min-width: 768px) {
     
-    padding: 32px 32px 148px 32px;
+    padding: 32px 32px 64px 32px;
   }
 
   @media screen and (min-width: 1440px) {
 
-    padding: 32px 80px 104px 80px;
+    padding: 32px 80px 86px 80px;
   }
 `;
 
