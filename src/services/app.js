@@ -10,7 +10,7 @@ const userInstance = axios.create({
 
 
 // export const setToken = (token) => {
-//     contactsInstance.defaults.headers.common.Authorization = `Bearer ${token}`
+//     userInstance.defaults.headers.common.Authorization = `Bearer ${token}`
 // }
 
 // export const requestSignUpUser = async (newUserData) => {
