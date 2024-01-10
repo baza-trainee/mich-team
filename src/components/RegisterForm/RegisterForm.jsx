@@ -82,7 +82,7 @@ const RegisterForm = () => {
             return result;
         })
         .catch(error => {
-            console.log(error)
+            console.log(error.response.data.email)
             setNewUser(false);
             e.target.classList.remove('active');
             return;

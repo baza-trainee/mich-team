@@ -3,6 +3,7 @@ import BtnSingInFacebook from '../../components/ButtonsSingIn/BtnSingInFacebook'
 import BtnSingInGoogle from '../../components/ButtonsSingIn/BtnSingInGoogle';
 import NavLinkComponent from '../../components/NavLinkComponent/NavLinkComponent';
 import RegisterForm from '../../components/RegisterForm/RegisterForm';
+import RegisterModalWindComponent from '../../components/RegisterModalWindComponent/RegisterModalWindComponent';
 
 import {
   DivSignIn,
@@ -63,7 +64,10 @@ const RegisterPage = () => {
         <RegistQuestion>Вже маєте аккаунт?</RegistQuestion>
         <LinkSignIn to="/signin">Увійти!</LinkSignIn>
       </DivSignIn>
+
+      <RegisterModalWindComponent/>
     </RegisterContainer>
+    
   );
 };
 
