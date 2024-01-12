@@ -18,6 +18,8 @@ import React, { useEffect, useState }  from 'react';
 const RegisterPage = () => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
+  let openWindow = false;
+
   useEffect(() => {
     const handleResize = () => {
       setScreenWidth(window.innerWidth);
@@ -29,7 +31,6 @@ const RegisterPage = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
 
 
   return (
@@ -65,7 +66,7 @@ const RegisterPage = () => {
         <LinkSignIn to="/signin">Увійти!</LinkSignIn>
       </DivSignIn>
 
-      <RegisterModalWindComponent/>
+      {(openWindow)? (<RegisterModalWindComponent/>):""}
     </RegisterContainer>
     
   );

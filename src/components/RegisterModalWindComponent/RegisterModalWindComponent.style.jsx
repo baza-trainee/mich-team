@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import { NavLink } from "react-router-dom";
+import { ReactSVG } from "react-svg";
 
 export const RegisterModalWind = styled.div`
     position: fixed;
@@ -11,7 +13,8 @@ export const RegisterModalWind = styled.div`
 `
 
 export const RegisterModalContent = styled.div`
-    background-color: #fff;
+    position:relative;
+    background-color: #FAFAFA;
     margin: 178px auto;
     padding: 32px 24px;
     border-radius: 4px;
@@ -20,13 +23,35 @@ export const RegisterModalContent = styled.div`
 
 `
 
-export const CloseBtn = styled.button`
+export const ButtonLink = styled(NavLink)`
+  position: absolute;  
+  top: 12px;
+  right: 12px;
+  display: block;
+  padding: 6px;
+  background-color: #FAFAFA;
+  width: fit-content;
+  margin-left: auto;
+  
+`
 
+export const CloseBtn = styled(ReactSVG)`
+  width:24px;
+  height: 24px;
+
+  path:nth-of-type(1),
+  path:nth-of-type(2),
+  path:nth-of-type(3){
+        stroke: black;
+      } 
+  
 `
 
 export const EmailIcon = styled.img`
-    width:24px;
-    heigth: 24px;
+    display: block;
+    margin: 0 auto;
+    width:40px;
+    height: 40px;
     margin-bottom: 16px;
 `
 
