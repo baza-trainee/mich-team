@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { useNavigate } from 'react-router-dom';
+
 import { CheckbBoxDiv, LabelCheck, LinkDocument,RegistForm, RegistInputCheck,RegisterDivInput, RegisterTitle, SpanElem } from "./RegisterForm.styled";
 import DivPasswordComponet from "../DivPasswordComponent/DivPasswordComponent";
 import BtnSign from "../BtnSign/BtnSign";
@@ -24,7 +26,7 @@ const RegisterForm = () => {
     
     const [newUser, setNewUser] = useState(true);
     
-
+    const history = useNavigate();
 
 
 
@@ -79,10 +81,13 @@ const RegisterForm = () => {
 
         responseData.then(result => {
             console.log(result);
+            localStorage.setItem("showModal",true)
+            history('/');
+           
             return result;
         })
         .catch(error => {
-            console.log(error.response.data.email)
+            console.log(error)
             setNewUser(false);
             e.target.classList.remove('active');
             return;
@@ -195,8 +200,7 @@ const RegisterForm = () => {
                 onClick={(e) => handleOnClick(e, emailValue,passwordValue,passwordValueCheck)}
                 title='ЗАРЕЄСТРУВАТИСЯ'
             />
-            
-        
+                        
         </RegistForm>
         
     )

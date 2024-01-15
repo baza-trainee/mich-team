@@ -3,7 +3,6 @@ import BtnSingInFacebook from '../../components/ButtonsSingIn/BtnSingInFacebook'
 import BtnSingInGoogle from '../../components/ButtonsSingIn/BtnSingInGoogle';
 import NavLinkComponent from '../../components/NavLinkComponent/NavLinkComponent';
 import RegisterForm from '../../components/RegisterForm/RegisterForm';
-import RegisterModalWindComponent from '../../components/RegisterModalWindComponent/RegisterModalWindComponent';
 
 import {
   DivSignIn,
@@ -17,8 +16,6 @@ import React, { useEffect, useState }  from 'react';
 
 const RegisterPage = () => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-
-  let openWindow = false;
 
   useEffect(() => {
     const handleResize = () => {
@@ -66,7 +63,7 @@ const RegisterPage = () => {
         <LinkSignIn to="/signin">Увійти!</LinkSignIn>
       </DivSignIn>
 
-      {(openWindow)? (<RegisterModalWindComponent/>):""}
+      
     </RegisterContainer>
     
   );

@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { NavLink } from "react-router-dom";
 import { ReactSVG } from "react-svg";
 
 export const RegisterModalWind = styled.div`
@@ -23,7 +22,7 @@ export const RegisterModalContent = styled.div`
 
 `
 
-export const ButtonLink = styled(NavLink)`
+export const ButtonLink = styled.button`
   position: absolute;  
   top: 12px;
   right: 12px;
