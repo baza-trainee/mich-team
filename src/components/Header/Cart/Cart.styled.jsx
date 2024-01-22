@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const CartWrapper = styled.div`
+export const CartBtnWrapper = styled.div`
   position: relative;
   color: #fefefe;
   display: flex;
@@ -30,6 +30,39 @@ export const CartBtn = styled.button`
   line-height: normal;
   background-color: transparent;
   justify-self: center;
+`;
+
+export const StyledCart = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 200;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 16px;
+  visibility: ${({ open }) => (open ? 'hidden' : 'visible')};
+
+  background: #fdfdfd;
+  color: #0f0000;
+
+  height: 100vh;
+  width: 310px;
+
+  transform: ${({ open }) => (open ? 'translateX(100%)' : 'translateX(0)')};
+  overflow: hidden;
+  transition:
+    transform 0.4s ease-in-out,
+    display 0.4s ease-in-out;
+
+  @media screen and (min-width: 768px) {
+    padding: 16px 24px;
+    width: 355px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 390px;
+    padding: 16px 32px;
+  }
 `;
 
 export const getStyledIcon = component => styled(component)`
