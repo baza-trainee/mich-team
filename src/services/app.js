@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 const userInstance = axios.create({
-  baseURL: 'https://a021-78-26-198-240.ngrok-free.app/user_auth/',
+  baseURL: 'https://9b5d-78-26-198-240.ngrok-free.app/user_auth/',
   
 
 })

@@ -12,8 +12,6 @@ import UserContext from '../../UserData/UserContext';
 const RegisterForm = () => {
     const userData = useContext(UserContext);
 
-    console.log(userData.UserData)
-
     const [password, setPassword] = useState(true);
     
     const [emailValue, setEmailValue] = useState('');
@@ -67,10 +65,7 @@ const RegisterForm = () => {
 
         setTrueEmail(true);
         setTruePassword(true);
-        setTrueCheckPassword(true);
-
-
-       
+        setTrueCheckPassword(true);     
 
         const newUserData = {
             "password": passwordValue,
@@ -79,13 +74,15 @@ const RegisterForm = () => {
             "re_password": passwordValueCheck,            
         }
 
-        userData.UserData.setUserEmail(emailValue);
-        userData.UserData.setUserPassword(passwordValue);
+        
         
         const responseData = requestSignUpUser(newUserData);   
 
         responseData.then(result => {
-            localStorage.setItem("showModal",true)
+            localStorage.setItem("showModal", true)
+            userData.UserData.setUserEmail(emailValue);
+            userData.UserData.setUserPassword(passwordValue);
+    
             history('/');
            
             return result;

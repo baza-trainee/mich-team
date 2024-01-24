@@ -1,14 +1,17 @@
-import React, {  useEffect, useState } from 'react';
+import React, {  useContext, useEffect, useState } from 'react';
 import ProductList from '../../components/ProductList/ProductList';
 import Hero from '../../components/Hero/Hero';
 
 import RegisterModalWindComponent from '../../components/RegisterModalWindComponent/RegisterModalWindComponent';
-
+import UserContext from '../../UserData/UserContext';
 
 
 
 
 const MainPage = () => {
+  const userData = useContext(UserContext);
+
+  console.log(userData);
 
   const [showModal, setShowModal] = useState(false);
   
