@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import { useNavigate } from 'react-router-dom';
 
 import { CheckbBoxDiv, LabelCheck, LinkDocument,RegistForm, RegistInputCheck,RegisterDivInput, RegisterTitle, SpanElem } from "./RegisterForm.styled";
 import DivPasswordComponet from "../DivPasswordComponent/DivPasswordComponent";
 import BtnSign from "../BtnSign/BtnSign";
-import { requestSignUpUser } from "../../services/app";
+import { requestSignUpUser} from "../../services/app";
 import ErorMessageComponent from "../ErorMessageComponent/ErorMessageComponent";
-
+import UserContext from '../../UserData/UserContext';
 
 const RegisterForm = () => {
+    const userData = useContext(UserContext);
+
+    console.log(userData.UserData)
+
     const [password, setPassword] = useState(true);
     
     const [emailValue, setEmailValue] = useState('');
@@ -72,15 +76,15 @@ const RegisterForm = () => {
             "password": passwordValue,
             "is_subscribed": isCheckedSubscribe,
             "email": emailValue,
-            "re_password": passwordValueCheck
+            "re_password": passwordValueCheck,            
+        }
 
-            
-        }       
+        userData.UserData.setUserEmail(emailValue);
+        userData.UserData.setUserPassword(passwordValue);
         
         const responseData = requestSignUpUser(newUserData);   
 
         responseData.then(result => {
-            console.log(result);
             localStorage.setItem("showModal",true)
             history('/');
            
@@ -92,6 +96,8 @@ const RegisterForm = () => {
             e.target.classList.remove('active');
             return;
         });
+
+        
 
 
          e.target.classList.add('active');
