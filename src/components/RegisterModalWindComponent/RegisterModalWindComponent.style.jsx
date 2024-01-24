@@ -69,6 +69,7 @@ export const MessageTitle = styled.h2`
 export const MessageOfemail = styled.p`
     color: #0F0000;
     text-align: center;
+    margin-bottom: 24px;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.2;
@@ -85,12 +86,12 @@ position: relative;
   color: var(--Wtite, #fdfdfd);
   text-align: center;
   font-size: 18px;
-  font-style: normal;
   font-weight: 700;
   line-height: 120%;
   text-transform: uppercase;
-  width: 328px;
+  max-width: 286 px;
   height: 50px;
+  margin: 0 auto;
   padding: 12px 36px;
   border-color: #d91f2d;
   border-radius: 4px;
@@ -120,15 +121,5 @@ position: relative;
     }
   }
 
-  @media screen and (min-width: 768px) {
-    width: ${props => props.tabWidth};
-    height: 60px;
-  }
-  @media screen and (min-width: 1440px) {
-    width: 520px;
-    height: 60px;
-    padding: 16px 36px;
-    font-size: 22px;
-    line-height: 140%;
-  }
+  
 `

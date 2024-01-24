@@ -21,5 +21,7 @@ export const CloseBtn = styled(ReactSVG)`
   path:nth-of-type(3){
         stroke: black;
       } 
+
+      
   
 `
