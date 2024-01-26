@@ -5,10 +5,13 @@ import smsTracking from '../../icons/sms-tracking.svg';
 import closeBtn from '../../icons/close.svg';
 import checkIcon from '../../icons/checkIcon.svg'
 import { useNavigate } from "react-router-dom";
+import { requestLoginUser } from "../../services/user-autor-app";
+import UserContext from '../../UserData/UserContext';
+import { useContext } from "react";
 
 
 const RegisterModalWindComponent = ({ onChange, isActive }) => {
-    
+    const userData = useContext(UserContext);
     const history = useNavigate();
     
     const handleCloseModal = () => {
@@ -21,7 +24,25 @@ const RegisterModalWindComponent = ({ onChange, isActive }) => {
     const handleOnClick = () => {
         const openWindow = false;
         onChange(openWindow);
-        history('/');
+        const newUserData = {
+            email: userData.UserData.userEmail,
+            password: userData.UserData.userPassword
+        }
+
+        const responseData = requestLoginUser(newUserData);            
+        responseData.then(result => {        
+    
+            history('/');
+           
+            return result;
+        })
+        .catch(error => {
+            console.log(error)
+            
+           
+            return;
+        });
+
     }
 
     return <RegisterModalWind>

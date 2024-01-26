@@ -9,9 +9,9 @@ const userInstance = axios.create({
 })
 
 
-// export const setToken = (token) => {
-//     userInstance.defaults.headers.common.Authorization = `Bearer ${token}`
-// }
+export const setToken = (token) => {
+    userInstance.defaults.headers.common.Authorization = `Bearer ${token}`
+}
 
 
 
@@ -28,5 +28,21 @@ export const requestSignUpUser = async (newUserData) => {
         return data;
     
 };
+
+export const requestLoginUser = async (newUserData) => {
+
+    
+        const config = {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+        };
+        const { data } = await userInstance.post('/token/login/', newUserData, config);
+        setToken(data.auth_token);
+        return data;
+    
+};
+
+
 
 

@@ -5,9 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import { CheckbBoxDiv, LabelCheck, LinkDocument,RegistForm, RegistInputCheck,RegisterDivInput, RegisterTitle, SpanElem } from "./RegisterForm.styled";
 import DivPasswordComponet from "../DivPasswordComponent/DivPasswordComponent";
 import BtnSign from "../BtnSign/BtnSign";
-import { requestSignUpUser} from "../../services/app";
 import ErorMessageComponent from "../ErorMessageComponent/ErorMessageComponent";
 import UserContext from '../../UserData/UserContext';
+import { requestSignUpUser } from "../../services/user-autor-app";
 
 const RegisterForm = () => {
     const userData = useContext(UserContext);
