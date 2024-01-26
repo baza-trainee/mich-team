@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import { useNavigate } from 'react-router-dom';
 
 import { CheckbBoxDiv, LabelCheck, LinkDocument,RegistForm, RegistInputCheck,RegisterDivInput, RegisterTitle, SpanElem } from "./RegisterForm.styled";
 import DivPasswordComponet from "../DivPasswordComponent/DivPasswordComponent";
 import BtnSign from "../BtnSign/BtnSign";
-import { requestSignUpUser } from "../../services/app";
 import ErorMessageComponent from "../ErorMessageComponent/ErorMessageComponent";
-
+import UserContext from '../../UserData/UserContext';
+import { requestSignUpUser } from "../../services/user-autor-app";
 
 const RegisterForm = () => {
+    const userData = useContext(UserContext);
+
     const [password, setPassword] = useState(true);
     
     const [emailValue, setEmailValue] = useState('');
@@ -63,25 +65,24 @@ const RegisterForm = () => {
 
         setTrueEmail(true);
         setTruePassword(true);
-        setTrueCheckPassword(true);
-
-
-       
+        setTrueCheckPassword(true);     
 
         const newUserData = {
             "password": passwordValue,
             "is_subscribed": isCheckedSubscribe,
             "email": emailValue,
-            "re_password": passwordValueCheck
+            "re_password": passwordValueCheck,            
+        }
 
-            
-        }       
+        
         
         const responseData = requestSignUpUser(newUserData);   
 
         responseData.then(result => {
-            console.log(result);
-            localStorage.setItem("showModal",true)
+            localStorage.setItem("showModal", true)
+            userData.UserData.setUserEmail(emailValue);
+            userData.UserData.setUserPassword(passwordValue);
+    
             history('/');
            
             return result;
@@ -92,6 +93,8 @@ const RegisterForm = () => {
             e.target.classList.remove('active');
             return;
         });
+
+        
 
 
          e.target.classList.add('active');

@@ -8,7 +8,7 @@ export const RegisterContainer = styled.div`
   min-width: 360px;
   width:100%;
   max-width: 1440px;
-  padding: 16px 16px 60px 16px;
+  padding: 22px 16px 60px 16px;
   color: #110003;
   font-family: Play;
   
