@@ -30,7 +30,6 @@ const RegisterPage = () => {
   }, []);
 
 
-
   return (
     <RegisterContainer className="container">
 
@@ -63,7 +62,10 @@ const RegisterPage = () => {
         <RegistQuestion>Вже маєте аккаунт?</RegistQuestion>
         <LinkSignIn to="/signin">Увійти!</LinkSignIn>
       </DivSignIn>
+
+      
     </RegisterContainer>
+    
   );
 };
 
