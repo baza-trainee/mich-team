@@ -19,6 +19,8 @@ const Header = ({ currentPage }) => {
   const [openMenu, setOpenMenu] = useState(false);
   const [openCart, setOpenCart] = useState(false);
   const [loggedIn, setLoggedIn] = useState(true);
+  const [cartItems, setCartItems] = useState({});
+
   useEffect(() => {
     if (openMenu || openCart) {
       document.body.style.overflow = 'hidden';
@@ -26,12 +28,52 @@ const Header = ({ currentPage }) => {
       document.body.style.overflow = '';
     }
   }, [openMenu, openCart]);
+
+  useEffect(() => {
+    /* getCartItems()
+      .then(res => {
+        console.log(res);
+        setCartItems(res);
+      })
+      .catch(err => console.error(err)); */
+    setCartItems({
+      cart_items: [
+        {
+          id: 18,
+          product: {
+            id: 1,
+            name: 'fdsa',
+            name_en: 'sdaf',
+            images: [
+              {
+                image:
+                  '/product_photos/product_photos/pexels-ketut-subiyanto-4308205.jpg',
+              },
+              {
+                image:
+                  '/product_photos/product_photos/pexels-ketut-subiyanto-4308205_3hWS5AT.jpg',
+              },
+            ],
+          },
+          session_id: 'jlyws6o7d0sw0wttxqfnv5hpi4z43zx3',
+          size: 'NS',
+          quantity: 1,
+          is_active: true,
+          user: null,
+          order: null,
+        },
+      ],
+      total_items: 1,
+    });
+  }, []);
+
   const headerClass =
     currentPage === '/'
       ? 'main-header'
       : currentPage === '/merch'
         ? 'product-header'
         : '';
+
   return (
     <HeaderStyled className={`${headerClass}`}>
       <Menu open={openMenu} setOpen={setOpenMenu} currentPage={currentPage} />
@@ -39,6 +81,7 @@ const Header = ({ currentPage }) => {
         open={openCart}
         setOpen={setOpenCart}
         currentPage={currentPage}
+        cartItems={cartItems}
       />
       <HeaderWrapper className={`${headerClass}`}>
         <Burger open={openMenu} setOpen={setOpenMenu} />
@@ -52,7 +95,11 @@ const Header = ({ currentPage }) => {
           </LogoWrapper>
         </Logo>
         <UserMenu loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-        <CartButton open={openCart} setOpen={setOpenCart} />
+        <CartButton
+          open={openCart}
+          setOpen={setOpenCart}
+          cartItems={cartItems}
+        />
       </HeaderWrapper>
     </HeaderStyled>
   );
