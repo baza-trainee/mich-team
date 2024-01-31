@@ -228,3 +228,19 @@ ul {
     stroke: var(--Main-red, #d91f2d);
   }
 
+.notiflix-notify-failure{
+
+  width: 280px;
+  position: left-bottom;
+  opacity: 1;
+  border-radius: 5px;
+
+  border-color: #d91f2d;
+  z-index: 4001;
+  
+  background: #fdfdfd;
+  color: #110003;
+  
+  
+  
+};
