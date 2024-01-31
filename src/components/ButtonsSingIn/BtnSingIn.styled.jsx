@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const SingInGoogle = styled.button`
+export const SingInGoogle = styled.a`
   color: #110003;
   border: 1px solid #b3b3b3;
 

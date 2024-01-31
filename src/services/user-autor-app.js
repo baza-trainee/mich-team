@@ -29,7 +29,7 @@ export const requestSignUpUser = async (newUserData) => {
     
 };
 
-export const requestLoginUser = async (newUserData) => {
+export const requestLoginUser = async (UserData) => {
 
     
         const config = {
@@ -37,7 +37,7 @@ export const requestLoginUser = async (newUserData) => {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
         };
-        const { data } = await userInstance.post('/token/login/', newUserData, config);
+        const { data } = await userInstance.post('/token/login/', UserData, config);
         setToken(data.auth_token);
         return data;
     

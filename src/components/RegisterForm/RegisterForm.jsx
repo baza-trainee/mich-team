@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useNavigate } from 'react-router-dom';
 
 import { CheckbBoxDiv, LabelCheck, LinkDocument,RegistForm, RegistInputCheck,RegisterDivInput, RegisterTitle, SpanElem } from "./RegisterForm.styled";
@@ -46,19 +46,19 @@ const RegisterForm = () => {
     const handleOnClick = (e, email, password, passwordCheck) => {
         e.preventDefault();
         if (!isValidEmail(email)) {
-            alert('емейл не валідний');
+            Notify.failure('Емейл не валідний');
             setTrueEmail(false);
             return;
         }
 
         if (!isValidPassword(password)) {
-            alert('пароль не валідний');
+            Notify.failure('Пароль не валідний');
             setTruePassword(false);
             return;
         }
 
         if (!(password === passwordCheck)) {
-            alert('паролі не співпадають');
+            Notify.failure('Паролі не співпадають');
             setTrueCheckPassword(false);
             return;
         }
@@ -135,7 +135,11 @@ const RegisterForm = () => {
       <RegistForm action="">
             <RegisterTitle>РЕЄСТРАЦІЯ</RegisterTitle>
 
-            {(newUser)?'':(<ErorMessageComponent/>)}
+            {(newUser) ? '' :
+             (<ErorMessageComponent
+                  message = "Вибачте, але ця електронна адреса вже зареєстрована в нашій системі."
+             />)
+             }
 
            
             <DivPasswordComponet

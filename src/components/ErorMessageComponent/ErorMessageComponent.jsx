@@ -1,12 +1,18 @@
 import React from "react";
 import errorSvg from '../../icons/info-circle.svg';
 import { ErorMessageDiv, ErrorIcon, ErrorMessage } from "./ErorMessageComponent.styled";
+import PropTypes from 'prop-types';
 
-const ErorMessageComponent = () => {
+const ErorMessageComponent = ({message}) => {
     return <ErorMessageDiv>
         <ErrorIcon src={errorSvg} />
-        <ErrorMessage>Вибачте, але ця електронна адреса вже зареєстрована в нашій системі. </ErrorMessage>
+        <ErrorMessage>{ message}</ErrorMessage>
    </ErorMessageDiv>
 }
+
+ErorMessageComponent.propTypes = {
+    message: PropTypes.string.isRequired,
+    
+};
 
 export default ErorMessageComponent;

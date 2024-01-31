@@ -7,7 +7,7 @@ const MainPage = React.lazy(() => import('./pages/MainPage/MainPage.jsx'));
 const RegisterPage = React.lazy(
   () => import('./pages/RegisterPage/RegisterPage')
 );
-const LoginPage = React.lazy(() => import('./pages/LoginPage/LoginPage'));
+const LoginPage = React.lazy(() => import('./pages/RegisterPage/LoginPage'));
 const ProductCard = React.lazy(() => import('./pages/ProductPage'));
 const Cart = React.lazy(() => import('./pages/CartPage/CartPage'));
 const Error = React.lazy(() => import('./pages/ErrorPage/ErrorPage.jsx'));
