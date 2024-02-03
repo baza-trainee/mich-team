@@ -15,9 +15,9 @@ export const GOOGLE_TOKEN_URI = 'https://accounts.google.com/o/oauth2/token';
 // Посилання на отримання інформації про користувача
 export const GOOGLE_USER_INFO_URI = 'https://www.googleapis.com/oauth2/v1/userinfo';
 
-const Google_Oauth_Register = 'https://9b5d-78-26-198-240.ngrok-free.app/signup'
-const Google_Oauth_Secret = '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'
-const Google_Oauth_ID = '267639891769-ndd2sf4pigkmtr30cjff5eq0oc03qgvq.apps.googleusercontent.com'
+const Google_Oauth_Register = 'https://mich-team2.onrender.com/'
+const Google_Oauth_Secret = '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'
+const Google_Oauth_ID = '267639891769-tire7v795b0rkldg3oqtol8u4qlb3dqn.apps.googleusercontent.com'
 
 const parametersURL = {
     redirect_uri: Google_Oauth_Register,
