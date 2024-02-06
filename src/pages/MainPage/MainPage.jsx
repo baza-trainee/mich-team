@@ -3,6 +3,7 @@ import ProductList from '../../components/ProductList/ProductList';
 import Hero from '../../components/Hero/Hero';
 import RegisterModalWindComponent from '../../components/RegisterModalWindComponent/RegisterModalWindComponent';
 import UserContext from '../../UserData/UserContext';
+import { requestGoogleDataUser } from '../../services/google-auth';
 
 
 
@@ -39,6 +40,15 @@ const MainPage = () => {
    const handleOpenModal = (openModal) => {
     setShowModal(openModal);
   }
+
+  const code = new URLSearchParams(window.location.search).get('code');
+  
+console.log(code)
+
+  if (code) {
+    requestGoogleDataUser();
+  }
+
   return (
     <div>
       <Hero />
