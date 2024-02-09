@@ -50,6 +50,7 @@ export const requestGoogleDataUser = async () => {
                 'Authorization': `Bearer ${token}`,
             },
     };
+    console.log(token)
     
     const { data: userData } = await axios.get(GOOGLE_USER_INFO_URI, config);
 
