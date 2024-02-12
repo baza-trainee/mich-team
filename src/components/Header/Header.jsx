@@ -43,27 +43,47 @@ const Header = ({ currentPage }) => {
           product: {
             id: 1,
             name: 'fdsa',
-            name_en: 'sdaf',
+            name_en: 'fdsaf',
+            price: '12.00',
+            price_en: '231.00',
             images: [
               {
                 image:
-                  '/product_photos/product_photos/pexels-ketut-subiyanto-4308205.jpg',
-              },
-              {
-                image:
-                  '/product_photos/product_photos/pexels-ketut-subiyanto-4308205_3hWS5AT.jpg',
+                  '/product_photos/product_photos/photo_2022-09-09_11-01-08.jpg',
               },
             ],
           },
-          session_id: 'jlyws6o7d0sw0wttxqfnv5hpi4z43zx3',
+          session_id: 'ry8hrz36e64601refh5c4dkkrnz9g9b8',
           size: 'NS',
-          quantity: 1,
+          quantity: 3,
+          is_active: true,
+          user: null,
+          order: null,
+        },
+        {
+          id: 19,
+          product: {
+            id: 2,
+            name: 'sfdfsd',
+            name_en: 'vsa',
+            price: '2.00',
+            price_en: '2424.00',
+            images: [
+              {
+                image:
+                  '/product_photos/product_photos/photo_2023-07-07_21-28-59.jpg',
+              },
+            ],
+          },
+          session_id: 'ry8hrz36e64601refh5c4dkkrnz9g9b8',
+          size: 'NS',
+          quantity: 3,
           is_active: true,
           user: null,
           order: null,
         },
       ],
-      total_items: 1,
+      total_items: 6,
     });
   }, []);
 
