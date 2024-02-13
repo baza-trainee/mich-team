@@ -6,6 +6,12 @@ const GOOGLE_SCOPES = [
     'https://www.googleapis.com/auth/userinfo.profile' // доступ до інформації профілю
 ];
 
+const userInstance = axios.create({
+  baseURL: 'https://mich-team2.onrender.com/user_auth/',
+  
+
+})
+
 // Посилання на аутентифікацію
 const GOOGLE_AUTH_URI = 'https://accounts.google.com/o/oauth2/auth';
 
@@ -16,8 +22,8 @@ export const GOOGLE_TOKEN_URI = 'https://accounts.google.com/o/oauth2/token';
 export const GOOGLE_USER_INFO_URI = 'https://www.googleapis.com/oauth2/v1/userinfo';
 
 const Google_Oauth_Redirect = 'http://localhost:3000/'
-const Google_Oauth_Secret = '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'
-const Google_Oauth_ID = '267639891769-tire7v795b0rkldg3oqtol8u4qlb3dqn.apps.googleusercontent.com'
+const Google_Oauth_Secret = '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'
+const Google_Oauth_ID = '267639891769-ug65o8bh83iq1k2av1fnknrpvk7gn4tn.apps.googleusercontent.com'
 
 const parametersURL = {
     redirect_uri: Google_Oauth_Redirect,
@@ -59,3 +65,7 @@ export const requestGoogleDataUser = async () => {
 };
 
 
+export const contWithG = async () => {
+    const res = await userInstance.get('/o/google-oauth2/&redirect_uri=http://localhost:3000/')
+    window.location.replace(res.data.authorization_url)
+}

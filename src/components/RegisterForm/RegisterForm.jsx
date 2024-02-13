@@ -26,6 +26,7 @@ const RegisterForm = () => {
     const [isCheckedSubscribe, setIsCheckedSubscribe] = useState(false);
     const [isCheckedAgree, setIsCheckedAgree] = useState(false);
     
+    const [isAgree, setIsAgree] = useState(true);
     const [newUser, setNewUser] = useState(true);
     
     const history = useNavigate();
@@ -34,7 +35,7 @@ const RegisterForm = () => {
 
     function isValidEmail(email) {
   
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         return emailRegex.test(email);
     }
 
@@ -62,6 +63,12 @@ const RegisterForm = () => {
             setTrueCheckPassword(false);
             return;
         }
+
+        if (!isCheckedAgree) {
+            setIsAgree(false);
+            return;
+        }
+
 
         setTrueEmail(true);
         setTruePassword(true);
@@ -127,6 +134,7 @@ const RegisterForm = () => {
 
     const handleCheckboxChangedAgree = () => {
         setIsCheckedAgree(!isCheckedAgree);
+        setIsAgree(!isAgree);
     };
 
 
@@ -138,6 +146,12 @@ const RegisterForm = () => {
             {(newUser) ? '' :
              (<ErorMessageComponent
                   message = "Вибачте, але ця електронна адреса вже зареєстрована в нашій системі."
+             />)
+            }
+            
+            {(isAgree) ? '': 
+             (<ErorMessageComponent
+                  message = "Вибачте, але Ви не погодились з Політикою конфіденційності та Правилами користування сайтом"
              />)
              }
 
@@ -192,7 +206,7 @@ const RegisterForm = () => {
                     /> 
                     <LabelCheck htmlFor="subckribe">Так, я хочу підписатися на розсилку та отримувати інформацію про оновлення </LabelCheck>
                 </RegisterDivInput>
-                <RegisterDivInput>
+                <RegisterDivInput  className={(isAgree) ? '' : 'redError'}>
                     <RegistInputCheck
                         type="checkbox"
                         id="agrre"
