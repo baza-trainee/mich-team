@@ -66,6 +66,6 @@ export const requestGoogleDataUser = async () => {
 
 
 export const contWithG = async () => {
-    const res = await userInstance.get('/o/google-oauth2/&redirect_uri=http://localhost:3000/')
+    const res = await userInstance.get('/o/google-oauth2/&redirect_uri=http://localhost:3000')
     window.location.replace(res.data.authorization_url)
 }
