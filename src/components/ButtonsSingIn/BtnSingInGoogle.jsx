@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { SingInGoogle } from './BtnSingIn.styled';
 import google from '../../icons/google.svg';
+import { uri } from '../../services/google-auth';
 
 
 const BtnSingInGoogle = () => {
@@ -20,12 +21,12 @@ const BtnSingInGoogle = () => {
   }, []);
 
   return screenWidth < 768 ? (
-    <SingInGoogle>
+    <SingInGoogle href={uri}>
       <img src={google} alt="google"></img>
       Увійти з Google
     </SingInGoogle>
   ) : (
-    <SingInGoogle>
+    <SingInGoogle href={uri}>
     <img src={google} alt="google"></img>
     Увійти за допомогою Google
   </SingInGoogle>

@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 const userInstance = axios.create({
-  baseURL: 'https://9b5d-78-26-198-240.ngrok-free.app/user_auth/',
+  baseURL: 'https://mich-team2.onrender.com/user_auth/',
   
 
 })
@@ -29,7 +29,7 @@ export const requestSignUpUser = async (newUserData) => {
     
 };
 
-export const requestLoginUser = async (newUserData) => {
+export const requestLoginUser = async (UserData) => {
 
     
         const config = {
@@ -37,7 +37,7 @@ export const requestLoginUser = async (newUserData) => {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
         };
-        const { data } = await userInstance.post('/token/login/', newUserData, config);
+        const { data } = await userInstance.post('/token/login/', UserData, config);
         setToken(data.auth_token);
         return data;
     

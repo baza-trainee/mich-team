@@ -123,6 +123,22 @@ export const CheckbBoxDiv = styled.div`
     
 `
 
+export const CheckbBoxDivRememb = styled.div`
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 44px;
+    &:last-child{
+       margin-bottom: 0px; 
+    }
+    @media screen and (min-width: 768px) {
+        
+       margin-bottom: 24px; 
+       
+    }
+    
+`
+
 export const RegisterDivInput = styled.div`
     display: flex;
     gap: 16px;
@@ -169,5 +185,12 @@ export const SpanElem = styled.span`
     color:#CA040F;
 `
 
-
+export const LinkRememb = styled(NavLink)`
+    padding: 0 34px;
+    font-size: 16px;
+    color: #110003;
+  
+    font-weight: 700;
+    line-height: 1.2%;
+`
 
