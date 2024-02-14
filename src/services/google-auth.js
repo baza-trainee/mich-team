@@ -6,6 +6,12 @@ const GOOGLE_SCOPES = [
     'https://www.googleapis.com/auth/userinfo.profile' // доступ до інформації профілю
 ];
 
+const userInstance = axios.create({
+  baseURL: 'https://mich-team2.onrender.com/user_auth/',
+  
+
+})
+
 // Посилання на аутентифікацію
 const GOOGLE_AUTH_URI = 'https://accounts.google.com/o/oauth2/auth';
 
@@ -15,12 +21,12 @@ export const GOOGLE_TOKEN_URI = 'https://accounts.google.com/o/oauth2/token';
 // Посилання на отримання інформації про користувача
 export const GOOGLE_USER_INFO_URI = 'https://www.googleapis.com/oauth2/v1/userinfo';
 
-const Google_Oauth_Register = 'https://mich-team2.onrender.com/'
-const Google_Oauth_Secret = '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'
-const Google_Oauth_ID = '267639891769-tire7v795b0rkldg3oqtol8u4qlb3dqn.apps.googleusercontent.com'
+const Google_Oauth_Redirect = 'http://localhost:3000/'
+const Google_Oauth_Secret = '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'
+const Google_Oauth_ID = '267639891769-ug65o8bh83iq1k2av1fnknrpvk7gn4tn.apps.googleusercontent.com'
 
 const parametersURL = {
-    redirect_uri: Google_Oauth_Register,
+    redirect_uri: Google_Oauth_Redirect,
     response_type: 'code',
     client_id: Google_Oauth_ID,
     scope: GOOGLE_SCOPES.join(' ')
@@ -32,15 +38,34 @@ export const uri = `${GOOGLE_AUTH_URI}?${new URLSearchParams(parametersURL).toSt
 const parametersUSER = {
     client_id: Google_Oauth_ID,
     client_secret: Google_Oauth_Secret,
-    redirect_uri: Google_Oauth_Register,
+    redirect_uri: Google_Oauth_Redirect,
     grant_type: 'authorization_code',
     code: new URLSearchParams(window.location.search).get('code'),
 };
 
+
 export const requestGoogleDataUser = async () => {
 
         const { data } = await axios.post(GOOGLE_TOKEN_URI, parametersUSER);
-        console.log(data);
-        return data;
+    
+    
+    const token = data.access_token;
+    
+    const config = {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            },
+    };
+    console.log(token)
+    
+    const { data: userData } = await axios.get(GOOGLE_USER_INFO_URI, config);
+
+    console.log(userData)
     
 };
+
+
+export const contWithG = async () => {
+    const res = await userInstance.get('/o/google-oauth2/&redirect_uri=http://localhost:3000')
+    window.location.replace(res.data.authorization_url)
+}
