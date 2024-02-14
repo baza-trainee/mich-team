@@ -16,12 +16,23 @@ export const Wrap = styled.div`
   max-height: ${({ isopen }) => (isopen ? '1000px' : '0')};
   overflow: hidden;
   transition: max-height 300ms linear;
+
+  @media screen and (min-width: 1440px) {
+    padding-right: 8px;
+    padding-left: 8px;
+    max-height: ${({ isopen }) => (isopen ? '500px' : '0')};
+  }
 `;
 
 export const Div = styled.div`
   display: flex;
   flex-direction: column;
   gap: 18px;
+
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+    padding: 8px;
+  }
 `;
 
 export const Text = styled.p`
@@ -61,6 +72,16 @@ export const Button = styled.button`
     height: 18px;
     transition: all 300ms linear;
     transform: ${p => (!p.isopen ? 'rotate(0deg)' : 'rotate(180deg)')};
+  }
+
+  @media screen and (min-width: 1440px) {
+    top: 14px;
+    right: 16px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
   }
 `;
 
@@ -104,6 +125,11 @@ export const Delivery = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;
 
 export const SelectionPoint = styled.div`

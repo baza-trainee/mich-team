@@ -94,7 +94,7 @@ const Desktop = ({ toogleOpenBackdrop }) => {
           </ListLinkDesktop>
         </Block>
 
-        <DivInfo isopen={activeComponent === 'my-orders'}>
+        <DivInfo address={true} isopen={activeComponent === 'my-orders'}>
           <MyOrders isopen={activeComponent === 'my-orders'} />
         </DivInfo>
         <DivInfo isopen={activeComponent === 'personal-data'}>

@@ -24,6 +24,9 @@ const MyOrders = ({ isopen }) => {
           duration: 0.5,
           ease: 'linear',
         }}
+        style={{
+          overflow: 'scroll',
+        }}
       >
         <ItemComponent
           isopen={isOpen}
