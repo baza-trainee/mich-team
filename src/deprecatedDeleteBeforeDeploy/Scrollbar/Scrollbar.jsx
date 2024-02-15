@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+/* import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Scrollbars } from 'react-custom-scrollbars-2';
 
@@ -35,3 +35,4 @@ CustomScrollbar.propTypes = {
 };
 
 export default CustomScrollbar;
+ */
