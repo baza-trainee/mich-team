@@ -44,7 +44,7 @@ export const UserDropdown = styled.div`
   line-height: 150%;
 `;
 
-export const UserLink = styled.a`
+export const UserLink = styled.button`
   display: flex;
   align-items: center;
   padding: 16px 12px;

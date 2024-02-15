@@ -26,6 +26,7 @@ const RegisterForm = () => {
     const [isCheckedSubscribe, setIsCheckedSubscribe] = useState(false);
     const [isCheckedAgree, setIsCheckedAgree] = useState(false);
     
+    const [isAgree, setIsAgree] = useState(true);
     const [newUser, setNewUser] = useState(true);
     
     const history = useNavigate();
@@ -33,35 +34,78 @@ const RegisterForm = () => {
 
 
     function isValidEmail(email) {
-  
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email) return false;
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         return emailRegex.test(email);
     }
 
     function isValidPassword(password) {
+        if (!password) return false;
         const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}$/;
         return passwordRegex.test(password);
     }
 
     const handleOnClick = (e, email, password, passwordCheck) => {
         e.preventDefault();
-        if (!isValidEmail(email)) {
+        if ((!isValidEmail(email)) && (!isValidPassword(password))) {
             Notify.failure('Емейл не валідний');
             setTrueEmail(false);
-            return;
-        }
-
-        if (!isValidPassword(password)) {
             Notify.failure('Пароль не валідний');
             setTruePassword(false);
-            return;
+                return;
         }
 
-        if (!(password === passwordCheck)) {
-            Notify.failure('Паролі не співпадають');
-            setTrueCheckPassword(false);
-            return;
+        switch (false) {
+            case isValidEmail(email):
+                Notify.failure('Емейл не валідний');
+                setTrueEmail(false);
+                return;
+
+            case isValidPassword(password):
+                Notify.failure('Пароль не валідний');
+                setTruePassword(false);
+                return;
+
+            case password === passwordCheck:
+                Notify.failure('Паролі не співпадають');
+                setTrueCheckPassword(false);
+                return;
+
+            case isCheckedAgree:
+                setIsAgree(false);
+                return;
+
+            default:
+                // Якщо всі умови виконані, не потрібно нічого робити
+                break;
         }
+
+        
+
+        // if (!isValidEmail(email)) {
+        //     Notify.failure('Емейл не валідний');
+        //     setTrueEmail(false);
+        //     return;
+        // }
+
+
+        // if (!isValidPassword(password)) {
+        //     Notify.failure('Пароль не валідний');
+        //     setTruePassword(false);
+        //     return;
+        // }
+
+        // if (!(password === passwordCheck)) {
+        //     Notify.failure('Паролі не співпадають');
+        //     setTrueCheckPassword(false);
+        //     return;
+        // }
+
+        // if (!isCheckedAgree) {
+        //     setIsAgree(false);
+        //     return;
+        // }
+
 
         setTrueEmail(true);
         setTruePassword(true);
@@ -127,6 +171,7 @@ const RegisterForm = () => {
 
     const handleCheckboxChangedAgree = () => {
         setIsCheckedAgree(!isCheckedAgree);
+        setIsAgree(true)
     };
 
 
@@ -138,6 +183,12 @@ const RegisterForm = () => {
             {(newUser) ? '' :
              (<ErorMessageComponent
                   message = "Вибачте, але ця електронна адреса вже зареєстрована в нашій системі."
+             />)
+            }
+            
+            {(isAgree) ? '': 
+             (<ErorMessageComponent
+                  message = "Вибачте, але Ви не погодились з Політикою конфіденційності та Правилами користування сайтом"
              />)
              }
 
@@ -192,7 +243,7 @@ const RegisterForm = () => {
                     /> 
                     <LabelCheck htmlFor="subckribe">Так, я хочу підписатися на розсилку та отримувати інформацію про оновлення </LabelCheck>
                 </RegisterDivInput>
-                <RegisterDivInput>
+                <RegisterDivInput  className={(isAgree) ? '' : 'redError'}>
                     <RegistInputCheck
                         type="checkbox"
                         id="agrre"
