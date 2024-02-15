@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ProductButton } from './RedButton.styled';
 
-const RedButton = ({ text, nav, tabWidth }) => {
+const RedButton = ({ text, nav, tabwidth }) => {
   return (
-    <ProductButton to={nav} type="button" tabWidth={tabWidth}>
+    <ProductButton to={nav} type="button" tabwidth={tabwidth}>
       {text}
     </ProductButton>
   );
@@ -13,7 +13,7 @@ const RedButton = ({ text, nav, tabWidth }) => {
 RedButton.propTypes = {
   text: PropTypes.string.isRequired,
   nav: PropTypes.string.isRequired,
-  tabWidth: PropTypes.string,
+  tabwidth: PropTypes.string,
 };
 
 export default RedButton;

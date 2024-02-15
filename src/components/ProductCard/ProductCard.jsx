@@ -102,7 +102,7 @@ const ProductCard = () => {
               <RedButton
                 text={'додати до кошику'}
                 nav={'/cart'}
-                tabWidth={'520px'}
+                tabwidth={'520px'}
               />
             </ProductCardCartButtonDiv>
             <ul>

@@ -21,7 +21,7 @@ const Error = () => {
       <RedButton
         text="повернутися На головну"
         nav="/"
-        tabWidth={tabWidth}
+        tabwidth={tabWidth}
       ></RedButton>
     </ErrorContainer>
   );
