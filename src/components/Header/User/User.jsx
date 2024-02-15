@@ -9,6 +9,7 @@ import {
   UserWrapper,
   getStyledIcon,
 } from './User.styled';
+import { useNavigate } from 'react-router-dom';
 
 const UserMenu = ({ loggedIn, setLoggedIn }) => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -16,6 +17,8 @@ const UserMenu = ({ loggedIn, setLoggedIn }) => {
   const StyledUser = getStyledIcon(User, '24px', '24px', '#FEFEFE');
   const StyledUserProfile = getStyledIcon(User, '16px', '16px', '#0F0000');
   const StyledLogOut = getStyledIcon(LogOut, '16px', '16px', '#0F0000');
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -40,6 +43,11 @@ const UserMenu = ({ loggedIn, setLoggedIn }) => {
     setLoggedIn(false);
   };
 
+  const navigateToProfile = () => {
+    setShowDropdown(!showDropdown);
+    navigate('/personal-account');
+  };
+
   return (
     <UserWrapper className="element">
       <UserBtn onClick={handleUserBtnClick}>
@@ -50,7 +58,7 @@ const UserMenu = ({ loggedIn, setLoggedIn }) => {
           {!loggedIn && <UserLink>Увійти</UserLink>}
           {!loggedIn && <UserLink>Зареєструватися</UserLink>}
           {loggedIn && (
-            <UserLink>
+            <UserLink onClick={navigateToProfile}>
               <StyledUserProfile />
               Особистий кабінет
             </UserLink>
