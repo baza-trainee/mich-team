@@ -76,7 +76,7 @@ export const googleAuth = async (state, code) => {
     if (state && code) {
         const config = {
             headers: {
-                'Content-Type': 'application/x-www.form-urlencoded'
+                'Content-Type': 'application/x-www-form-urlencoded'
             }
         }
 

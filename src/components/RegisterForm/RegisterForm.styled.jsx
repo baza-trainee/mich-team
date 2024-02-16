@@ -83,7 +83,7 @@ export const RegistInput = styled.input`
         
             
             top:-8px;
-            
+            z-index:-10;
             color: #0B0000;
             font-size: 12px;
             font-weight: 400;
