@@ -7,8 +7,8 @@ const GOOGLE_SCOPES = [
 ];
 
 const userInstance = axios.create({
-  baseURL: 'https://mich-team2.onrender.com/user_auth/',
-  
+    baseURL: 'https://mich-team2.onrender.com/user_auth/',
+
 
 })
 
@@ -46,26 +46,49 @@ const parametersUSER = {
 
 export const requestGoogleDataUser = async () => {
 
-        const { data } = await axios.post(GOOGLE_TOKEN_URI, parametersUSER);
-    
-    
+    const { data } = await axios.post(GOOGLE_TOKEN_URI, parametersUSER);
+
+
     const token = data.access_token;
-    
+
     const config = {
-            headers: {
-                'Authorization': `Bearer ${token}`,
-            },
+        headers: {
+            'Authorization': `Bearer ${token}`,
+        },
     };
     console.log(token)
-    
+
     const { data: userData } = await axios.get(GOOGLE_USER_INFO_URI, config);
 
     console.log(userData)
-    
+
 };
 
 
 export const contWithG = async () => {
-    const res = await userInstance.get('/o/google-oauth2/&redirect_uri=http://localhost:3000')
+    const res = await userInstance.get('/o/google-oauth2/?redirect_uri=http://localhost:3000/')
     window.location.replace(res.data.authorization_url)
+
+    console.log(res.data.authorization_url)
+}
+
+export const googleAuth = async (state, code) => {
+    if (state && code) {
+        const config = {
+            headers: {
+                'Content-Type': 'application/x-www.form-urlencoded'
+            }
+        }
+
+        const details = {
+            'state': state,
+            'code': code
+        }
+
+        const formBody = Object.keys(details).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(details[key])).join('&');
+        
+        const res = await userInstance.post(`/o/google-oauth2/?${formBody}`, config);
+        console.log(res);
+    
+    }
 }

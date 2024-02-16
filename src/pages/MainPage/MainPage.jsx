@@ -3,7 +3,7 @@ import ProductList from '../../components/ProductList/ProductList';
 import Hero from '../../components/Hero/Hero';
 import RegisterModalWindComponent from '../../components/RegisterModalWindComponent/RegisterModalWindComponent';
 import UserContext from '../../UserData/UserContext';
-import { requestGoogleDataUser } from '../../services/google-auth';
+import { googleAuth } from '../../services/google-auth';
 
 
 
@@ -16,9 +16,10 @@ const MainPage = () => {
   const [showModal, setShowModal] = useState(false);
   const [showModalIsActive, setShowModalIsActive] = useState(false);
   
-  const isActivatePresent = new URLSearchParams(window.location.search).has('activate');
+  const location = new URLSearchParams(window.location.search);
   
   
+
   useEffect(() => {
       
 
@@ -28,26 +29,26 @@ const MainPage = () => {
          setShowModal(true);
       } 
     
-    if (isActivatePresent) {
+    if (location.has('activate')) {
       setShowModalIsActive(true);
     } else {
       setShowModalIsActive(false);
       }
 
-  },[isActivatePresent])
+    if (location.has('state') && location.has('code')) {
+        const state = location.get('state');
+      const code = location.get('code');
+      googleAuth(state, code);
+    }  
+  
+  },[location])
   
     console.log(showModalIsActive);
    const handleOpenModal = (openModal) => {
     setShowModal(openModal);
   }
 
-  const code = new URLSearchParams(window.location.search).get('code');
   
-console.log(code)
-
-  if (code) {
-    requestGoogleDataUser();
-  }
 
   return (
     <div>
