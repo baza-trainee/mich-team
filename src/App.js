@@ -1,21 +1,33 @@
-import React from 'react';
-import './App.css';
-import Footer from './components/Footer/Footer.jsx';
-import NavRoutes from './Routes';
-import Header from './components/Header/Header.jsx';
-import { useLocation } from 'react-router';
+import React, { lazy } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import SharedLayout from './components/SharedLayout';
+const MainPage = lazy(() => import('./pages/MainPage/MainPage.jsx'));
+const RegisterPage = lazy(
+  () => import('./pages/RegisterPage/RegisterPage.jsx')
+);
+const LoginPage = lazy(() => import('./pages/RegisterPage/LoginPage.jsx'));
+const ProductCard = lazy(() => import('./pages/ProductPage.jsx'));
+const Cart = lazy(() => import('./pages/CartPage/CartPage.jsx'));
+const Error = lazy(() => import('./pages/ErrorPage/ErrorPage.jsx'));
+const PersonalAccountPage = lazy(
+  () => import('./pages/PersonalAccountPage/PersonalAccountPage.jsx')
+);
 
-function App() {
-  const location = useLocation();
+const App = () => {
   return (
-    <>
-      <Header currentPage={location.pathname} />
-      <main>
-        <NavRoutes />
-      </main>
-      <Footer />
-    </>
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<MainPage />} />
+        <Route path="/signup" element={<RegisterPage />} />
+        <Route path="/signin" element={<LoginPage />} />
+        <Route path="/merch" element={<ProductCard />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/personal-account" element={<PersonalAccountPage />} />
+        <Route path="/error" element={<Error />} />
+        <Route path="*" element={<Error />} />
+      </Route>
+    </Routes>
   );
-}
+};
 
 export default App;
