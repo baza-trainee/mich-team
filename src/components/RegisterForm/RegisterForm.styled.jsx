@@ -58,7 +58,6 @@ export const RegistInput = styled.input`
     border-block-end: 1px solid #565656; 
     outline:none;
 
-    
 
     @media screen and (min-width: 768px) {
         
@@ -76,20 +75,20 @@ export const RegistInput = styled.input`
 
     }
 
-    &:hover+label,
-    &:not(:placeholder-shown) + label,
-    &:focus+label,
-    &:active+label{
+    // &:hover+label,
+    // &:not(:placeholder-shown) + label,
+    // &:focus+label,
+    // &:active+label{
         
             
-            top:-8px;
-            z-index:-10;
-            color: #0B0000;
-            font-size: 12px;
-            font-weight: 400;
-            letter-spacing: 0.5px;
+    //         top:-8px;
+        
+    //         color: #0B0000;
+    //         font-size: 12px;
+    //         font-weight: 400;
+    //         letter-spacing: 0.5px;
            
-    }
+    // }
     
 
 `
