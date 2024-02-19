@@ -37,10 +37,9 @@ export const StyledCart = styled.div`
   top: 0;
   right: 0;
   z-index: 200;
-  display: flex;
+  display: ${({ open }) => (open ? 'none' : 'flex')};
   flex-direction: column;
   padding: 16px;
-  visibility: ${({ open }) => (open ? 'hidden' : 'visible')};
 
   background: #fdfdfd;
   color: #0f0000;
@@ -182,11 +181,9 @@ export const CartSumTitle = styled.p`
   text-transform: uppercase;
   @media screen and (min-width: 768px) {
     font-size: 20px;
-    font-weight: 400;
   }
   @media screen and (min-width: 1440px) {
     font-size: 24px;
-    font-weight: 700;
   }
 `;
 
@@ -207,35 +204,105 @@ export const CartSum = styled.p`
 export const BtnToOrder = styled.button`
   background-color: #0b0000;
   border-radius: 4px;
-  padding: 12px 36px;
+  padding: 13px 0;
   text-transform: uppercase;
   color: #fefefe;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
+  @media screen and (min-width: 1440px) {
+    font-size: 22px;
+    line-height: 140%;
+  }
 `;
 
 export const CartItemsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
+  gap: 15px;
+  overflow: scroll;
 `;
 
 export const CartItem = styled.div`
   display: flex;
+  padding: 8px;
+  gap: 8px;
+  background-color: #fafafa;
 `;
 
 export const CartItemImgWrapper = styled.div`
   height: 100px;
   width: 90px;
+  flex-shrink: 0;
+  @media screen and (min-width: 768px) {
+    height: 110px;
+    width: 95px;
+  }
 `;
+
 export const CartItemImg = styled.img`
   height: 100%;
   width: 100%;
 `;
 
-export const getStyledIcon = component => styled(component)`
-  width: 24px;
-  height: 24px;
+export const CartItemInfoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+  justify-content: center;
+`;
+
+export const CartItemInfoText = styled.p`
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+`;
+
+export const CartItemQuantityWrapper = styled.div`
+  display: flex;
+  gap: 8px;
+`;
+
+export const CartItemQuantityBtn = styled.button`
+  display: flex;
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
+  background-color: #878787;
+  color: #ffffff;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const CartItemQuantity = styled.p`
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 120%;
+`;
+
+export const CartItemPriceWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const CartItemPrice = styled.div`
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 110%;
+`;
+
+export const getStyledIcon = (component, width, height, stroke) => styled(
+  component
+)`
+  width: ${width};
+  height: ${height};
+  stroke: ${stroke};
 `;

@@ -12,6 +12,7 @@ import LanguageSwitcher from './LanguageSwitcher/LanguageSwitcher';
 import { Burger, Menu } from './BurgerMenu/BurgerMenu';
 import UserMenu from './User/User';
 import { CartButton, CartModal } from './Cart/Cart';
+import Backdrop from '../common/Backdrop/Backdrop';
 
 const StyledLogo = getStyledIcon(LogoIcon);
 
@@ -42,9 +43,9 @@ const Header = ({ currentPage }) => {
           id: 18,
           product: {
             id: 1,
-            name: 'fdsa',
+            name: 'можливо є сенс обмежити кількість символів в назві',
             name_en: 'fdsaf',
-            price: '12.00',
+            price: '12.30',
             price_en: '231.00',
             images: [
               {
@@ -64,7 +65,7 @@ const Header = ({ currentPage }) => {
           id: 19,
           product: {
             id: 2,
-            name: 'sfdfsd',
+            name: 'більше двох рядків виглядають погано',
             name_en: 'vsa',
             price: '2.00',
             price_en: '2424.00',
@@ -76,14 +77,58 @@ const Header = ({ currentPage }) => {
             ],
           },
           session_id: 'ry8hrz36e64601refh5c4dkkrnz9g9b8',
-          size: 'NS',
-          quantity: 3,
+          size: 'M',
+          quantity: 1,
+          is_active: true,
+          user: null,
+          order: null,
+        },
+        {
+          id: 19,
+          product: {
+            id: 2,
+            name: 'теретично два рядки це 42 символи',
+            name_en: 'vsa',
+            price: '2.00',
+            price_en: '2424.00',
+            images: [
+              {
+                image:
+                  '/product_photos/product_photos/photo_2023-07-07_21-28-59.jpg',
+              },
+            ],
+          },
+          session_id: 'ry8hrz36e64601refh5c4dkkrnz9g9b8',
+          size: 'M',
+          quantity: 2,
+          is_active: true,
+          user: null,
+          order: null,
+        },
+        {
+          id: 19,
+          product: {
+            id: 2,
+            name: 'Футболка Mich Team переповнення для тесту',
+            name_en: 'vsa',
+            price: '2.00',
+            price_en: '2424.00',
+            images: [
+              {
+                image:
+                  '/product_photos/product_photos/photo_2023-07-07_21-28-59.jpg',
+              },
+            ],
+          },
+          session_id: 'ry8hrz36e64601refh5c4dkkrnz9g9b8',
+          size: 'M',
+          quantity: 1,
           is_active: true,
           user: null,
           order: null,
         },
       ],
-      total_items: 6,
+      total_items: 7,
     });
   }, []);
 
@@ -96,13 +141,17 @@ const Header = ({ currentPage }) => {
 
   return (
     <HeaderStyled className={`${headerClass}`}>
-      <Menu open={openMenu} setOpen={setOpenMenu} currentPage={currentPage} />
-      <CartModal
-        open={openCart}
-        setOpen={setOpenCart}
-        currentPage={currentPage}
-        cartItems={cartItems}
-      />
+      <Backdrop isopen={openMenu}>
+        <Menu open={openMenu} setOpen={setOpenMenu} currentPage={currentPage} />
+      </Backdrop>
+      <Backdrop isopen={openCart}>
+        <CartModal
+          open={openCart}
+          setOpen={setOpenCart}
+          currentPage={currentPage}
+          cartItems={cartItems}
+        />
+      </Backdrop>
       <HeaderWrapper className={`${headerClass}`}>
         <Burger open={openMenu} setOpen={setOpenMenu} />
         <LanguageSwitcher
