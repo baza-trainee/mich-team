@@ -28,6 +28,7 @@ import {
   ProductInfoImg,
   ProductWalletItem,
   ProductWalletList,
+  // ProductCardSizeRadio,
 } from './ProductCard.styled';
 import { ProductImg } from '../ProductList/ProductList.styled';
 
@@ -40,15 +41,19 @@ import wallet from '../../icons/wallet.svg';
 import delivery from '../../icons/delivery.svg';
 
 const ProductCard = () => {
+  const size = ['XS', 'S', 'M', 'L', 'XL'];
   const [detailsVisible, setDetailsVisible] = useState({});
-
+  const [count, setCount] = useState(1);
+  const [activeSize, setActiveSize] = useState('M')
   const toggleDetails = itemId => {
     setDetailsVisible(prevDetailsVisible => ({
       ...prevDetailsVisible,
       [itemId]: !prevDetailsVisible[itemId],
     }));
   };
-
+  const handleSizeChange = (size) => {
+    setActiveSize(size)
+  }
   return (
     <div style={{ backgroundColor: '#FAFAFA' }}>
       <ProductCardDiv className="container">
@@ -86,17 +91,42 @@ const ProductCard = () => {
             <ProductCardPrice>1050 грн</ProductCardPrice>
             <ProductCardSizeTitle>Оберіть розмір</ProductCardSizeTitle>
             <ProductCardSizeDiv>
-              <ProductCardSizeButton disabled>XS</ProductCardSizeButton>
+              {/* {
+                size.map(item => {
+                  return <>
+                  <label key={item+item} htmlFor={item}>{item}
+                  </label>
+                    <ProductCardSizeRadio onClick={(e) => {
+                      setActiveSize(item);
+                      console.log(activeSize)
+                      console.log(e.currentTarget.checked);
+                  }} key={item} type="radio" name="size" id={item} value={item}/>
+                  </>
+                    
+                })
+              } */}
+              {size.map(item => {
+                return <ProductCardSizeButton data-active={activeSize === item ? 'active' : null} onClick={() => {
+                  handleSizeChange(item)
+                }}
+                  key={item}>
+                  {item}
+                </ProductCardSizeButton>
+              })}
+              {/* <ProductCardSizeButton disabled>XS</ProductCardSizeButton>
               <ProductCardSizeButton>S</ProductCardSizeButton>
               <ProductCardSizeButton>M</ProductCardSizeButton>
               <ProductCardSizeButton disabled>L</ProductCardSizeButton>
-              <ProductCardSizeButton>XL</ProductCardSizeButton>
+              <ProductCardSizeButton>XL</ProductCardSizeButton> */}
             </ProductCardSizeDiv>
             <ProductCardSizeTitle>Оберіть кількість</ProductCardSizeTitle>
             <ProductCardCounterDiv>
-              <ProductPlusMinus>-</ProductPlusMinus>
-              <ProductCardCounterText>1</ProductCardCounterText>
-              <ProductPlusMinus>+</ProductPlusMinus>
+              <ProductPlusMinus disabled={count <= 1} onClick={() => {
+                count <= 1 ? 1 : setCount(prev => --prev)
+                
+              }}>-</ProductPlusMinus>
+              <ProductCardCounterText>{ count }</ProductCardCounterText>
+              <ProductPlusMinus onClick={()=> {setCount(prev=>++prev)}}>+</ProductPlusMinus>
             </ProductCardCounterDiv>
             <ProductCardCartButtonDiv>
               <RedButton
