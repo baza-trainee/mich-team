@@ -84,7 +84,7 @@ const Header = ({ currentPage }) => {
           order: null,
         },
         {
-          id: 19,
+          id: 20,
           product: {
             id: 2,
             name: 'теретично два рядки це 42 символи',
@@ -106,7 +106,7 @@ const Header = ({ currentPage }) => {
           order: null,
         },
         {
-          id: 19,
+          id: 21,
           product: {
             id: 2,
             name: 'Футболка Mich Team переповнення для тесту',
