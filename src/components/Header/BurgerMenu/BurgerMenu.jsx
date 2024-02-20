@@ -10,7 +10,7 @@ import {
   getStyledIcon,
   StyledMenu,
   MenuButtonsWrapper,
-  BurgerCloseBtn,
+  ModalCloseBtn,
   Instagram,
   NavWrapper,
   AuthorizationWrapper,
@@ -22,11 +22,12 @@ import { Navigation } from '../Navigation/Navigatiom';
 import { ReactComponent as InstIcon } from '../../../icons/inst.svg';
 import SubscribeForm from '../../SubscribeForm/SubscribeForm';
 const StyledBurger = getStyledIconOpen(BurgerIcon);
-const StyledBurgerClose = getStyledIcon(BurgerCloseIcon);
+const StyledModalCloseBtn = getStyledIcon(BurgerCloseIcon);
 const InstagramIcon = getStyledIcon(InstIcon);
 
 export const Burger = ({ open, setOpen }) => {
-  const openMenu = () => {
+  const openMenu = event => {
+    event.preventDefault();
     setOpen(!open);
   };
 
@@ -41,7 +42,8 @@ export const Burger = ({ open, setOpen }) => {
 };
 
 export const Menu = ({ open, setOpen, currentPage }) => {
-  const openMenu = () => {
+  const openMenu = event => {
+    event.preventDefault();
     setOpen(!open);
   };
   useEffect(() => {
@@ -50,16 +52,16 @@ export const Menu = ({ open, setOpen, currentPage }) => {
     } else if (!open) {
       document.body.style.overflow = '';
     }
-  });
+  }, [open]);
   useEffect(() => {
     setOpen(false);
   }, [currentPage]);
   return (
     <StyledMenu open={!open}>
       <MenuButtonsWrapper>
-        <BurgerCloseBtn onClick={openMenu}>
-          <StyledBurgerClose />
-        </BurgerCloseBtn>
+        <ModalCloseBtn onClick={openMenu}>
+          <StyledModalCloseBtn />
+        </ModalCloseBtn>
         <LanguageSwitcher
           arrowcolor={'#0F0000'}
           backgroundcolorlanghover={'rgba(0, 0, 0, 0.60)'}
