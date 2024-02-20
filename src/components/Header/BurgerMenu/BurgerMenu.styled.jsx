@@ -94,7 +94,7 @@ export const MenuButtonsWrapper = styled.div`
   }
 `;
 
-export const BurgerCloseBtn = styled.button`
+export const ModalCloseBtn = styled.button`
   display: flex;
   padding: 6px;
   align-items: center;

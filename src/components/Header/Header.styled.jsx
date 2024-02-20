@@ -11,17 +11,20 @@ export const HeaderStyled = styled.header`
   z-index: 100;
 `;
 export const HeaderWrapper = styled.div`
+  position: relative;
   padding: 8px 16px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   min-height: 56px;
+  width: 360px;
   @media screen and (min-width: 768px) {
-    padding: 4px 32px;
-    gap: 8px;
     justify-content: flex-end;
+    width: 100%;
+    padding: 4px 32px;
+    align-items: center;
     .element:nth-of-type(1) {
       order: 1;
       margin-right: auto;
@@ -30,22 +33,24 @@ export const HeaderWrapper = styled.div`
       order: 5;
     }
     .element:nth-of-type(3) {
-      margin-right: 44.5px;
       order: 2;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
     }
     .element:nth-of-type(4) {
       order: 3;
     }
     .element:nth-of-type(5) {
       order: 4;
+      margin: 0 8px;
     }
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     padding: 8px 80px;
-    gap: 16px;
-    .element:nth-of-type(3) {
-      margin-right: 308.5px;
-      order: 2;
+    .element:nth-of-type(5) {
+      order: 4;
+      margin: 0 16px;
     }
   }
   ${props =>
