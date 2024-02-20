@@ -3,6 +3,19 @@ import { ReactSVG } from "react-svg"
 
 export const DivPasword = styled.div`
     position: relative;
+     &:hover label,
+  
+    &:focus label,
+    &:active label{
+        
+            
+            top:-8px;
+            color: #0B0000;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+           
+    }
     
     
 `
@@ -15,7 +28,7 @@ export const LabelInput = styled.label`
     color: #878787  ;
     left: 8px;
     top:12px;
-    transition: top 50ms ease-in-out;
+    transition: top 70ms linear, font-size 50ms linear, font-weight 50ms linear, letter-spacing 50ms linear, color 50ms linear; 
     
     
 
@@ -50,10 +63,9 @@ export const RegistInput = styled.input`
 
     }
 
-    &:hover+label,
-    &:not(:placeholder-shown) + label,
-    &:focus+label,
-    &:active+label{
+    
+    &:not(:placeholder-shown) + label
+    {
         
             
             top:-8px;
@@ -63,6 +75,8 @@ export const RegistInput = styled.input`
             letter-spacing: 0.5px;
            
     }
+
+   
     
 
 `
