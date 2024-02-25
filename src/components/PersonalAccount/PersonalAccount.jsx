@@ -10,7 +10,7 @@ const PersonalAccount = () => {
     <>
       <Mobile toogleOpenBackdrop={setIsOpenBackdrop} />
       <Desktop toogleOpenBackdrop={setIsOpenBackdrop} />
-      <Backdrop isopen={isOpenBackdrop}>
+      <Backdrop isopen={isOpenBackdrop} close={() => setIsOpenBackdrop(false)}>
         <ModalExit toogleOpenBackdrop={setIsOpenBackdrop} />
       </Backdrop>
     </>
