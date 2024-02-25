@@ -141,10 +141,10 @@ const Header = ({ currentPage }) => {
 
   return (
     <HeaderStyled className={`${headerClass}`}>
-      <Backdrop isopen={openMenu}>
+      <Backdrop isopen={openMenu} close={() => setOpenMenu(false)}>
         <Menu open={openMenu} setOpen={setOpenMenu} currentPage={currentPage} />
       </Backdrop>
-      <Backdrop isopen={openCart}>
+      <Backdrop isopen={openCart} close={() => setOpenCart(false)}>
         <CartModal
           open={openCart}
           setOpen={setOpenCart}
