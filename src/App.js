@@ -20,7 +20,9 @@ const App = () => {
         <Route index element={<MainPage />} />
         <Route path="/signup" element={<RegisterPage />} />
         <Route path="/signin" element={<LoginPage />} />
-        <Route path="/merch" element={<ProductCard />} />
+        <Route path="/merch" element={<h1>MERCH PAGE</h1>} />
+        <Route path="/merch/:productId" element={<ProductCard />} />
+        
         <Route path="/cart" element={<Cart />} />
         <Route path="/personal-account" element={<PersonalAccountPage />} />
         <Route path="/error" element={<Error />} />

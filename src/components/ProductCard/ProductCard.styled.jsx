@@ -112,6 +112,45 @@ export const ProductCardSizeButton = styled.button`
   background-color: transparent;
   border-radius: 4px;
   border: 1px solid var(--Black, #110003);
+  transition: background-color .5s;
+  &:hover, &[data-active="active"] {
+    background-color: #110003;
+    color: #fff;
+  }
+  &:disabled {
+    border: 1px solid var(--gray-07, #c5c5c5);
+    background-color: transparent;
+    color: #d9d9d9;
+    cursor: not-allowed;
+  }
+  &:disabled::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: -5px;
+    width: 127%;
+    height: 1px;
+    background-color: var(--gray-07, #c5c5c5);
+    transform: rotate(40deg);
+    transform-origin: center;
+  }
+`;
+
+////////////////////
+
+export const ProductCardSizeRadio = styled.input`
+  position: relative;
+  font-family: Play;
+  display: flex;
+  width: 40px;
+  height: 34px;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  color: #110003;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid var(--Black, #110003);
   &:hover {
     background-color: #110003;
     color: #fff;
