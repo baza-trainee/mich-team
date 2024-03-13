@@ -6,7 +6,7 @@ const RegisterPage = lazy(
   () => import('./pages/RegisterPage/RegisterPage.jsx')
 );
 const LoginPage = lazy(() => import('./pages/RegisterPage/LoginPage.jsx'));
-const ProductCard = lazy(() => import('./pages/ProductPage.jsx'));
+const ProductCard = lazy(() => import('./pages/ProducatPage/ProductPage.jsx'));
 const Cart = lazy(() => import('./pages/CartPage/CartPage.jsx'));
 const Error = lazy(() => import('./pages/ErrorPage/ErrorPage.jsx'));
 const PersonalAccountPage = lazy(
