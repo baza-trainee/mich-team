@@ -15,7 +15,8 @@ const MainPage = () => {
 
   const [showModal, setShowModal] = useState(false);
   const [showModalIsActive, setShowModalIsActive] = useState(false);
-  
+  const [showModalPasswordForgot, setShowModalPasswordForgot] = useState(false);
+
   const location = new URLSearchParams(window.location.search);
   
   
@@ -23,11 +24,17 @@ const MainPage = () => {
   useEffect(() => {
       
 
-        const storedShowModal = localStorage.getItem('showModal');
+    const storedShowModal = localStorage.getItem('showModal');
+    const storedShowModalPasswordForgot = localStorage.getItem('showModalPasswordForgot');
 
        if (storedShowModal && storedShowModal !== 'false') {
          setShowModal(true);
-      } 
+    } 
+    
+    if (storedShowModalPasswordForgot && storedShowModalPasswordForgot !== 'false') {
+         setShowModalPasswordForgot(true);
+    }
+
     
     if (location.has('activate')) {
       setShowModalIsActive(true);
@@ -45,7 +52,10 @@ const MainPage = () => {
   
     console.log(showModalIsActive);
    const handleOpenModal = (openModal) => {
-    setShowModal(openModal);
+     setShowModal(openModal);
+     setShowModalIsActive(openModal);
+     setShowModalPasswordForgot(openModal)
+
   }
 
   
@@ -57,10 +67,11 @@ const MainPage = () => {
 
       
 
-      {((showModal)||(showModalIsActive) )?
+      {((showModal)||(showModalIsActive) ||(showModalPasswordForgot))?
         (<RegisterModalWindComponent
           onChange={handleOpenModal}
           isActive={showModalIsActive}
+          forgotPassword ={showModalPasswordForgot}
         />) : ""};
     </div>
   );
