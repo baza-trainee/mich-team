@@ -12,7 +12,6 @@ export const getProductsList = async () => {
 export const getProductById = async id => {
   try {
     const {data} = await instance.get(`/api/products/${id}`);
-    console.log(data)
 	  return data;
   } catch (error) {
 	  console.error('Error get product by id request>>>', error);

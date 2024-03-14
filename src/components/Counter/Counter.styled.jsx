@@ -1,3 +1,6 @@
+import styled from '@emotion/styled';
+
+
 export const ProductPlusMinus = styled.button`
   font-family: Play;
   font-size: 12px;
@@ -38,3 +41,4 @@ export const ProductCardCounterText = styled.p`
   line-height: 120%;
   margin-right: 10px;
 `;
+

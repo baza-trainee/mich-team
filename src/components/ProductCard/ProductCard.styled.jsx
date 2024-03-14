@@ -87,9 +87,11 @@ export const ProductCardSizeTitle = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 `;
-
+export const ValidSize = styled.span`
+  color:var(--Red, #fc012f)
+`
 export const ProductCardSizeDiv = styled.div`
   display: flex;
   flex-direction: row;

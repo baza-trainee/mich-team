@@ -1,31 +1,32 @@
 import React from 'react'
+import PropTypes from 'prop-types';
+import {ProductCardCounterDiv, ProductPlusMinus, ProductCardCounterText } from './Counter.styled'
 
-const Counter = (count = 1) => {
+export const Counter = ({ count, changeCount }) => {
 
-  const toggleCount = (quantity) => {
-    
-  }
+  
 
   return (
     <ProductCardCounterDiv>
       <ProductPlusMinus
         disabled={count <= 1}
-        onClick={() => {
-          count <= 1 ? 1 : setCount(prev => --prev);
-        }}
+        onClick={()=>changeCount("minus")}
       >
         -
       </ProductPlusMinus>
       <ProductCardCounterText>{count}</ProductCardCounterText>
       <ProductPlusMinus
-        onClick={() => {
-          setCount(prev => ++prev);
-        }}
+        onClick={()=>changeCount('plus')}
       >
         +
       </ProductPlusMinus>
     </ProductCardCounterDiv>
   );
+}
+
+Counter.propTypes = {
+  count: PropTypes.number,
+  changeCount:PropTypes.func
 }
 
 export default Counter
