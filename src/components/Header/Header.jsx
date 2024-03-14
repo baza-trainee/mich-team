@@ -9,10 +9,12 @@ import {
   LogoWrapper,
 } from './Header.styled';
 import LanguageSwitcher from './LanguageSwitcher/LanguageSwitcher';
-import { Burger, Menu } from './BurgerMenu/BurgerMenu';
+import { Menu } from './BurgerMenu/BurgerMenu';
 import UserMenu from './User/User';
-import { CartButton, CartModal } from './Cart/Cart';
+import { CartModal } from './Cart/Cart';
 import Backdrop from '../common/Backdrop/Backdrop';
+import { CartButton } from './Cart/CartBtn/CartBtn';
+import { BurgerBtn } from './BurgerMenu/BurgerBtn/BurgerBtn';
 
 const StyledLogo = getStyledIcon(LogoIcon);
 
@@ -153,7 +155,7 @@ const Header = ({ currentPage }) => {
         />
       </Backdrop>
       <HeaderWrapper className={`${headerClass}`}>
-        <Burger open={openMenu} setOpen={setOpenMenu} />
+        <BurgerBtn open={openMenu} setOpen={setOpenMenu} />
         <LanguageSwitcher
           arrowcolor={'#fefefe'}
           backgroundcolorlanghover={'rgba(255, 255, 255, 0.5)'}
@@ -175,7 +177,7 @@ const Header = ({ currentPage }) => {
 };
 
 Header.propTypes = {
-  currentPage: PropTypes.string,
+  currentPage: PropTypes.string.isRequired,
 };
 
 export default Header;
