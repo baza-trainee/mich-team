@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from 'prop-types';
-import { ButtonLink, ButtonUserActive, CloseBtn, EmailIcon, MessageOfemail, MessageTitle, RegisterModalContent, RegisterModalWind } from "./RegisterModalWindComponent.style";
+import { ButtonLink, ButtonUserActive, CloseBtn, EmailIcon, MessageOfemail, MessageOfemailForgot, MessageTitle, RegisterModalContent, RegisterModalWind } from "./RegisterModalWindComponent.style";
 import smsTracking from '../../icons/sms-tracking.svg';
 import closeBtn from '../../icons/close.svg';
 import checkIcon from '../../icons/checkIcon.svg'
@@ -11,7 +11,7 @@ import { useContext } from "react";
 import DivPasswordComponet from "../DivPasswordComponent/DivPasswordComponent";
 
 
-const RegisterModalWindComponent = ({ onChange, isActive, forgotPassword  }) => {
+const RegisterModalWindComponent = ({ onChange, isActive, forgotPassword, nevUserMessage  }) => {
     const userData = useContext(UserContext);
     const history = useNavigate();
 
@@ -23,19 +23,20 @@ const RegisterModalWindComponent = ({ onChange, isActive, forgotPassword  }) => 
     }
 
     const handleOnClickSendEmail = () => {
-        
+        localStorage.setItem("showModalPasswordForgot", false);
     }
     
     const handleCloseModal = () => {
         const openWindow = false;
         onChange(openWindow);
         localStorage.removeItem('showModal');
-        history('/?activate=true');
+        
     }
 
     const handleCloseModalPasswordForgot = () => {
         const openWindow = false;
         onChange(openWindow);
+        localStorage.removeItem('showModalPasswordForgot');
         history('/');
     }
 
@@ -64,26 +65,26 @@ const RegisterModalWindComponent = ({ onChange, isActive, forgotPassword  }) => 
     }
 
     return <RegisterModalWind>
-        {(!isActive) ?
-        
-        (<RegisterModalContent>
-            <ButtonLink onClick={handleCloseModal} type="button"><CloseBtn src={closeBtn} alt="closeBtn"></CloseBtn></ButtonLink>
+        {(nevUserMessage)?
+           (<RegisterModalContent>
+            <ButtonLink onClick={() => handleCloseModal()} type="button"><CloseBtn src={closeBtn} alt="closeBtn"></CloseBtn></ButtonLink>
             <EmailIcon src={smsTracking} />
             <MessageTitle>ЕЛЕКТРОННИЙ ЛИСТ НАДІСЛАНО!</MessageTitle>
             <MessageOfemail>Для завершення реєстрації, будь ласка, перевірте свою електронну пошту та підтвердіть свою адресу, клікнувши на посилання у листі від нас</MessageOfemail>
-        </RegisterModalContent>) :
-            
+        </RegisterModalContent>) : ""}
+    
+        {(isActive)?    
         (<RegisterModalContent>
             <EmailIcon src={checkIcon} />
             <MessageTitle>РЕЄСТРАЦІЯ ЗАВЕРШЕНА УСПІШНО</MessageTitle>
             <MessageOfemail>Тепер ви можете користуватися всіма можливостями нашого сайту.</MessageOfemail>
             <ButtonUserActive onClick={handleOnClick} type="submit">ПЕРЕЙТИ ДО МАГАЗИНУ</ButtonUserActive>
 
-        </RegisterModalContent>)}
+        </RegisterModalContent>) : ""}
 
         {(forgotPassword)?
             (<RegisterModalContent>
-                <ButtonLink onClick={handleCloseModalPasswordForgot} type="button"><CloseBtn src={closeBtn} alt="closeBtn"></CloseBtn></ButtonLink>
+                <ButtonLink onClick={() =>handleCloseModalPasswordForgot()} type="button"><CloseBtn src={closeBtn} alt="closeBtn"></CloseBtn></ButtonLink>
                 <MessageOfemail>Введіть свою електронну пошту, і ми надішлемо вам посилання для відновлення пароля</MessageOfemail>
                 <DivPasswordComponet
                     className={''}
@@ -91,10 +92,19 @@ const RegisterModalWindComponent = ({ onChange, isActive, forgotPassword  }) => 
                     titleInput="Введіть e-mail"
                     onChange={(e) => handleOnChangeEmail(e.target.value)}
                     value={emailValue}
+                    onClick={()=>''}
+                    password={true}
                    
                 />
-                <ButtonUserActive onClick={handleOnClickSendEmail} type="submit">ОТРИМАТИ ПОСИЛАННЯ</ButtonUserActive>
-            </RegisterModalContent>):''
+                <ButtonUserActive onClick={() => handleOnClickSendEmail()} type="submit">ОТРИМАТИ ПОСИЛАННЯ</ButtonUserActive>
+            </RegisterModalContent>):
+
+            (<RegisterModalContent>
+                <ButtonLink onClick={() => handleCloseModalPasswordForgot()} type="button"><CloseBtn src={closeBtn} alt="closeBtn"></CloseBtn></ButtonLink>
+                <EmailIcon src={smsTracking} />
+                <MessageTitle>ЕЛЕКТРОННИЙ ЛИСТ НАДІСЛАНО!</MessageTitle>
+                <MessageOfemailForgot>Перевірте вашу електронну пошту та перейдіть за посиланням, яке ми надіслали, щоб продовжити</MessageOfemailForgot>
+            </RegisterModalContent>)
         }
         
     </RegisterModalWind>
@@ -103,6 +113,7 @@ const RegisterModalWindComponent = ({ onChange, isActive, forgotPassword  }) => 
 
 RegisterModalWindComponent.propTypes = {
     onChange: PropTypes.func.isRequired,
+    nevUserMessage:PropTypes.bool.isRequired,
     isActive: PropTypes.bool.isRequired,
     forgotPassword: PropTypes.bool.isRequired
 };

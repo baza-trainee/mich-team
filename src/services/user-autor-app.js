@@ -47,3 +47,13 @@ export const requestLoginUser = async (UserData) => {
 
 
 
+export const requestAtivationUser = async(UserData) => {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        };
+
+    const { data } = await userInstance.post('/users/activation/', UserData, config);
+    return data;
+}

@@ -104,12 +104,13 @@ export const SpanElem = styled.span`
     color:#CA040F;
 `
 
-export const LinkRememb = styled(NavLink)`
+export const LinkRememb = styled.button`
     padding: 0 34px;
     font-size: 16px;
     color: #110003;
   
     font-weight: 700;
     line-height: 1.2%;
+    text-decoration-line: underline;
 `
 

@@ -5,15 +5,15 @@ import PropTypes from 'prop-types';
 const UserProvider = ({ children }) => {
     const [userEmail, setUserEmail] = useState(null);
     const [userPassword, setUserPassword] = useState(null);
-    const [userIsActive, setUserIsActive] = useState(false);
+    const [userToken, setUserToken] = useState(false);
 
     const UserData = {
         userEmail,
         setUserEmail,
-        userPassword,
-        setUserPassword,
-        userIsActive,
-        setUserIsActive
+        userToken,
+      setUserToken,
+      userPassword,
+      setUserPassword
     }
 
   return (

@@ -96,8 +96,9 @@ const EnterForm = () => {
   };
   
   const handleRememberPassword = () => {
-    history('/');
     localStorage.setItem("showModalPasswordForgot", true);
+    history('/');
+    
   }
 
   return (
@@ -140,7 +141,7 @@ const EnterForm = () => {
           /> 
           <LabelCheck htmlFor="rememb">Запам&rsquo;ятати мене </LabelCheck>
         </RegisterDivInput>
-        <LinkRememb to="/" onClick={handleRememberPassword()}>Забули пароль?</LinkRememb>
+        <LinkRememb  type='button' onClick={()=>handleRememberPassword()}>Забули пароль?</LinkRememb>
       </CheckbBoxDivRememb>
       <BtnSign
         onClick={(e) => handleOnClick(e, emailValue,passwordValue)}
