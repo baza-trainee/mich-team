@@ -125,7 +125,7 @@ const RegisterForm = () => {
         responseData.then(result => {
             localStorage.setItem("showModal", true)
             userData.UserData.setUserEmail(emailValue);
-            userData.UserData.setUserPassword(passwordValue);
+            
     
             history('/');
            

@@ -37,7 +37,8 @@ export const requestLoginUser = async (UserData) => {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
         };
-        const { data } = await userInstance.post('/token/login/', UserData, config);
+    const { data } = await userInstance.post('/jwt/create/', UserData, config);
+    console.log(data);
         setToken(data.auth_token);
         return data;
     
@@ -46,3 +47,13 @@ export const requestLoginUser = async (UserData) => {
 
 
 
+export const requestAtivationUser = async(UserData) => {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        };
+
+    const { data } = await userInstance.post('/users/activation/', UserData, config);
+    return data;
+}
