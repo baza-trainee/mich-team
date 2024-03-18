@@ -5,14 +5,14 @@ import smsTracking from '../../icons/sms-tracking.svg';
 import closeBtn from '../../icons/close.svg';
 import checkIcon from '../../icons/checkIcon.svg'
 import { useNavigate } from "react-router-dom";
-import { requestLoginUser, requestResetPassword } from "../../services/user-autor-app";
-import UserContext from '../../UserData/UserContext';
-import { useContext } from "react";
+import {  requestResetPassword } from "../../services/user-autor-app";
+// import UserContext from '../../UserData/UserContext';
+// import { useContext } from "react";
 import DivPasswordComponet from "../DivPasswordComponent/DivPasswordComponent";
 
 
 const RegisterModalWindComponent = ({ onChange, isActive, forgotPassword, nevUserMessage  }) => {
-    const userData = useContext(UserContext);
+    // const userData = useContext(UserContext);
     const history = useNavigate();
 
     const [emailValue, setEmailValue] = useState('');
@@ -35,7 +35,7 @@ const RegisterModalWindComponent = ({ onChange, isActive, forgotPassword, nevUse
     const handleCloseModal = () => {
         const openWindow = false;
         onChange(openWindow);
-        localStorage.removeItem('showModal');
+        localStorage.removeItem('showModalNewUser');
         
     }
 
@@ -50,24 +50,24 @@ const RegisterModalWindComponent = ({ onChange, isActive, forgotPassword, nevUse
         const openWindow = false;
         onChange(openWindow);
         localStorage.removeItem('showModalIsActive');
-        const newUserData = {
-            email: userData.UserData.userEmail,
-            password: userData.UserData.userPassword
-        }
+        // const newUserData = {
+        //     email: userData.UserData.userEmail,
+        //     password: userData.UserData.userPassword
+        // }
 
-        const responseData = requestLoginUser(newUserData);            
-        responseData.then(result => {        
+        // const responseData = requestLoginUser(newUserData);            
+        // responseData.then(result => {        
     
-            history('/');
-            console.log(result);
-            return result;
-        })
-        .catch(error => {
-            console.log(error)
+        //     history('/');
+        //     console.log(result);
+        //     return result;
+        // })
+        // .catch(error => {
+        //     console.log(error)
             
            
-            return;
-        });
+        //     return;
+        // });
 
     }
 

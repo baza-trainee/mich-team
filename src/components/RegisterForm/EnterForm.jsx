@@ -62,10 +62,13 @@ const EnterForm = () => {
     const responseData = requestLoginUser(UserData); 
     
     responseData.then(result => {
-         
-            userData.UserData.setUserEmail(emailValue);
-            userData.UserData.setUserPassword(passwordValue);
-    
+      console.log(result);
+      userData.UserData.setUserAccessToken(result.access);
+      userData.UserData.setUserRefreshToken(result.refresh);
+
+      sessionStorage.setItem("accessToken", result.access);   
+      sessionStorage.setItem("refreshToken", result.refresh); 
+
             history('/');
            
             return result;

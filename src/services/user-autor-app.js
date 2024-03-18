@@ -36,10 +36,11 @@ export const requestLoginUser = async (UserData) => {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
-        };
+    };
+    
     const { data } = await userInstance.post('/jwt/create/', UserData, config);
     console.log(data);
-        setToken(data.auth_token);
+        setToken(data.access);
         return data;
     
 };
