@@ -78,6 +78,7 @@ export const MessageOfemail = styled.p`
 
 export const MessageOfemailForgot = styled.p`
     color: #0F0000;
+    text-align: left;
     margin-bottom: 24px;
     font-size: 16px;
     font-weight: 400;

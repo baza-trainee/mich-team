@@ -19,6 +19,8 @@ const MainPage = () => {
   const [showModalNewUser, setShowModalNewUser] = useState(false);
   const [showModalIsActive, setShowModalIsActive] = useState(false);
   const [showModalPasswordForgot, setShowModalPasswordForgot] = useState(false);
+  const [showModalPasswordReset, setShowModalPasswordReset] = useState(false);
+
 
   const location = new URLSearchParams(window.location.search);
 
@@ -28,11 +30,12 @@ const MainPage = () => {
   useEffect(() => {
       
 
-    const storedShowModal = localStorage.getItem('showModal');
+    const storedShowModalNewUser = localStorage.getItem('showModalNewUser');
     const storedShowModalIsActive = localStorage.getItem('showModalIsActive');
     const storedShowModalPasswordForgot = localStorage.getItem('showModalPasswordForgot');
+    const storedShowModalPasswordReset = localStorage.getItem('showModalPasswordReset');
 
-       if (storedShowModal && storedShowModal !== 'false') {
+       if (storedShowModalNewUser && storedShowModalNewUser == 'true') {
          setShowModal(true);
          setShowModalNewUser(true);
        } else {
@@ -53,6 +56,13 @@ const MainPage = () => {
       setShowModalIsActive(false);
     }
 
+    if (storedShowModalPasswordReset && storedShowModalPasswordReset == 'true') {
+      setShowModalPasswordReset(true);
+      setShowModal(true);
+    }else  {
+      setShowModalPasswordReset(false);
+    }
+
     
     if (['activation', 'uid', 'token'].every(key => location.has(key))) {
       const uidUser = location.get('uid');
@@ -62,16 +72,24 @@ const MainPage = () => {
             token: `${tokenUser}`
         }
       requestAtivationUser(newUserData);
-      // localStorage.setItem("storedShowModalIsActive", true);
+      localStorage.removeItem('showModalNewUser');
       history('/?user=active');
-      localStorage.setItem("storedShowModalIsActive", true);
+      localStorage.setItem("showModalIsActive", true);
       
     } 
-    
-    console.log(showModal);
-    console.log(showModalIsActive);
-    console.log(showModalNewUser);
-    console.log(showModalPasswordForgot);
+
+    if (['password_reset', 'uid', 'token'].every(key => location.has(key))) {
+      const uidUser = location.get('uid');
+      const tokenUser = location.get('token');
+      const UserData = {
+            uid: `${uidUser}`,
+            token: `${tokenUser}`
+        }
+      requestAtivationUser(UserData);
+      localStorage.removeItem('showModalPasswordForgot');
+      localStorage.setItem("showModalPasswordReset", true);
+      
+    } 
 
 
     if (location.has('state') && location.has('code')) {
@@ -101,9 +119,10 @@ const MainPage = () => {
       {(showModal)?
         (<RegisterModalWindComponent
           onChange={handleOpenModal}
-          nevUserMessage ={showModalNewUser}
+          nevUserMessage={showModalNewUser}
           isActive={showModalIsActive}
-          forgotPassword ={showModalPasswordForgot}
+          forgotPassword={showModalPasswordForgot}
+          nevPassword={showModalPasswordReset}
         />) : ""};
     </div>
   );

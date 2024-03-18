@@ -5,7 +5,7 @@ import smsTracking from '../../icons/sms-tracking.svg';
 import closeBtn from '../../icons/close.svg';
 import checkIcon from '../../icons/checkIcon.svg'
 import { useNavigate } from "react-router-dom";
-import { requestLoginUser } from "../../services/user-autor-app";
+import { requestLoginUser, requestResetPassword } from "../../services/user-autor-app";
 import UserContext from '../../UserData/UserContext';
 import { useContext } from "react";
 import DivPasswordComponet from "../DivPasswordComponent/DivPasswordComponent";
@@ -22,8 +22,14 @@ const RegisterModalWindComponent = ({ onChange, isActive, forgotPassword, nevUse
 
     }
 
-    const handleOnClickSendEmail = () => {
+    const handleOnClickSendEmail = (email) => {
+        const userEmail = {
+            email: `${email}`
+        }
+
+        requestResetPassword (userEmail)
         localStorage.setItem("showModalPasswordForgot", false);
+        history('/?user_password_reset=true')
     }
     
     const handleCloseModal = () => {
@@ -43,6 +49,7 @@ const RegisterModalWindComponent = ({ onChange, isActive, forgotPassword, nevUse
     const handleOnClick = () => {
         const openWindow = false;
         onChange(openWindow);
+        localStorage.removeItem('showModalIsActive');
         const newUserData = {
             email: userData.UserData.userEmail,
             password: userData.UserData.userPassword
@@ -85,7 +92,7 @@ const RegisterModalWindComponent = ({ onChange, isActive, forgotPassword, nevUse
         {(forgotPassword)?
             (<RegisterModalContent>
                 <ButtonLink onClick={() =>handleCloseModalPasswordForgot()} type="button"><CloseBtn src={closeBtn} alt="closeBtn"></CloseBtn></ButtonLink>
-                <MessageOfemail>Введіть свою електронну пошту, і ми надішлемо вам посилання для відновлення пароля</MessageOfemail>
+                <MessageOfemailForgot>Введіть свою електронну пошту, і ми надішлемо вам посилання для відновлення пароля</MessageOfemailForgot>
                 <DivPasswordComponet
                     className={''}
                     type="email"
@@ -96,14 +103,14 @@ const RegisterModalWindComponent = ({ onChange, isActive, forgotPassword, nevUse
                     password={true}
                    
                 />
-                <ButtonUserActive onClick={() => handleOnClickSendEmail()} type="submit">ОТРИМАТИ ПОСИЛАННЯ</ButtonUserActive>
+                <ButtonUserActive onClick={() => handleOnClickSendEmail(emailValue)} type="button">ОТРИМАТИ ПОСИЛАННЯ</ButtonUserActive>
             </RegisterModalContent>):
 
             (<RegisterModalContent>
                 <ButtonLink onClick={() => handleCloseModalPasswordForgot()} type="button"><CloseBtn src={closeBtn} alt="closeBtn"></CloseBtn></ButtonLink>
                 <EmailIcon src={smsTracking} />
                 <MessageTitle>ЕЛЕКТРОННИЙ ЛИСТ НАДІСЛАНО!</MessageTitle>
-                <MessageOfemailForgot>Перевірте вашу електронну пошту та перейдіть за посиланням, яке ми надіслали, щоб продовжити</MessageOfemailForgot>
+                <MessageOfemail>Перевірте вашу електронну пошту та перейдіть за посиланням, яке ми надіслали, щоб продовжити</MessageOfemail>
             </RegisterModalContent>)
         }
         

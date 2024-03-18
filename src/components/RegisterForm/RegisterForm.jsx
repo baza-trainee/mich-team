@@ -123,7 +123,7 @@ const RegisterForm = () => {
         const responseData = requestSignUpUser(newUserData);   
 
         responseData.then(result => {
-            localStorage.setItem("showModal", true)
+            localStorage.setItem("showModalNewUser", true)
             userData.UserData.setUserEmail(emailValue);
             
     

@@ -10,7 +10,7 @@ const userInstance = axios.create({
 
 
 export const setToken = (token) => {
-    userInstance.defaults.headers.common.Authorization = `Bearer ${token}`
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`
 }
 
 
@@ -55,5 +55,17 @@ export const requestAtivationUser = async(UserData) => {
         };
 
     const { data } = await userInstance.post('/users/activation/', UserData, config);
+    return data;
+}
+
+export const requestResetPassword = async(email) => {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        };
+
+
+    const { data } = await userInstance.post('/users/reset_password/', email, config);
     return data;
 }
