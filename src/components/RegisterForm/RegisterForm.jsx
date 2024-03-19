@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, {  useState } from "react";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useNavigate } from 'react-router-dom';
 
@@ -6,11 +6,11 @@ import { CheckbBoxDiv, LabelCheck, LinkDocument,RegistForm, RegistInputCheck,Reg
 import DivPasswordComponet from "../DivPasswordComponent/DivPasswordComponent";
 import BtnSign from "../BtnSign/BtnSign";
 import ErorMessageComponent from "../ErorMessageComponent/ErorMessageComponent";
-import UserContext from '../../UserData/UserContext';
+// import UserContext from '../../UserData/UserContext';
 import { requestSignUpUser } from "../../services/user-autor-app";
 
 const RegisterForm = () => {
-    const userData = useContext(UserContext);
+    // const userData = useContext(UserContext);
 
     const [password, setPassword] = useState(true);
     
@@ -123,8 +123,8 @@ const RegisterForm = () => {
         const responseData = requestSignUpUser(newUserData);   
 
         responseData.then(result => {
-            localStorage.setItem("showModal", true)
-            userData.UserData.setUserEmail(emailValue);
+            localStorage.setItem("showModalNewUser", true)
+            
             
     
             history('/');

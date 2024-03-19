@@ -12,6 +12,7 @@ import NavLinkComponent from '../../components/NavLinkComponent/NavLinkComponent
 import BtnSingInGoogle from '../../components/ButtonsSingIn/BtnSingInGoogle';
 import BtnSingInFacebook from '../../components/ButtonsSingIn/BtnSingInFacebook';
 
+
 const LoginPage = () => {
   return (
     <RegisterContainer className="container">

@@ -10,7 +10,7 @@ const userInstance = axios.create({
 
 
 export const setToken = (token) => {
-    userInstance.defaults.headers.common.Authorization = `Bearer ${token}`
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`
 }
 
 
@@ -36,10 +36,11 @@ export const requestLoginUser = async (UserData) => {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
-        };
+    };
+    
     const { data } = await userInstance.post('/jwt/create/', UserData, config);
     console.log(data);
-        setToken(data.auth_token);
+        setToken(data.access);
         return data;
     
 };
@@ -55,5 +56,17 @@ export const requestAtivationUser = async(UserData) => {
         };
 
     const { data } = await userInstance.post('/users/activation/', UserData, config);
+    return data;
+}
+
+export const requestResetPassword = async(email) => {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        };
+
+
+    const { data } = await userInstance.post('/users/reset_password/', email, config);
     return data;
 }
