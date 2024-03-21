@@ -45,14 +45,14 @@ export const CheckbBoxDiv = styled.div`
 export const CheckbBoxDivRememb = styled.div`
     display:flex;
     justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 44px;
+    align-items: center;
+    margin-bottom: 24px;
     &:last-child{
        margin-bottom: 0px; 
     }
     @media screen and (min-width: 768px) {
         
-       margin-bottom: 24px; 
+       margin-bottom: 44px; 
        
     }
     
@@ -61,7 +61,6 @@ export const CheckbBoxDivRememb = styled.div`
 export const RegisterDivInput = styled.div`
     display: flex;
     gap: 16px;
-    margin-bottom: 16px;
     align-items: center;
 
 
@@ -105,12 +104,19 @@ export const SpanElem = styled.span`
 `
 
 export const LinkRememb = styled.button`
-    padding: 0 34px;
-    font-size: 16px;
+    
+    font-size: 14px;
     color: #110003;
   
     font-weight: 700;
     line-height: 1.2%;
-    text-decoration-line: underline;
+    
+    &:hover{
+        text-decoration-line: underline;
+    }
+    @media screen and (min-width: 768px) {
+    font-size: 16px;
+    
+}
 `
 

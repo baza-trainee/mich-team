@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import EnterForm from '../../components/RegisterForm/EnterForm';
 import {
   DivSignIn,
@@ -11,21 +11,40 @@ import {
 import NavLinkComponent from '../../components/NavLinkComponent/NavLinkComponent';
 import BtnSingInGoogle from '../../components/ButtonsSingIn/BtnSingInGoogle';
 import BtnSingInFacebook from '../../components/ButtonsSingIn/BtnSingInFacebook';
+import ButtonClose from '../../components/ButtonClose/ButtonClose';
 
 
 const LoginPage = () => {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <RegisterContainer className="container">
-        <RegisterNav>
-          <NavLinkComponent
-              propTo="/"
-              title ="Головна /"
-          />
-          <NavLinkComponent
-              propTo="/signin"
-              title ="Увійти"
-          />
-        </RegisterNav>
+       {(screenWidth < 768) ? (
+        <ButtonClose 
+          propTo="/"
+        />
+      ):  (<RegisterNav>
+            <NavLinkComponent
+                propTo="/"
+                title ="Головна /"
+            />
+            <NavLinkComponent
+                propTo="/signin"
+                title ="Увійти"
+            />
+          </RegisterNav>)}
       
 
       <EnterForm />
