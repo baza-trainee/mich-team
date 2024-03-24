@@ -31,6 +31,16 @@ export const ButtonLink = styled.button`
   background-color: #FAFAFA;
   width: fit-content;
   margin-left: auto;
+  border-radius: 20px;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+    &:hover {
+    path:nth-of-type(1),
+    path:nth-of-type(2),
+    path:nth-of-type(3){
+        stroke: #fefefe;
+      }
+  }
   
 `
 
