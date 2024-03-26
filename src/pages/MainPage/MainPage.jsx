@@ -37,11 +37,7 @@ const MainPage = () => {
     const storedShowModalIsActive = localStorage.getItem('showModalIsActive');
     const storedShowModalPasswordForgot = localStorage.getItem('showModalPasswordForgot');
     const storedShowModalPasswordReset = localStorage.getItem('showModalPasswordReset');
-    // localStorage.removeItem('showModalNewUser');
-    // localStorage.removeItem('showModalIsActive');
-    // localStorage.removeItem('showModalPasswordForgot');
-    // localStorage.removeItem('showModalPasswordReset');
-    // localStorage.removeItem('storedShowModalIsActive');
+   
     
     // перевірки для відображення потрібної модалки
        if (storedShowModalNewUser && storedShowModalNewUser == 'true') {
