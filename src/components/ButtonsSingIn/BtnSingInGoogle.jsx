@@ -21,12 +21,12 @@ const BtnSingInGoogle = () => {
   }, []);
 
   return screenWidth < 768 ? (
-    <SingInGoogle onClick ={contWithG}>
+    <SingInGoogle onClick ={()=>contWithG()}>
       <img src={google} alt="google"></img>
       Увійти з Google
     </SingInGoogle>
   ) : (
-    <SingInGoogle onClick ={contWithG}>
+    <SingInGoogle onClick ={()=>contWithG()}>
     <img src={google} alt="google"></img>
     Увійти за допомогою Google
   </SingInGoogle>

@@ -66,11 +66,32 @@ const userInstance = axios.create({
 
 
 export const contWithG = async () => {
-    const res = await userInstance.get('/o/google-oauth2/?redirect_uri=http://localhost:3000/')
+    const res = await userInstance.get('/o/google-oauth2/?redirect_uri=https://mich-team-frontend.vercel.app/')
     window.location.replace(res.data.authorization_url)
 
     console.log(res.data.authorization_url)
 }
+
+// export const googleAuth = async (state, code) => {
+//     if (state && code) {
+//         const config = {
+//             headers: {
+//                 'Content-Type': 'application/x-www-form-urlencoded'
+//             }
+//         }
+
+//         const details = {
+//             'state': state,
+//             'code': code
+//         }
+
+//         const formBody = Object.keys(details).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(details[key])).join('&');
+        
+//         const res = await userInstance.post(`/o/google-oauth2/?${formBody}`, config);
+//         console.log(res);
+    
+//     }
+// }
 
 export const googleAuth = async (state, code) => {
     if (state && code) {
@@ -87,8 +108,14 @@ export const googleAuth = async (state, code) => {
 
         const formBody = Object.keys(details).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(details[key])).join('&');
         
-        const res = await userInstance.post(`/o/google-oauth2/?${formBody}`, config);
-        console.log(res);
+        try {
+            const res = await userInstance.post(`/o/google-oauth2/?${formBody}`, config);
+            console.log(res);
+        } catch (error) {
+            console.error('Error during POST request:', error);
+        }
     
+    } else {
+        console.error('State or code is missing.');
     }
 }
