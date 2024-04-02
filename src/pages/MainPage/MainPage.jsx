@@ -107,11 +107,28 @@ const MainPage = () => {
       } 
 
       // для авторизації через google 
-      if (location.has('state') && location.has('code')) {
-          const state = location.get('state');
-        const code = location.get('code');
-        googleAuth(state, code);
-      }  
+    if (location.has('state') && location.has('code')) {
+      const state = location.get('state');
+      const code = location.get('code');
+        
+      googleAuth(state, code).then(
+        resp => {
+        userData.UserData.setUserAccessToken(resp.access);
+        userData.UserData.setUserRefreshToken(resp.refresh);
+
+        sessionStorage.setItem("accessToken", resp.access);   
+        sessionStorage.setItem("refreshToken", resp.refresh); 
+          console.log(resp)
+          history('/');
+          
+        }
+      ).catch(error => {
+        console.log(error)
+      }
+          
+        
+      )
+    }
   
   },[location])
   
