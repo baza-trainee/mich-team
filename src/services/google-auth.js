@@ -12,7 +12,7 @@ const userInstance = axios.create({
 
 export const contWithG = async () => {
     try {
-        const res = await userInstance.get('/o/google-oauth2/?redirect_uri=http://localhost:3000/', {
+        const res = await userInstance.get('/o/google-oauth2/?redirect_uri=https://mich-team-frontend.vercel.app/', {
         withCredentials: true
     })
     window.location.replace(res.data.authorization_url)

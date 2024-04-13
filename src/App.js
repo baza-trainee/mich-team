@@ -12,6 +12,8 @@ const Error = lazy(() => import('./pages/ErrorPage/ErrorPage.jsx'));
 const PersonalAccountPage = lazy(
   () => import('./pages/PersonalAccountPage/PersonalAccountPage.jsx')
 );
+const PrivacyPolicy = lazy(() => import('./pages/Policy/PrivacyPolicy.jsx'))
+const UserAgreement = lazy(() => import ('./pages/Policy/UserAgreement.jsx'))
 
 const App = () => {
   return (
@@ -27,6 +29,8 @@ const App = () => {
         <Route path="/personal-account" element={<PersonalAccountPage />} />
         <Route path="/error" element={<Error />} />
         <Route path="*" element={<Error />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/user-agreement" element={<UserAgreement />} />
       </Route>
     </Routes>
   );
