@@ -250,7 +250,7 @@ const RegisterForm = () => {
                         checked={isCheckedAgree}
                         onChange={handleCheckboxChangedAgree}
                     /> 
-                    <LabelCheck htmlFor="agrre">Я згоден з <LinkDocument>Політикою конфіденційності</LinkDocument> та <LinkDocument>Правилами користування сайтом</LinkDocument><SpanElem>*</SpanElem></LabelCheck>
+                    <LabelCheck htmlFor="agrre">Я згоден з <LinkDocument to={'/privacy-policy'}>Політикою конфіденційності</LinkDocument> та <LinkDocument to={'/user-agreement'}>Правилами користування сайтом</LinkDocument><SpanElem>*</SpanElem></LabelCheck>
                 </RegisterDivInput>
             </CheckbBoxDiv>
 

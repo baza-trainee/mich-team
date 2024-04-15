@@ -10,9 +10,9 @@ const userInstance = axios.create({
 
 
 
-export const contWithG = async () => {
+export const contWithFacebook = async () => {
     try {
-        const res = await userInstance.get('/o/google-oauth2/?redirect_uri=https://mich-team-frontend.vercel.app/google-autorization/', {
+        const res = await userInstance.get('/o/facebook/?redirect_uri=https://mich-team-frontend.vercel.app/google-autorization/', {
         withCredentials: true
     })
     window.location.replace(res.data.authorization_url)
@@ -26,7 +26,7 @@ export const contWithG = async () => {
 
 
 
-export const googleAuth = async (state, code) => {
+export const facebookAuth = async (state, code) => {
     
         const config = {
             withCredentials: true,
@@ -43,7 +43,7 @@ export const googleAuth = async (state, code) => {
         const formBody = Object.keys(details).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(details[key])).join('&');
         
         try {
-        const res = await userInstance.post(`/o/google-oauth2/?${formBody}`,formBody, config);
+        const res = await userInstance.post(`/o/facebook/?${formBody}`,formBody, config);
             return res.data;
         } catch (error) {
             console.error('Error during POST request:', error);
