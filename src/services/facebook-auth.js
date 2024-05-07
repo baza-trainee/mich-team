@@ -12,7 +12,7 @@ const userInstance = axios.create({
 
 export const contWithFacebook = async () => {
     try {
-        const res = await userInstance.get('/o/facebook/?redirect_uri=https://mich-team-frontend.vercel.app/google-autorization/', {
+        const res = await userInstance.get('/o/facebook/?redirect_uri=https://mich-team-frontend.vercel.app/facebook-autorization/', {
         withCredentials: true
     })
     window.location.replace(res.data.authorization_url)
@@ -44,6 +44,7 @@ export const facebookAuth = async (state, code) => {
         
         try {
         const res = await userInstance.post(`/o/facebook/?${formBody}`,formBody, config);
+            console.log("sdxtcfygvubhijnokml");
             return res.data;
         } catch (error) {
             console.error('Error during POST request:', error);
