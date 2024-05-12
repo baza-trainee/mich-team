@@ -52,17 +52,20 @@ const ProductCard = () => {
   const [detailsVisible, setDetailsVisible] = useState({});
   const [count, setCount] = useState(1);
   const [activeSize, setActiveSize] = useState('');
+  const [isVisibleSizeList, setIsVisibleSizeList] = useState(true);
   const addCart = async () => {
     const product = {
       product: productId,
       size: activeSize,
       quantity:count
     }
-    console.log(product)
-    if (product?.size) {
+    // console.log(product)
+    if (product?.size.length !== 0) {
+      console.log(product?.size.length)
       await addCartItems(product);
       return
     }
+    console.log(product)
     return
   };
   const toggleDetails = itemId => {
@@ -171,7 +174,7 @@ useEffect(() => {
             <ProductCardCartButtonDiv>
               <RedButton
                 text={'додати до кошику'}
-                nav={''}
+                nav={product?.size && '/cart'}
                 tabwidth={'520px'}
                 func={addCart}
               />

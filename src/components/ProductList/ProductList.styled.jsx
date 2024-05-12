@@ -15,19 +15,24 @@ export const ProductContainer = styled.div`
 
 export const ProductsList = styled.ul`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  flex-wrap:wrap;
   @media screen and (min-width: 768px) {
     flex-direction: row;
-    & li:not(:last-child) {
+    /* & li:not(:last-child) {
       margin-right: 16px;
-    }
+    } */
+    gap:32px 16px
   }
   @media screen and (min-width: 1440px) {
-    & li:not(:last-child) {
+    /* & li:not(:last-child) {
       margin-right: 22px;
-    }
+    } */
+    gap:80px 22px;
+    width: 1068px;
+    margin: 0 auto;
   }
 `;
 
@@ -39,7 +44,7 @@ export const ProductItem = styled.li`
     width: 344px;
   }
   @media screen and (min-width: 1440px) {
-    margin-bottom: 80px;
+    /* margin-bottom: 80px; */
     width: 520px;
   }
 `;

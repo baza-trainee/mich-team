@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import sticker from '../../images/sticker.jpg';
-import shirt from '../../images/shirt.jpg';
+// import shirt from '../../images/shirt.jpg';
 import {
   ProductContainer,
   ProductsList,
@@ -13,53 +13,57 @@ import {
   CustomSwiper,
 } from './ProductList.styled';
 import RedButton from '../RedButton/RedButton';
+import { getProductsList } from '../../services/products';
 
-const data = [
-  {
-    id: 1,
-    title: 'Стікерпак “Mich team”',
-    image1: sticker,
-    image2: sticker,
-    image3: sticker,
-  },
-  {
-    id: 2,
-    title: 'Стікерпак “Mich team”',
-    image1: shirt,
-    image2: shirt,
-    image3: shirt,
-  },
-];
+// const data = [
+//   {
+//     id: 1,
+//     title: 'Стікерпак “Mich team”',
+//     image1: sticker,
+//     image2: sticker,
+//     image3: sticker,
+//   },
+//   {
+//     id: 2,
+//     title: 'Стікерпак “Mich team”',
+//     image1: shirt,
+//     image2: shirt,
+//     image3: shirt,
+//   },
+// ];
 
-const product = data.map(item => (
+const product = (data) => data.map(item => (
+ 
   <ProductItem key={item.id}>
+    
     <CustomSwiper navigation={true} modules={[Navigation]} className="mySwiper">
-      <SwiperSlide>
+      {item.images.map(img => (
+        <SwiperSlide key={img.id}>
         <ProductImageDiv>
-          <ProductImg src={item.image1} alt={item.title} />
+          <ProductImg height={640} src={img.image && sticker} alt={item.name} />
         </ProductImageDiv>
       </SwiperSlide>
-      <SwiperSlide>
-        <ProductImageDiv>
-          <ProductImg src={item.image2} alt={item.title} />
-        </ProductImageDiv>
-      </SwiperSlide>
-      <SwiperSlide>
-        <ProductImageDiv>
-          <ProductImg src={item.image3} alt={item.title} />
-        </ProductImageDiv>
-      </SwiperSlide>
+      ))}
+    
+      
+        
     </CustomSwiper>
-    <ProductText>{item.title}</ProductText>
-    <RedButton text={'обрати'} nav={'merch'} tabwidth={'344px'} />
+    <ProductText>{item.name}</ProductText>
+    <RedButton text={'обрати'} nav={`/merch/${item.id}`} tabwidth={'344px'} />
   </ProductItem>
 ));
 
 const ProductList = () => {
+  
+  const [productList, setProductList] = useState([]);
+  useEffect(() => {
+    getProductsList().then((res) => { console.log(res); setProductList(res)})
+    
+  },[])
   return (
     <div style={{ backgroundColor: '#FAFAFA' }}>
       <ProductContainer className="container">
-        <ProductsList>{product}</ProductsList>
+        <ProductsList>{product(productList)}</ProductsList>
       </ProductContainer>
     </div>
   );

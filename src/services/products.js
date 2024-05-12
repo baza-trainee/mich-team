@@ -2,8 +2,8 @@ import instance from './instance';
 
 export const getProductsList = async () => {
   try {
-    const productsList = await instance.get('/api/products');
-    return productsList;
+    const {data} = await instance.get('/api/products');
+    return data;
   } catch (error) {
     console.error('Error get product request>>>>', error);
   }
