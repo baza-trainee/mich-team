@@ -30,6 +30,7 @@ const FacebookAuth = () => {
         }
       ).catch(error => {
         console.log(error)
+        console.log('Помилка')
       }
           
         

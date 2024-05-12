@@ -1,18 +1,10 @@
-import axios from "axios";
-
-
-
-const userInstance = axios.create({
-    baseURL: 'https://mich-team2.onrender.com/user_auth/',
-
-
-})
+import instance from "./instance";
 
 
 
 export const contWithG = async () => {
     try {
-        const res = await userInstance.get('/o/google-oauth2/?redirect_uri=https://mich-team-frontend.vercel.app/google-autorization/', {
+        const res = await instance.get('/user_auth/o/google-oauth2/?redirect_uri=https://mich-team-frontend.vercel.app/google-autorization/', {
         withCredentials: true
     })
     window.location.replace(res.data.authorization_url)
@@ -43,7 +35,7 @@ export const googleAuth = async (state, code) => {
         const formBody = Object.keys(details).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(details[key])).join('&');
         
         try {
-        const res = await userInstance.post(`/o/google-oauth2/?${formBody}`,formBody, config);
+        const res = await instance.post(`/user_auth/o/google-oauth2/?${formBody}`,formBody, config);
             return res.data;
         } catch (error) {
             console.error('Error during POST request:', error);

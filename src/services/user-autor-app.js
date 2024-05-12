@@ -1,12 +1,8 @@
 import axios from 'axios';
+import instance from './instance';
  
 
-// базовий url
-const userInstance = axios.create({
-  baseURL: 'https://mich-team2.onrender.com/user_auth/',
-  
 
-})
 
 // для додавання token в headers
 export const setToken = (token) => {
@@ -23,7 +19,7 @@ export const requestSignUpUser = async (newUserData) => {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
         };
-        const { data } = await userInstance.post('/users/', newUserData, config);
+        const { data } = await instance.post('/user_auth/users/', newUserData, config);
         console.log(data);
         return data;
     
@@ -37,7 +33,7 @@ export const requestLoginUser = async (UserData) => {
             },
     };
     
-    const { data } = await userInstance.post('/jwt/create/', UserData, config);
+    const { data } = await instance.post('/user_auth/jwt/create/', UserData, config);
     console.log(data);
         setToken(data.access);
         return data;
@@ -54,7 +50,7 @@ export const requestAtivationUser = async(UserData) => {
             },
         };
 
-    const { data } = await userInstance.post('/users/activation/', UserData, config);
+    const { data } = await instance.post('/user_auth/users/activation/', UserData, config);
     return data;
 }
 
@@ -68,7 +64,7 @@ export const requestResetPassword = async(email) => {
         };
 
 
-    const { data } = await userInstance.post('/users/reset_password/', email, config);
+    const { data } = await instance.post('/user_auth/users/reset_password/', email, config);
     return data;
 }
 
@@ -81,6 +77,6 @@ export const requestResetPasswordConfirm = async(userData) => {
         };
 
 
-    const { data } = await userInstance.post('/users/reset_password_confirm/', userData, config);
+    const { data } = await instance.post('/user_auth/users/reset_password_confirm/', userData, config);
     return data;
 }

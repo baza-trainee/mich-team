@@ -1,18 +1,8 @@
-import axios from "axios";
-
-
-
-const userInstance = axios.create({
-    baseURL: 'https://mich-team2.onrender.com/user_auth/',
-
-
-})
-
-
+import instance from "./instance";
 
 export const contWithFacebook = async () => {
     try {
-        const res = await userInstance.get('/o/facebook/?redirect_uri=https://mich-team-frontend.vercel.app/facebook-autorization/', {
+        const res = await instance.get('/user_auth/o/facebook/?redirect_uri=https://mich-team-frontend.vercel.app/facebook-autorization/', {
         withCredentials: true
     })
     window.location.replace(res.data.authorization_url)
@@ -43,8 +33,7 @@ export const facebookAuth = async (state, code) => {
         const formBody = Object.keys(details).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(details[key])).join('&');
         
         try {
-        const res = await userInstance.post(`/o/facebook/?${formBody}`,formBody, config);
-            console.log("sdxtcfygvubhijnokml");
+        const res = await instance.post(`/user_auth/o/facebook/?${formBody}`,formBody, config);
             return res.data;
         } catch (error) {
             console.error('Error during POST request:', error);
