@@ -30,6 +30,8 @@ const FacebookAuth = () => {
         }
       ).catch(error => {
         console.log(error)
+        localStorage.setItem("FacebbokAuthError", true);
+        history('/signup/');
       }
           
         

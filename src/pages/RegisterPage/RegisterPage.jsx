@@ -16,8 +16,21 @@ import React, { useEffect, useState }  from 'react';
 
 const RegisterPage = () => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [googleAuthError, setGooglAuthError] = useState(false)
+  const [facebookAuthError, setFacebookAuthError] = useState(false)
 
   useEffect(() => {
+  const  googleAuth = localStorage.getItem('googleAuthError');
+  const  FacebbokAuth = localStorage.getItem('FacebbokAuthError');
+
+    if (googleAuth) {
+      setGooglAuthError(true);
+    }
+
+    if (FacebbokAuth) {
+      setFacebookAuthError(true);
+    }
+    
     const handleResize = () => {
       setScreenWidth(window.innerWidth);
     };
@@ -52,7 +65,10 @@ const RegisterPage = () => {
       
 
       
-      <RegisterForm />
+      <RegisterForm
+        GoogleError={googleAuthError}
+        FacebookError={facebookAuthError}
+      />
 
       <OrElem>або</OrElem>
       <BtnSingInGoogle />

@@ -30,6 +30,8 @@ const GoogleAuth = () => {
         }
       ).catch(error => {
         console.log(error)
+        localStorage.setItem("googleAuthError", true);
+        history('/signup/');
       }
           
         

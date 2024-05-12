@@ -1,6 +1,7 @@
 import React, {  useState } from "react";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { CheckbBoxDiv, LabelCheck, LinkDocument,RegistForm, RegistInputCheck,RegisterDivInput, RegisterTitle, SpanElem } from "./RegisterForm.styled";
 import DivPasswordComponet from "../DivPasswordComponent/DivPasswordComponent";
@@ -9,7 +10,7 @@ import ErorMessageComponent from "../ErorMessageComponent/ErorMessageComponent";
 // import UserContext from '../../UserData/UserContext';
 import { requestSignUpUser } from "../../services/user-autor-app";
 
-const RegisterForm = () => {
+const RegisterForm = (GoogleError, FacebookError) => {
     // const userData = useContext(UserContext);
 
     const [password, setPassword] = useState(true);
@@ -46,6 +47,8 @@ const RegisterForm = () => {
     }
 
     const handleOnClick = (e, email, password, passwordCheck) => {
+        localStorage.removeItem("FacebbokAuthError");
+        localStorage.removeItem("googleAuthError");
         e.preventDefault();
         if ((!isValidEmail(email)) && (!isValidPassword(password))) {
             Notify.failure('Емейл не валідний');
@@ -180,6 +183,18 @@ const RegisterForm = () => {
       <RegistForm action="">
             <RegisterTitle>РЕЄСТРАЦІЯ</RegisterTitle>
 
+            {(GoogleError) ? '' :
+             (<ErorMessageComponent
+                  message = "Вибачте, але авторизація за допомогою сервісів Google зараз не доступна. Спробуйте інший спосіб авторизації на сайті."
+             />)
+            }
+
+            {(FacebookError) ? '' :
+             (<ErorMessageComponent
+                  message = "Вибачте, але авторизація за допомогою сервісів FaceBook зараз не доступна. Спробуйте інший спосіб авторизації на сайті."
+             />)
+            }
+
             {(newUser) ? '' :
              (<ErorMessageComponent
                   message = "Вибачте, але ця електронна адреса вже зареєстрована в нашій системі."
@@ -262,6 +277,11 @@ const RegisterForm = () => {
         </RegistForm>
         
     )
+};
+
+RegisterForm.propTypes = {
+    GoogleError: PropTypes.bool.isRequired,
+    FacebookError: PropTypes.bool.isRequired
 };
 
     export default RegisterForm;
