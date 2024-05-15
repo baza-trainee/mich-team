@@ -1,13 +1,4 @@
-import axios from 'axios';
-import instance from './instance';
- 
-
-
-
-// для додавання token в headers
-export const setToken = (token) => {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`
-}
+import instance, { setToken } from './instance';
 
 
 // для реєстрації користувача

@@ -5,3 +5,9 @@ const instance = axios.create({
 });
 
 export default instance;
+
+
+// для додавання token в headers
+export const setToken = (token) => {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`
+}
