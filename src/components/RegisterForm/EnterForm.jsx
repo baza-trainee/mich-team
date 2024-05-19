@@ -23,6 +23,7 @@ const EnterForm = () => {
   const [passwordValue, setPassvordValue] = useState('');
 
   const [isCheckedRemember, setIsCheckedRemember] = useState(false);
+  const [isRememberMe, setIsRememberMe] = useState(true);
 
   const history = useNavigate();
 
@@ -102,7 +103,14 @@ const EnterForm = () => {
   }
   
    const handleCheckboxChangeRemember = () => {
-        setIsCheckedRemember(!isCheckedRemember);
+     setIsCheckedRemember(!isCheckedRemember);
+     setIsRememberMe(!isRememberMe)
+        console.log(isRememberMe)
+         if (isRememberMe === true) {
+            localStorage.setItem("userRemember", true)
+        } else {
+            localStorage.removeItem("userRemember")
+        }
   };
   
   const handleRememberPassword = () => {

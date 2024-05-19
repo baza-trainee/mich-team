@@ -28,7 +28,7 @@ const RegisterForm = (GoogleError, FacebookError) => {
     const [isCheckedAgree, setIsCheckedAgree] = useState(false);
     
     const [isAgree, setIsAgree] = useState(true);
-    const [isRememberMe, setIsRememberMe] = useState(false);
+    const [isRememberMe, setIsRememberMe] = useState(true);
     const [newUser, setNewUser] = useState(true);
     
     const history = useNavigate();
@@ -168,6 +168,7 @@ const RegisterForm = (GoogleError, FacebookError) => {
     const handleCheckboxChangeRemember = () => {
         setIsCheckedRemember(!isCheckedRemember);
         setIsRememberMe(!isRememberMe)
+        console.log(isRememberMe)
          if (isRememberMe === true) {
             localStorage.setItem("userRemember", true)
         } else {

@@ -19,7 +19,7 @@ const GoogleAuth = lazy(() => import('./pages/SocialAuth/GoogleAuth.jsx'))
 const FacebookAuth = lazy(() => import('./pages/SocialAuth/FacebookAuth.jsx'))
 
 const App = () => {
-  if (localStorage.getItem("refreshToken")) {
+  if (localStorage.getItem("refreshToken")=== true) {
     sessionStorage.setItem("refreshToken", localStorage.getItem("refreshToken"));
     console.log(sessionStorage.getItem("refreshToken"))
   }
