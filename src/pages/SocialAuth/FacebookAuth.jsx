@@ -29,6 +29,9 @@ const FacebookAuth = () => {
 
           sessionStorage.setItem("accessToken", resp.access);   
           sessionStorage.setItem("refreshToken", resp.refresh); 
+          if (localStorage.getItem("userRemember")) {
+            localStorage.setItem("refreshToken", resp.refresh); 
+          }
             console.log(resp)
             history('/');
             

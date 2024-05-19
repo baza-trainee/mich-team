@@ -42,6 +42,10 @@ const EnterForm = () => {
     if (!isValidEmail(email)) {
       Notify.failure('Емейл не валідний');
       setTrueEmail(false);
+      if (!isValidPassword(password)) {
+        Notify.failure('Пароль не валідний');
+        setTruePassword(false);
+      }
       return;
     }
 
@@ -68,6 +72,9 @@ const EnterForm = () => {
 
       sessionStorage.setItem("accessToken", result.access);   
       sessionStorage.setItem("refreshToken", result.refresh); 
+      if (localStorage.getItem("userRemember")) {
+            localStorage.setItem("refreshToken", result.refresh); 
+      }
 
             history('/');
            

@@ -71,3 +71,17 @@ export const requestResetPasswordConfirm = async(userData) => {
     const { data } = await instance.post('/user_auth/users/reset_password_confirm/', userData, config);
     return data;
 }
+
+
+// для оновлення accessToken користувача
+export const requesRefreshToken = async(refreshToken) => {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        };
+
+
+    const { data } = await instance.post('/user_auth/jwt/refresh/', refreshToken, config);
+    return data;
+}
