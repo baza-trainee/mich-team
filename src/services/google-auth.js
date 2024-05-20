@@ -1,6 +1,4 @@
-import instance from "./instance";
-import { setToken } from "./user-autor-app";
-
+import instance, { setToken } from "./instance";
 
 
 export const contWithG = async () => {
@@ -14,7 +12,7 @@ export const contWithG = async () => {
     } catch(error) {
         console.error('Error during POST request:', error);
         localStorage.setItem("googleAutherror", true);
-        history('/signup/');
+        
     }
     
 }
@@ -43,8 +41,7 @@ export const googleAuth = async (state, code) => {
         return res.data;
         } catch (error) {
             console.error('Error during POST request:', error);
-            localStorage.setItem("googleAuthError", true);
-            history('/signup/');
+           
         }
     
     } 

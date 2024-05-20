@@ -1,5 +1,4 @@
-import instance from "./instance";
-import { setToken } from "./user-autor-app";
+import instance, { setToken }  from "./instance";
 
 
 export const contWithFacebook = async () => {
@@ -10,10 +9,9 @@ export const contWithFacebook = async () => {
     localStorage.removeItem("FacebbokAuthError");
     window.location.replace(res.data.authorization_url)
 
-    } catch(error) {
-        console.error('Error during POST request:', error);
+    } catch (error) {
         localStorage.setItem("FacebbokAuthError", true);
-        history('/signup/');
+        console.error('Error during POST request:', error);
     }
     
 }
@@ -42,8 +40,6 @@ export const facebookAuth = async (state, code) => {
             return res.data;
         } catch (error) {
             console.error('Error during POST request:', error);
-            localStorage.setItem("FacebbokAuthError", true);
-            history('/signup/');
         }
     
     } 
