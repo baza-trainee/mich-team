@@ -52,7 +52,7 @@ const ProductCard = () => {
   const [detailsVisible, setDetailsVisible] = useState({});
   const [count, setCount] = useState(1);
   const [activeSize, setActiveSize] = useState('');
-  const [isVisibleSizeList, setIsVisibleSizeList] = useState(true);
+  // const [isVisibleSizeList, setIsVisibleSizeList] = useState(true);
   const addCart = async () => {
     const product = {
       product: productId,

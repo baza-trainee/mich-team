@@ -87,6 +87,9 @@ export const ProductText = styled.p`
   font-size: 24px;
   line-height: 120%;
   text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   @media screen and (min-width: 1440px) {
     margin-bottom: 20px;
   }
