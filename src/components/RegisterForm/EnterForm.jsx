@@ -23,6 +23,7 @@ const EnterForm = () => {
   const [passwordValue, setPassvordValue] = useState('');
 
   const [isCheckedRemember, setIsCheckedRemember] = useState(false);
+  const [isRememberMe, setIsRememberMe] = useState(true);
 
   const history = useNavigate();
 
@@ -42,6 +43,10 @@ const EnterForm = () => {
     if (!isValidEmail(email)) {
       Notify.failure('Емейл не валідний');
       setTrueEmail(false);
+      if (!isValidPassword(password)) {
+        Notify.failure('Пароль не валідний');
+        setTruePassword(false);
+      }
       return;
     }
 
@@ -68,6 +73,9 @@ const EnterForm = () => {
 
       sessionStorage.setItem("accessToken", result.access);   
       sessionStorage.setItem("refreshToken", result.refresh); 
+      if (localStorage.getItem("userRemember")) {
+            localStorage.setItem("refreshToken", result.refresh); 
+      }
 
             history('/');
            
@@ -95,7 +103,14 @@ const EnterForm = () => {
   }
   
    const handleCheckboxChangeRemember = () => {
-        setIsCheckedRemember(!isCheckedRemember);
+     setIsCheckedRemember(!isCheckedRemember);
+     setIsRememberMe(!isRememberMe)
+        console.log(isRememberMe)
+         if (isRememberMe === true) {
+            localStorage.setItem("userRemember", true)
+        } else {
+            localStorage.removeItem("userRemember")
+        }
   };
   
   const handleRememberPassword = () => {

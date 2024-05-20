@@ -1,6 +1,7 @@
-import React, { lazy } from 'react';
+import React, { lazy, useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import SharedLayout from './components/SharedLayout';
+import { requesRefreshToken } from './services/user-autor-app.js';
 const MainPage = lazy(() => import('./pages/MainPage/MainPage.jsx'));
 const RegisterPage = lazy(
   () => import('./pages/RegisterPage/RegisterPage.jsx')
@@ -18,6 +19,38 @@ const GoogleAuth = lazy(() => import('./pages/SocialAuth/GoogleAuth.jsx'))
 const FacebookAuth = lazy(() => import('./pages/SocialAuth/FacebookAuth.jsx'))
 
 const App = () => {
+  if (localStorage.getItem("refreshToken")=== true) {
+    sessionStorage.setItem("refreshToken", localStorage.getItem("refreshToken"));
+    console.log(sessionStorage.getItem("refreshToken"))
+  }
+
+  const [refreshToken, setRefreshToken] = useState(() => {
+        const token = sessionStorage.getItem("refreshToken");
+        return token ? JSON.parse(token) : {};
+  });  
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      if (refreshToken) {
+        const userRefreshToken = {
+          "refresh": `${refreshToken}`
+        }
+
+        requesRefreshToken(userRefreshToken).then(
+          resp => {
+            setRefreshToken(resp.refresh)
+            sessionStorage.setItem("accessToken", resp.access);
+            sessionStorage.setItem("refreshToken", resp.refresh);
+          }
+        ).catch(error => { console.log(error) });
+      }
+    }, 5 * 60 * 1000); // 5 хвилин у мілісекундах
+
+    return () => clearInterval(intervalId); // Очищення інтервалу при розмонтуванні компонента
+  
+  }, [refreshToken]);
+  
+
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>

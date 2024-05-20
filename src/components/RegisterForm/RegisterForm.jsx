@@ -28,6 +28,7 @@ const RegisterForm = (GoogleError, FacebookError) => {
     const [isCheckedAgree, setIsCheckedAgree] = useState(false);
     
     const [isAgree, setIsAgree] = useState(true);
+    const [isRememberMe, setIsRememberMe] = useState(true);
     const [newUser, setNewUser] = useState(true);
     
     const history = useNavigate();
@@ -166,6 +167,13 @@ const RegisterForm = (GoogleError, FacebookError) => {
 
     const handleCheckboxChangeRemember = () => {
         setIsCheckedRemember(!isCheckedRemember);
+        setIsRememberMe(!isRememberMe)
+        console.log(isRememberMe)
+         if (isRememberMe === true) {
+            localStorage.setItem("userRemember", true)
+        } else {
+            localStorage.removeItem("userRemember")
+        }
     };
 
     const handleCheckboxChangedSubscribe = () => {
@@ -174,10 +182,12 @@ const RegisterForm = (GoogleError, FacebookError) => {
 
     const handleCheckboxChangedAgree = () => {
         setIsCheckedAgree(!isCheckedAgree);
-        setIsAgree(true)
+        setIsAgree(!isAgree)
+
+       
     };
 
-
+   
 
     return (
       <RegistForm action="">
