@@ -19,20 +19,44 @@ const GoogleAuth = lazy(() => import('./pages/SocialAuth/GoogleAuth.jsx'))
 const FacebookAuth = lazy(() => import('./pages/SocialAuth/FacebookAuth.jsx'))
 
 const App = () => {
-  // localStorage.removeItem("refreshToken")
-  //   localStorage.removeItem("userRemember")
+//   localStorage.removeItem("refreshToken")
+//     localStorage.removeItem("userRemember")
 
 // sessionStorage.removeItem("refreshToken")
 // sessionStorage.removeItem("accessToken")
   if (localStorage.getItem("refreshToken")) {
     sessionStorage.setItem("refreshToken", localStorage.getItem("refreshToken"));
+  
   }
 
-  const (refreshToken, setRefreshToken) = useState("");
+  const [refreshToken, setRefreshToken] = useState(sessionStorage.getItem("refreshToken"));
 
   useEffect(() => {
+    if (refreshToken) {
+        const userRefreshToken = {
+          "refresh": `${refreshToken}`
+        }
+
+        console.log(userRefreshToken);
+
+        requesRefreshToken(userRefreshToken).then(
+          resp => {
+            setRefreshToken(resp.refresh)
+            sessionStorage.setItem("accessToken", resp.access);
+            sessionStorage.setItem("refreshToken", resp.refresh);
+            console.log(localStorage.getItem("userRemember"))
+            if (localStorage.getItem("userRemember")) {
+              localStorage.setItem("refreshToken", resp.refresh)
+              console.log(resp.refresh)
+              console.log(localStorage.getItem("refreshToken"))
+            }
+          }
+        ).catch(error => { console.log(error) });
+      }
+
+
     const intervalId = setInterval(() => {
-      const refreshToken = sessionStorage.getItem("refreshToken")
+      setRefreshToken(sessionStorage.getItem("refreshToken"))
       if (refreshToken) {
         const userRefreshToken = {
           "refresh": `${refreshToken}`
@@ -45,14 +69,20 @@ const App = () => {
             setRefreshToken(resp.refresh)
             sessionStorage.setItem("accessToken", resp.access);
             sessionStorage.setItem("refreshToken", resp.refresh);
+            console.log(localStorage.getItem("userRemember"))
+            if (localStorage.getItem("userRemember")) {
+              localStorage.setItem("refreshToken", resp.refresh)
+              console.log(resp.refresh)
+              console.log(localStorage.getItem("refreshToken"))
+            }
           }
         ).catch(error => { console.log(error) });
       }
-    }, 1 * 60 * 1000); // 5 хвилин у мілісекундах
+    }, 1 * 10 * 1000); // 5 хвилин у мілісекундах
 
     return () => clearInterval(intervalId); // Очищення інтервалу при розмонтуванні компонента
   
-  }, [refreshToken, sessionStorage]);
+  }, []);
   
 
   return (
