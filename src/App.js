@@ -1,7 +1,11 @@
 import React, { lazy, useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import SharedLayout from './components/SharedLayout';
+
+import ProductList from './components/ProductList/ProductList.jsx';
+
 import { requesRefreshToken } from './services/user-autor-app.js';
+
 const MainPage = lazy(() => import('./pages/MainPage/MainPage.jsx'));
 const RegisterPage = lazy(
   () => import('./pages/RegisterPage/RegisterPage.jsx')
@@ -57,7 +61,7 @@ const App = () => {
         <Route index element={<MainPage />} />
         <Route path="/signup" element={<RegisterPage />} />
         <Route path="/signin" element={<LoginPage />} />
-        <Route path="/merch" element={<h1>MERCH PAGE</h1>} />
+        <Route path="/merch" element={<ProductList/>} />
         <Route path="/merch/:productId" element={<ProductCard />} />
         
         <Route path="/cart" element={<Cart />} />

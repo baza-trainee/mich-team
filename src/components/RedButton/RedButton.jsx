@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import { ProductButton } from './RedButton.styled';
 import { useNavigate } from 'react-router-dom';
 
-const RedButton = ({ text, nav, tabwidth, func }) => {
+const RedButton = ({ text, nav, tabwidth, func=()=>{return} }) => {
   const navigate= useNavigate()
   return (
-    <ProductButton onClick={(e) => {
+    <ProductButton onClick={async (e) => {
       e.preventDefault();
       console.log(nav)
-      func();
-      navigate(nav)
+     func() && '';
+      navigate(nav);
     }} /* to={nav} */ type="button" tabwidth={tabwidth}>
       {text}
     </ProductButton>
