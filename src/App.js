@@ -1,4 +1,4 @@
-import React, { lazy, useEffect, useState } from 'react';
+import React, { lazy, useEffect, useState} from 'react';
 import { Routes, Route } from 'react-router-dom';
 import SharedLayout from './components/SharedLayout';
 
@@ -23,35 +23,54 @@ const GoogleAuth = lazy(() => import('./pages/SocialAuth/GoogleAuth.jsx'))
 const FacebookAuth = lazy(() => import('./pages/SocialAuth/FacebookAuth.jsx'))
 
 const App = () => {
-  if (localStorage.getItem("refreshToken")=== true) {
-    sessionStorage.setItem("refreshToken", localStorage.getItem("refreshToken"));
-    console.log(sessionStorage.getItem("refreshToken"))
-  }
+//   localStorage.removeItem("refreshToken")   
+//     localStorage.removeItem("userRemember")
 
-  const [refreshToken, setRefreshToken] = useState(() => {
-        const token = sessionStorage.getItem("refreshToken");
-        return token ? JSON.parse(token) : {};
-  });  
+// sessionStorage.removeItem("refreshToken")
+//     sessionStorage.removeItem("accessToken")
+    const [refreshToken, setRefreshToken] = useState('');
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
+   const fetchAndSetTokens = async () => {
+      setRefreshToken(sessionStorage.getItem("refreshToken"))
+
       if (refreshToken) {
         const userRefreshToken = {
           "refresh": `${refreshToken}`
         }
 
-        requesRefreshToken(userRefreshToken).then(
-          resp => {
-            setRefreshToken(resp.refresh)
-            sessionStorage.setItem("accessToken", resp.access);
-            sessionStorage.setItem("refreshToken", resp.refresh);
-          }
-        ).catch(error => { console.log(error) });
-      }
-    }, 5 * 60 * 1000); // 5 хвилин у мілісекундах
+        console.log(userRefreshToken);
+        try {
+          const resp = await requesRefreshToken(userRefreshToken);
 
-    return () => clearInterval(intervalId); // Очищення інтервалу при розмонтуванні компонента
+          
+          sessionStorage.setItem("accessToken", resp.access);
+          sessionStorage.setItem("refreshToken", resp.refresh);
+          console.log(localStorage.getItem("userRemember"))
+          if (localStorage.getItem("userRemember")) {
+            localStorage.setItem("refreshToken", resp.refresh)
+            console.log(resp.refresh)
+            console.log(localStorage.getItem("refreshToken"))
+          }
+        } catch (error) { console.log(error) };
+      }
+
+  }
+  useEffect(() => {
+    if (localStorage.getItem("refreshToken")) {
+      sessionStorage.setItem("refreshToken", localStorage.getItem("refreshToken"));
+      console.log('помилка 1')
+      fetchAndSetTokens();
+    }
+  },[])
+
+  useEffect(() => {
+     console.log('помилка 2')
+    const intervalId = setInterval(fetchAndSetTokens , 10 * 60 * 1000);
+      
+
+      return () => clearInterval(intervalId); // Очищення інтервалу при розмонтуванні компонента
   
+    
   }, [refreshToken]);
   
 
