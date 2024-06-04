@@ -1,8 +1,7 @@
-import React, {  useContext, useEffect, useState } from 'react';
+import React, {   useEffect, useState } from 'react';
 import ProductList from '../../components/ProductList/ProductList';
 import Hero from '../../components/Hero/Hero';
 import RegisterModalWindComponent from '../../components/RegisterModalWindComponent/RegisterModalWindComponent';
-import UserContext from '../../UserData/UserContext';
 // import { googleAuth } from '../../services/google-auth';
 import { requestAtivationUser } from '../../services/user-autor-app';
 import { useNavigate } from 'react-router-dom';
@@ -11,9 +10,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const MainPage = () => {
-  const userData = useContext(UserContext);
-
-  console.log(userData);
+  
 
   // змінні для відображення модалок
   const [showModal, setShowModal] = useState(false);
